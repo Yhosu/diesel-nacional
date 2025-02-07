@@ -60,7 +60,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('notices', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('categoryId')->nullable()->comment('Noticia|New');
             $table->string('date')->nullable()->comment('Fecha de publicación|Date of publication');
@@ -70,26 +70,28 @@ return new class extends Migration
             $table->boolean('active')->nullable()->default(1)->comment('¿Activo?|Active?');
             $table->timestamps();
         });
-        Schema::create('new_i18n', function (Blueprint $table) {
+        Schema::create('notice_i18n', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('newId')->nullable()->comment('Noticia|New');
+            $table->string('noticeId')->nullable()->comment('Noticia|New');
             $table->string('title')->nullable()->comment('Título|Title');
             $table->text('description')->nullable()->comment('Descripción|Description');
             $table->string('lang')->nullable()->comment('Idioma|Language');
         });
-        Schema::create('new_images', function (Blueprint $table) {
+        Schema::create('notice_images', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->string('noticeId')->nullable()->comment('Noticia|New');
             $table->string('image')->nullable()->comment('Imagen|Image');
+            $table->timestamps();
         });
-        Schema::create('new_tags', function (Blueprint $table) {
+        Schema::create('notice_tags', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('newId')->nullable()->comment('Noticia|Notice');
+            $table->string('noticeId')->nullable()->comment('Noticia|Notice');
             $table->string('tagId')->nullable()->comment('Tag|Tag');
             $table->timestamps();
         });
-        Schema::create('new_comments', function (Blueprint $table) {
+        Schema::create('notice_comments', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('newId')->nullable()->comment('Noticia|Notice');
+            $table->string('noticeId')->nullable()->comment('Noticia|Notice');
             $table->string('name')->nullable()->comment('Nombre|Name');
             $table->text('description')->nullable()->comment('Descripción|Description');
             $table->timestamps();

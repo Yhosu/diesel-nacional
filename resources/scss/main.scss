@@ -1,0 +1,45 @@
+@import "variables";
+
+:root {
+    --primary-color: #{$primary-color};
+    --secondary-color: #{$secondary-color};
+    --tertiary-color: #{$tertiary-color};
+
+    --alter-primary-color: #{$alter-primary-color};
+    --alter-secondary-color: #{$alter-secondary-color};
+    --alter-tertiary-color: #{$alter-tertiary-color};
+
+    // * for RGBA
+    --rgb-primary-color: #{$rgb-primary-color};
+    --rgb-secondary-color: #{$rgb-secondary-color};
+    --rgb-tertiary-color: #{$rgb-tertiary-color};
+
+    --rgb-alter-primary-color: #{$rgb-alter-primary-color};
+    --rgb-alter-secondary-color: #{$rgb-alter-secondary-color};
+    --rgb-alter-tertiary-color: #{$rgb-alter-tertiary-color};
+
+    --font-title: #{$font-title};
+    --font-subtitle: #{$font-subtitle};
+    --font-text: #{$font-text};
+    
+    // Default
+    --error-color: #{$error-color};
+    --warning-color: #{$warning-color};
+    --info-color: #{$info-color};
+    --success-color: #{$success-color};
+
+    // * for RGBA
+    --rgb-error-color: #{$rgb-error-color};
+    --rgb-warning-color: #{$rgb-warning-color};
+    --rgb-info-color: #{$rgb-info-color};
+    --rgb-success-color: #{$rgb-success-color};
+}
+
+body.cy-web {
+	@import "master/main";
+	@import "master/responsive";
+}
+body.admin-cy-web {
+	@import "admin/main";
+	// @import "admin/responsive";
+}

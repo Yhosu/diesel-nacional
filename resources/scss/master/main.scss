@@ -1,0 +1,38 @@
+.highlighted-word.highlighted-word-animation-1:after {
+	background-image: url('assets/img/general/pencil-silver-line.png');
+}
+
+.highlighted-word.highlighted-word-animation-1.highlighted-word-animation-1-2:after {
+	background-image: url('assets/img/general/pencil-silver-line-2.png');
+}
+
+.sttitle__office {
+	margin-top: -4rem;
+    justify-content: end;
+    filter: drop-shadow(0px 0px 6px white);
+}
+
+.social-icons li {
+	svg {
+		width: 1em;
+		height: 1em;
+	}
+	&:hover {
+		&.social-icons-tiktok a {
+			background: #000000 !important;
+		}
+		&.social-icons-x a {
+			background: #000000 !important;
+		}
+	}
+}
+
+.scroll-to-top.hidden-mobile {
+	visibility: hidden !important;
+	opacity: 0;
+	display: block !important;
+	&.visible {
+		visibility: visible !important;
+		opacity: 0.75;
+	}
+}

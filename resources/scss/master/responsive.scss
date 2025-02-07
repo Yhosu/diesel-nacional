@@ -1,0 +1,18 @@
+@media (max-width: 991px) {
+	.content__images-whybolivia {
+		max-width: 100% !important;
+		margin: 0 !important;
+		img {
+			max-width: 100% !important;
+			margin: 0 auto !important;
+			width: auto !important;
+			&.img__small {
+				width: 50% !important;
+				left: 50% !important;
+				transform: translate(-50%, 50%) !important;
+				bottom: 0 !important;
+				z-index: 1;
+			}
+		}
+	}
+}

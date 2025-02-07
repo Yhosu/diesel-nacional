@@ -10,10 +10,19 @@ export default {
         './resources/**/*.vue',
     ],
     theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
+        colors: {
+            primary: 'var(--primary-color)',
+            secondary: 'var(--secondary-color)',
+            tertiary: 'var(--tertiary-color)',
+        },
+        fontFamily: {
+            'sans': ['var(--font-text)', ...defaultTheme.fontFamily.sans],
+        },
+        screens: {
+            'tl': '992px',
+            // => @media (min-width: 992px) { ... }
+            'xs': '576px',
+            // => @media (min-width: 576px) { ... }
         },
     },
     plugins: [],

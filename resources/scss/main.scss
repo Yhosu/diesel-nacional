@@ -41,5 +41,5 @@ body.cy-web {
 }
 body.admin-cy-web {
 	@import "admin/main";
-	// @import "admin/responsive";
+	@import "admin/responsive";
 }

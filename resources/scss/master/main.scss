@@ -1,38 +1,12 @@
-.highlighted-word.highlighted-word-animation-1:after {
-	background-image: url('assets/img/general/pencil-silver-line.png');
+.logo-holder img {
+	height: 30px;
 }
 
-.highlighted-word.highlighted-word-animation-1.highlighted-word-animation-1-2:after {
-	background-image: url('assets/img/general/pencil-silver-line-2.png');
+.footer-logo img {
+	width: 156px;
+    height: auto;
 }
 
-.sttitle__office {
-	margin-top: -4rem;
-    justify-content: end;
-    filter: drop-shadow(0px 0px 6px white);
-}
-
-.social-icons li {
-	svg {
-		width: 1em;
-		height: 1em;
-	}
-	&:hover {
-		&.social-icons-tiktok a {
-			background: #000000 !important;
-		}
-		&.social-icons-x a {
-			background: #000000 !important;
-		}
-	}
-}
-
-.scroll-to-top.hidden-mobile {
-	visibility: hidden !important;
-	opacity: 0;
-	display: block !important;
-	&.visible {
-		visibility: visible !important;
-		opacity: 0.75;
-	}
+.nav-button span {
+	background: white;
 }

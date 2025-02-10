@@ -771,8 +771,6 @@
         <!-- section end  --> 
     </div>
     <!-- content end  -->
-    <!-- footer -->
-    <div class="height-emulator fl-wrap"></div>
 
     @push('scripts')
         {{-- <script>

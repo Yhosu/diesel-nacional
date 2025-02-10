@@ -30,7 +30,7 @@
 
     @stack('head')
 </head>
-<body>
+<body class="cy-web">
     <!-- lodaer  -->
     <div class="loader-wrap">
         <div class="loader-item">
@@ -46,8 +46,8 @@
             <!-- header-top  -->
             <div class="header-top">
                 <div class="container_tmp">
-                    <div class="lang-wrap"><a href="#" class="act-lang">En</a><span>/</span><a href="#">Fr</a></div>
-                    <div class="header-top_contacts"><a href="#"><span>Call now:</span> +489756412322</a><a href="#"><span>Write :</span> yourmail@domain.com</a></div>
+                    <div class="lang-wrap"><a href="#" class="act-lang">En</a><span>/</span><a href="#">Es</a></div>
+                    <div class="header-top_contacts"><a href="#"><span>Celular:</span> +5917777777</a><a href="#"><span>Correo electrónico:</span> soporte@dieselnacional.com</a></div>
                 </div>
             </div>
             <!--header-top end -->
@@ -55,10 +55,10 @@
             <div class="header-inner  fl-wrap">
                 <div class="container_tmp">
                     <div class="header-container fl-wrap">
-                        <a href="index.html" class="logo-holder"><img src="https://restabook.kwst.net/dark/images/logo.png" alt=""></a>
-                        <div class="show-reserv_button show-rb"><span>Reservation</span> <i class="fal fa-bookmark"></i></div>
-                        <div class="show-share-btn showshare htact"><i class="fal fa-bullhorn"></i> <span class="header-tooltip">Share</span></div>
-                        <div class="show-cart sc_btn htact"><i class="fal fa-shopping-bag"></i><span class="show-cart_count">3</span><span class="header-tooltip">Your Cart</span></div>
+                        <a href="{{ url('') }}" class="logo-holder"><img src="{{ asset('assets/img/logo-text-white.svg') }}" alt="{{ config('name') }}"></a>
+                        <div class="show-reserv_button show-rb"><span>Reservación</span> <i class="fal fa-bookmark"></i></div>
+                        <div class="show-share-btn showshare htact"><i class="fal fa-bullhorn"></i> <span class="header-tooltip">Compartir</span></div>
+                        <div class="show-cart sc_btn htact"><i class="fal fa-shopping-bag"></i><span class="show-cart_count">3</span><span class="header-tooltip">Tu Carrito</span></div>
                         <!-- nav-button-wrap-->
                         <div class="nav-button-wrap">
                             <div class="nav-button">
@@ -71,52 +71,21 @@
                             <nav>
                                 <ul>
                                     <li>
-                                        <a href="#" class="act-link">Home <i class="fas fa-caret-down"></i></a>
-                                        <!--second level -->
-                                        <ul>
-                                            <li><a href="index.html">Parallax Image</a></li>
-                                            <li><a href="index2.html">Slider</a></li>
-                                            <li><a href="index3.html">Carousel</a></li>
-                                            <li><a href="index4.html">Slideshow</a></li>
-                                            <li><a href="index5.html">Video</a></li>
-                                            <li><a href="onepage.html">One Page</a></li>
-                                        </ul>
-                                        <!--second level end-->
+                                        <a href="{{ url('home') }}" class="{{ request()->is('home') ? 'act-link' : '' }}">Inicio </a>
                                     </li>
                                     <li>
-                                        <a href="#">Menu<i class="fas fa-caret-down"></i></a>
-                                        <!--second level -->
-                                        <ul>
-                                            <li><a href="menu.html">Menu 1</a></li>
-                                            <li><a href="menu2.html">Menu 2</a></li>
-                                            <li><a href="menu3.html">Menu 3</a></li>
-                                        </ul>
-                                        <!--second level end-->
+                                        <a href="{{ url('menu') }}" class="{{ request()->is('menu') ? 'act-link' : '' }}">Menú</a>
                                     </li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="blog.html">News</a></li>
-                                    <li>
-                                        <a href="#">Pages<i class="fas fa-caret-down"></i></a>
-                                        <!--second level -->
-                                        <ul>
-                                            <li><a href="shop.html">Shop</a></li>
-                                            <li><a href="product-single.html">Product Single</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="gallery.html">Gallery</a></li>
-                                            <li><a href="blog-single.html">Blog single</a></li>
-                                            <li><a href="404.html">404</a></li>
-                                            <li><a href="coming-soon.html">Coming Soon</a></li>
-                                        </ul>
-                                        <!--second level end-->
-                                    </li>
+                                    <li><a href="{{ url('about-us') }}" class="{{ request()->is('about-us') ? 'act-link' : '' }}">Nosotros</a></li>
+                                    <li><a href="{{ url('contact') }}" class="{{ request()->is('contact') ? 'act-link' : '' }}">Contacto</a></li>
+                                    <li><a href="{{ url('blog') }}" class="{{ request()->is('blog') ? 'act-link' : '' }}">Noticias</a></li>
                                 </ul>
                             </nav>
                         </div>
                         <!-- navigation  end -->                        
                         <!-- header-cart_wrap  -->
                         <div class="header-cart_wrap novis_cart">
-                            <div class="header-cart_title">Your Cart <span>4 items</span></div>
+                            <div class="header-cart_title">Tu Carrito <span>4 items</span></div>
                             <div class="header-cart_wrap_container fl-wrap">
                                 <div class="box-widget-content">
                                     <div class="widget-posts fl-wrap">
@@ -174,13 +143,15 @@
         <div id="wrapper">
             {{ $slot }}
 
+            <div class="height-emulator fl-wrap"></div>
+
             <footer class="fl-wrap dark-bg fixed-footer">
                 <div class="container_tmp">
                     <div class="footer-top fl-wrap">
-                        <a href="index.html" class="footer-logo"><img src="https://restabook.kwst.net/dark/images/logo2.png" alt=""></a>
-                        <div class="lang-wrap"><a href="#" class="act-lang">En</a><span>/</span><a href="#">Fr</a></div>
+                        <a href="{{ url('') }}" class="footer-logo"><img src="{{ asset('assets/img/logo-white.svg') }}" alt="{{ config('name') }}"></a>
+                        <div class="lang-wrap"><a href="#" class="act-lang">En</a><span>/</span><a href="#">Es</a></div>
                         <div class="footer-social">
-                            <span class="footer-social-title">Follow us :</span>
+                            <span class="footer-social-title">Sigues en:</span>
                             <ul>
                                 <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -195,7 +166,7 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">About us</div>
+                                    <div class="footer-widget-title">Acerca de nosotros</div>
                                     <div class="footer-widget-content">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eaque ipsa quae ab illo inventore veritatis et quasi architecto. </p>
                                         <a href="about.html" class="footer-widget-content-link">Read more</a>                                                    	
@@ -206,16 +177,16 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">Contact info  </div>
+                                    <div class="footer-widget-title">Contacto</div>
                                     <div class="footer-widget-content">
                                         <div class="footer-contacts footer-box fl-wrap">
                                             <ul>
-                                                <li><span>Call :</span><a href="#">+489756412322</a> , <a href="#">+56897456123</a></li>
-                                                <li><span>Write  :</span><a href="#">yourmail@domain.com</a></li>
-                                                <li><span>Find us : </span><a href="#">USA 27TH Brooklyn NY</a></li>
+                                                <li><span>Celular:</span><a href="#">+5917777777</a></li>
+                                                <li><span>Correo electrónico:</span><a href="#">soporte@dieselnacional.com</a></li>
+                                                <li><span>Ubicanos en: </span><a href="#">Av.20 de Octubre #2271, La Paz</a></li>
                                             </ul>
                                         </div>
-                                        <a href="contacts.html" class="footer-widget-content-link">Get in Touch</a>                                                    	
+                                        <a href="contacts.html" class="footer-widget-content-link">Contáctanos</a>                                                    	
                                     </div>
                                 </div>
                             </div>
@@ -223,12 +194,12 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">Subscribe</div>
+                                    <div class="footer-widget-title">Suscribete</div>
                                     <div class="footer-widget-content">
                                         <div class="subcribe-form fl-wrap">
-                                            <p>Want to be notified when we launch a new template or an udpate. Just sign up and we'll send you a notification by email.</p>
+                                            <p>Quieres que te avisemos cuando lancemos una nueva plantilla o un udpate. Sólo tienes que registrarte y te enviaremos una notificación por correo electrónico.</p>
                                             <form id="subscribe" class="fl-wrap">
-                                                <input class="enteremail" name="email" id="subscribe-email" placeholder="Your Email" spellcheck="false" type="text">
+                                                <input class="enteremail" name="email" id="subscribe-email" placeholder="Correo electrónico" spellcheck="false" type="text">
                                                 <button type="submit" id="subscribe-button" class="subscribe-button color-bg">Send </button>
                                                 <label for="subscribe-email" class="subscribe-message"></label>
                                             </form>
@@ -242,7 +213,7 @@
                     <!-- footer-widget-wrap end-->
                     <div class="footer-bottom fl-wrap">
                         <div class="copyright">&#169; Restabook 2020 . All rights reserved. </div>
-                        <div class="to-top"><span>Back To Top </span><i class="fal fa-angle-double-up"></i></div>
+                        <div class="to-top"><span>Volver arriba </span><i class="fal fa-angle-double-up"></i></div>
                     </div>
                 </div>
             </footer>

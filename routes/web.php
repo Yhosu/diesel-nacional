@@ -8,5 +8,12 @@ use App\Http\Controllers\MainController;
 //     return view('welcome');
 // });
 
+Route::get('/', function() {
+    return redirect('/home');
+});
 
-Route::get('/', [MainController::class, 'showHome']);
+Route::get('/home', [MainController::class, 'showHome']);
+Route::get('/menu', [MainController::class, 'showMenu']);
+Route::get('/about-us', [MainController::class, 'showAbout']);
+Route::get('/contact', [MainController::class, 'showContact']);
+Route::get('/blog', [MainController::class, 'showBlog']);

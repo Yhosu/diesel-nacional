@@ -40,6 +40,9 @@
             <span class="loader"></span>
         </div>
     </div>
+    <!-- loader end  -->
+
+    <!-- main start  -->
     <div id="main">
         <!-- header  -->
         <header class="main-header">
@@ -68,9 +71,10 @@
                         <!-- nav-button-wrap end-->
                         <!--  navigation -->
                         <div class="nav-holder main-menu">
-                            <nav>
+                            <nav class="scroll-init">
                                 <ul>
-                                    <li>
+                                    <!-- Normal pages routes -->
+                                    {{-- <li>
                                         <a href="{{ url('home') }}" class="{{ request()->is('home') ? 'act-link' : '' }}">Inicio </a>
                                     </li>
                                     <li>
@@ -78,7 +82,15 @@
                                     </li>
                                     <li><a href="{{ url('about-us') }}" class="{{ request()->is('about-us') ? 'act-link' : '' }}">Nosotros</a></li>
                                     <li><a href="{{ url('contact') }}" class="{{ request()->is('contact') ? 'act-link' : '' }}">Contacto</a></li>
-                                    <li><a href="{{ url('blog') }}" class="{{ request()->is('blog') ? 'act-link' : '' }}">Noticias</a></li>
+                                    <li><a href="{{ url('blog') }}" class="{{ request()->is('blog') ? 'act-link' : '' }}">Noticias</a></li> --}}
+
+                                    <!-- Onepage routes -->
+                                    <li><a href="#sec1" class="act-scrlink">Inicio</a></li>
+                                    <li><a href="#sec2">Nosotros</a></li>
+                                    <li><a href="#sec3">Menú</a></li>
+                                    <li><a href="#sec4">Galería</a></li>
+                                    <li><a href="#sec5">Comentarios</a></li>
+                                    <li><a href="#sec6">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -169,7 +181,7 @@
                                     <div class="footer-widget-title">Acerca de nosotros</div>
                                     <div class="footer-widget-content">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eaque ipsa quae ab illo inventore veritatis et quasi architecto. </p>
-                                        <a href="about.html" class="footer-widget-content-link">Read more</a>                                                    	
+                                        {{-- <a href="{{ url('about') }}" class="footer-widget-content-link">Read more</a>                                                    	 --}}
                                     </div>
                                 </div>
                             </div>
@@ -307,6 +319,7 @@
     </div>
     <!-- cursor end-->   
 
+    <!--=============== scripts  ===============-->
     <script src="{{ asset('assets/templates/master/dark/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/templates/master/dark/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/templates/master/dark/js/scripts.js') }}"></script>

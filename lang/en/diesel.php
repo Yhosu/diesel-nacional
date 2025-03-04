@@ -64,5 +64,7 @@ return [
     'created_at_to' => 'Created At (To)',
     'item_not_found' => 'Item not found.',
     'item_eliminated' => 'Item successfully removed.',
-    'item_found' => 'Item successfully obtained.'
+    'item_found' => 'Item successfully obtained.',
+    'empty_parameters' => 'You must complete all required fields',
+    'action_successfully' => 'Action carried out successfully.'
 ];

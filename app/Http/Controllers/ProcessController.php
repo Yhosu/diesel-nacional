@@ -22,4 +22,38 @@ class ProcessController extends Controller
         $form->save();
         return redirect($this->prev)->with('message_success', __('diesel.form_success'));
     }
+
+    public function postNodeAction( Request $request ) {
+        $action = $request->action;
+        $node = $request->node;
+        if( !in_array( $action, ['create', 'edit'] ) ) return redirect($this->prev);
+        $className = \Func::getModel( $node );
+        $validator = \Validator::make( $request->all(), $rules );
+        $rules     = (new $className)::${'rules_'.$action};
+        $redirect  = '';
+        if ( $validator->fails() ) return redirect($this->prev)->with('message_error', __('diesel.empty_parameters'))->withErrors($validator)->withInput();
+        $message = '';
+        if ($action == 'create') {
+            $item = new $className;
+            $item->created_at = date('Y-m-d H:i:s');
+            $item->save();
+            $message = __('diesel.item_created');
+            $redirect = url(sprintf('node/%s/edit/%s', $node, $item->id));
+        } elseif ($action == 'edit') {
+            $item = $model::find($request->id);
+            $message = __('diesel.item_edited');
+            $redirect = url(sprintf('node/%s/edit/%s', $node, $item->id));
+        }
+        $params = $request->all();
+        unset($params['id']);
+        foreach ($params as $key => $value) {
+            if( \Str::contains( $request->payment_method, 'image' ) && !empty( $request->hasFile($key) ) &&  \Func::validateImageUrl( $value, $node . '-' . $key, $value, $item->$key ) ) {
+                $item->$key = \Asset::upload_image($request->file($key), $node . '-' . $key);
+            } else {
+                $item->$key = $value;
+            }
+        }
+        $item->save();
+        return redirect($redirect)->with('message_success', __('diesel.action_successfully'));
+    }
 }

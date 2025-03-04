@@ -64,5 +64,7 @@ return [
     'created_at_to' => 'Fecha de Creación (Hasta)',
     'item_not_found' => 'Item no encontrado.',
     'item_eliminated' => 'Item eliminado exitósamente.',
-    'item_found' => 'Item obtenido exitósamente.'
+    'item_found' => 'Item obtenido exitósamente.',
+    'empty_parameters' => 'Debe completar todos los campos requeridos',
+    'action_successfully' => 'Acción realizada con éxito.'
 ];

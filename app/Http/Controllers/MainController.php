@@ -104,6 +104,7 @@ class MainController extends Controller
         $items = $paginate
             ? $items->paginate( config('nodes.paginate') )->appends( $request->all() ) 
             : $items->get();
+			/* Contiene toda la INFO para poder iterar en una tabla con paginación */
 		$result = [
 			'title'   => __('diesel.list.' . $node ),
 			'filters' => \Func::getFilters( $table, $lang ),
@@ -128,11 +129,15 @@ class MainController extends Controller
 			/* Mandamos la acción */
 		$evalItem = \Func::$function( $class, $id );
 		if( !$evalItem['process'] ) return redirect($this->prev)->with('message_error', $evalItem['message']);
+			/* Contiene toda la INFO para poder dibujar un formulario y poblarlo en caso de editar o ver y eliminar */
 		$result = [
 			'title'   => $titleNode,
 			'fields'  => $fields,
 			'item'    => $evalItem['item'],
-			'message' => $evalItem['message']
+			'message' => $evalItem['message'],
+			'id'      => $id,
+			'action'  => $action,
+			'node'	  => $node
 		];
 		$redirect = $evalItem['redirect'] ?? false;
 		if( $redirect ) return redirect( 'node-list/' . $node )->with('message_success', $evalItem['message']);

@@ -144,4 +144,8 @@ class Func {
         $item->delete();
         return [ 'process' => true, 'item' => $item, 'message' => __('diesel.item_eliminated'), 'redirect' => true ];
     }
+
+    public static function validateImageUrl( $value, $folder, $file, $image ) {
+        return $value != 'null' && !empty( $value ) && ( \Asset::get_image_path($folder, 'mini', $image) != \Asset::get_image_path($folder, 'mini', $file) );
+    }
 }

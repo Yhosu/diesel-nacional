@@ -29,7 +29,8 @@ class Category extends Model {
     }
 
 	public function menus() {
-		return $this->hasMany(Menu::class, 'categoryId', 'id')->where('active', 1);
+		// return $this->hasMany(Menu::class, 'categoryId', 'id')->where('active', 1)->orderBy('order', 'ASC')->limit(5);
+		return $this->hasMany(Menu::class, 'categoryId', 'id')->where('active', 1)->limit(5);
 	}
 
 	public function getLang( $lang ) {

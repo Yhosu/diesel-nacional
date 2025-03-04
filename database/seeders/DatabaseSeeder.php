@@ -20,12 +20,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
         ]);
         \SeederFunc::loadImageFolders();
-        \SeederFunc::loadInformations();
-        \SeederFunc::loadOurHistory();
-        \SeederFunc::loadSchedules();
-        \SeederFunc::loadCategoriesAndMenu();
-        \SeederFunc::loadCharacteristics();
-        \SeederFunc::loadEvents();
-        \SeederFunc::loadReviews();
+        // \SeederFunc::loadInformations();
+        // \SeederFunc::loadOurHistory();
+        // \SeederFunc::loadSchedules();
+        // \SeederFunc::loadCategoriesAndMenu();
+        // \SeederFunc::loadCharacteristics();
+        // \SeederFunc::loadEvents();
+        // \SeederFunc::loadReviews();
     }
 }

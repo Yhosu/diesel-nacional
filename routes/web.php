@@ -15,7 +15,8 @@ Route::get('/', function() {
 });
 
 Route::get('/test-queries', function () {
-
+    phpinfo();
+    die();
     $context = stream_context_create([
         "http" => [
             "method" => "GET",

@@ -125,9 +125,10 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
-
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Func'                             => App\Helpers\Func::class,
         'CustomFunc' => App\Helpers\CustomFunc::class,
+        'SeederFunc' => App\Helpers\SeederFunc::class,
+        'Asset'      => App\Helpers\Asset::class,
+        'Func'       => App\Helpers\Func::class,
     ])->toArray(),
 ];

@@ -49,8 +49,8 @@
             <!-- header-top  -->
             <div class="header-top">
                 <div class="container_tmp">
-                    <div class="lang-wrap"><a href="#" class="act-lang">En</a><span>/</span><a href="#">Es</a></div>
-                    <div class="header-top_contacts"><a href="#"><span>Celular:</span> +5917777777</a><a href="#"><span>Correo electrónico:</span> soporte@dieselnacional.com</a></div>
+                    <div class="lang-wrap"><a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">En</a><span>/</span><a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">Es</a></div>
+                    <div class="header-top_contacts"><a href="#"><span>{{ __('diesel.cellphone') }}:</span> +5917777777</a><a href="#"><span>{{ __('diesel.email') }}:</span> inbox@dieselnacional.com</a></div>
                 </div>
             </div>
             <!--header-top end -->
@@ -59,9 +59,7 @@
                 <div class="container_tmp">
                     <div class="header-container fl-wrap">
                         <a href="{{ url('') }}" class="logo-holder"><img src="{{ asset('assets/img/logo-text-white.svg') }}" alt="{{ config('name') }}"></a>
-                        <div class="show-reserv_button show-rb"><span>Reservación</span> <i class="fal fa-bookmark"></i></div>
                         <div class="show-share-btn showshare htact"><i class="fal fa-bullhorn"></i> <span class="header-tooltip">Compartir</span></div>
-                        <div class="show-cart sc_btn htact"><i class="fal fa-shopping-bag"></i><span class="show-cart_count">3</span><span class="header-tooltip">Tu Carrito</span></div>
                         <!-- nav-button-wrap-->
                         <div class="nav-button-wrap">
                             <div class="nav-button">
@@ -85,12 +83,12 @@
                                     <li><a href="{{ url('blog') }}" class="{{ request()->is('blog') ? 'act-link' : '' }}">Noticias</a></li> --}}
 
                                     <!-- Onepage routes -->
-                                    <li><a href="#sec1" class="act-scrlink">Inicio</a></li>
-                                    <li><a href="#sec2">Nosotros</a></li>
-                                    <li><a href="#sec3">Menú</a></li>
-                                    <li><a href="#sec4">Galería</a></li>
-                                    <li><a href="#sec5">Comentarios</a></li>
-                                    <li><a href="#sec6">Contacto</a></li>
+                                    <li><a href="#sec1" class="act-scrlink">{{ __('diesel.menu.home') }}</a></li>
+                                    <li><a href="#sec2">{{ __('diesel.menu.about') }}</a></li>
+                                    <li><a href="#sec3">{{ __('diesel.menu.menu') }}</a></li>
+                                    <li><a href="#sec4">{{ __('diesel.menu.gallery') }}</a></li>
+                                    <li><a href="#sec5">{{ __('diesel.menu.comments') }}</a></li>
+                                    <li><a href="#sec6">{{ __('diesel.menu.contact') }}</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -161,9 +159,9 @@
                 <div class="container_tmp">
                     <div class="footer-top fl-wrap">
                         <a href="{{ url('') }}" class="footer-logo"><img src="{{ asset('assets/img/logo-white.svg') }}" alt="{{ config('name') }}"></a>
-                        <div class="lang-wrap"><a href="#" class="act-lang">En</a><span>/</span><a href="#">Es</a></div>
+                        <div class="lang-wrap"><a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">En</a><span>/</span><a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">Es</a></div>
                         <div class="footer-social">
-                            <span class="footer-social-title">Sigues en:</span>
+                            <span class="footer-social-title">{{ __('diesel.follow_us_on') }}:</span>
                             <ul>
                                 <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -178,9 +176,9 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">Acerca de nosotros</div>
+                                    <div class="footer-widget-title">{{ __('diesel.about') }}</div>
                                     <div class="footer-widget-content">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eaque ipsa quae ab illo inventore veritatis et quasi architecto. </p>
+                                        <p>{{ __('diesel.about_us_description') }}</p>
                                         {{-- <a href="{{ url('about') }}" class="footer-widget-content-link">Read more</a>                                                    	 --}}
                                     </div>
                                 </div>
@@ -189,16 +187,16 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">Contacto</div>
+                                    <div class="footer-widget-title">{{ __('diesel.contact_title') }}</div>
                                     <div class="footer-widget-content">
                                         <div class="footer-contacts footer-box fl-wrap">
                                             <ul>
-                                                <li><span>Celular:</span><a href="#">+5917777777</a></li>
-                                                <li><span>Correo electrónico:</span><a href="#">soporte@dieselnacional.com</a></li>
-                                                <li><span>Ubicanos en: </span><a href="#">Av.20 de Octubre #2271, La Paz</a></li>
+                                                <li><span>{{ __('diesel.cellphone') }}:</span><a href="#">+5917777777</a></li>
+                                                <li><span>{{ __('diesel.email') }}:</span><a href="#">inbox@dieselnacional.com</a></li>
+                                                <li><span>{{ __('diesel.locate_us') }}: </span><a href="#">20 de Octubre Ave # 2271, La Paz, Bolivia</a></li>
                                             </ul>
                                         </div>
-                                        <a href="contacts.html" class="footer-widget-content-link">Contáctanos</a>                                                    	
+                                        {{-- <a href="contacts.html" class="footer-widget-content-link">Contáctanos</a>                                                    	 --}}
                                     </div>
                                 </div>
                             </div>
@@ -206,13 +204,13 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">Suscribete</div>
+                                    <div class="footer-widget-title">{{ __('diesel.subscribe_title') }}</div>
                                     <div class="footer-widget-content">
                                         <div class="subcribe-form fl-wrap">
-                                            <p>Quieres que te avisemos cuando lancemos una nueva plantilla o un udpate. Sólo tienes que registrarte y te enviaremos una notificación por correo electrónico.</p>
+                                            <p>{{ __('diesel.suscribe') }}</p>
                                             <form id="subscribe" class="fl-wrap">
-                                                <input class="enteremail" name="email" id="subscribe-email" placeholder="Correo electrónico" spellcheck="false" type="text">
-                                                <button type="submit" id="subscribe-button" class="subscribe-button color-bg">Send </button>
+                                                <input class="enteremail" name="email" id="subscribe-email" placeholder="{{ __('diesel.email') }}" spellcheck="false" type="text">
+                                                <button type="submit" id="subscribe-button" class="subscribe-button color-bg">{{ __('diesel.btn_send_title')}} </button>
                                                 <label for="subscribe-email" class="subscribe-message"></label>
                                             </form>
                                         </div>
@@ -224,8 +222,8 @@
                     </div>
                     <!-- footer-widget-wrap end-->
                     <div class="footer-bottom fl-wrap">
-                        <div class="copyright">&#169; Restabook 2020 . All rights reserved. </div>
-                        <div class="to-top"><span>Volver arriba </span><i class="fal fa-angle-double-up"></i></div>
+                        <div class="copyright">&#169; Diesel Nacional 2025 - All Rights Reserved.</div>
+                        <div class="to-top"><span>{{ __('diesel.back_to_top') }} </span><i class="fal fa-angle-double-up"></i></div>
                     </div>
                 </div>
             </footer>

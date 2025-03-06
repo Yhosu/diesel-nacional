@@ -49,7 +49,11 @@
             <!-- header-top  -->
             <div class="header-top">
                 <div class="container_tmp">
-                    <div class="lang-wrap"><a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">En</a><span>/</span><a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">Es</a></div>
+                    <div class="lang-wrap">
+                        <a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">En</a>
+                        <span>/</span>
+                        <a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">Es</a>
+                    </div>
                     <div class="header-top_contacts"><a href="#"><span>{{ __('diesel.cellphone') }}:</span> +5917777777</a><a href="#"><span>{{ __('diesel.email') }}:</span> inbox@dieselnacional.com</a></div>
                 </div>
             </div>

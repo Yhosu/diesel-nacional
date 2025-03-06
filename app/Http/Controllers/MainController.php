@@ -106,12 +106,14 @@ class MainController extends Controller
             : $items->get();
 			/* Contiene toda la INFO para poder iterar en una tabla con paginación */
 		$result = [
-			'title'   => __('diesel.list.' . $node ),
-			'filters' => \Func::getFilters( $table, $lang ),
-			'fields'  => $fields,
-			'items'   => $items
+			'title'   	=> __('diesel.list.' . $node ),
+			'filters' 	=> \Func::getFilters( $table, $lang ),
+			'fields'  	=> $fields,
+			'items'   	=> $items,
+			'node_name'	=> $node,
 		];
-		vardump($result);
+		// vardump($result);
+		return view('livewire.pages.admin.table-crud', $result);
 	}
 
 	public function getNodeAction( $node, $action, $id = null ) {
@@ -140,7 +142,8 @@ class MainController extends Controller
 			'node'	  => $node
 		];
 		$redirect = $evalItem['redirect'] ?? false;
-		if( $redirect ) return redirect( 'node-list/' . $node )->with('message_success', $evalItem['message']);
-		vardump( $result );
+		if( $redirect ) return redirect( 'admin/node-list/' . $node )->with('message_success', $evalItem['message']);
+		// vardump( $result );
+		return view('livewire.pages.admin.form-crud', $result);
 	}
 }

@@ -130,5 +130,7 @@ return [
         'SeederFunc' => App\Helpers\SeederFunc::class,
         'Asset'      => App\Helpers\Asset::class,
         'Func'       => App\Helpers\Func::class,
+        'Session'    => Illuminate\Support\Facades\Session::class,
+        'App'        => Illuminate\Support\Facades\App::class,
     ])->toArray(),
 ];

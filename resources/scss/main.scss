@@ -1,4 +1,4 @@
-@import "variables";
+@use 'variables' as *;
 
 :root {
     --primary-color: #{$primary-color};
@@ -36,10 +36,10 @@
 }
 
 body.cy-web {
-	@import "master/main";
-	@import "master/responsive";
+	@import "./master/main";
+	@import "./master/responsive";
 }
 body.admin-cy-web {
-	@import "admin/main";
-	@import "admin/responsive";
+	@import "./admin/main";
+	@import "./admin/responsive";
 }

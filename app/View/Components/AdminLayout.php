@@ -12,26 +12,14 @@ class AdminLayout extends Component
      */
     public function render(): View
     {
-        $menu = [
-            [
-                'type' => 'navigate',
-                'name' => 'Dashboard',
-                'url' => 'admin/dashboard',
-                'type_icon' => 'feather',
-                'icon' => 'home'
-            ],
-            [
-                'type' => 'navigate',
-                'name' => 'Cuenta',
-                'url' => 'admin/account',
-                'type_icon' => 'feather',
-                'icon' => 'user'
-            ],
-            [
-                'type' => 'divider',
-                'name' => 'Páginas',
-            ],
-        ];
+        $lists = config('nodes.available_nodes');
+		$menu = [];
+		foreach( $lists as $node) {
+			$menu[] = [
+				'label' => __('diesel.list.' . $node),
+				'url'   => 'admin/node-list/' . $node,
+			];
+		}
         return view('layouts.admin', [
             'menu' => $menu
         ]);

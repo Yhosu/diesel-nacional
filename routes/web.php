@@ -50,9 +50,34 @@ Route::get('/logout',                                [MainController::class, 'fi
 Route::get('/change-locale/{lang}',                  [MainController::class, 'changeLocale'])->name('language');
 Route::get('/dashboard',                             [MainController::class, 'findDashboard'])->name('dashboard');
 Route::get('/test-nodes/{id?}',                      [MainController::class, 'findTestNodes']);
+
+
+Route::middleware(['auth'])->prefix('admin')->group(function() {
+    Route::get('/', function() {
+        return redirect('/admin/account');
+    });
+    Route::view('dashboard', 'content.admin.dashboard')->name('dashboard');
+    Route::view('account', 'content.admin.account')->name('admin-account');
+    
+    // Route::prefix('node/{node}')->group(function () {
+    //     Route::get('/', [MainController::class, 'showNodeTableCrud'])->name('table-crud');
+    //     Route::get('{action}', [MainController::class, 'showNodeFormCrud'])->where('action', 'create')->name('form-crud');
+    //     Route::get('{action}/{id}', [MainController::class, 'showNodeFormCrud'])->where('action', 'read|edit')->name('form-crud');
+    // });
+
     /* LISTADOS Y CRUDS */
-Route::get('/node-list/{node}/{paginate?}/{excel?}', [MainController::class,    'getNodeList']);
-Route::get('/node/{node}/{action}/{id?}',            [MainController::class,    'getNodeAction']);
-Route::post('/node/{node}',                          [ProcessController::class, 'postNodeAction']);
+    Route::get('/node-list/{node}/{paginate?}/{excel?}',    [MainController::class,    'getNodeList']);
+    Route::get('/node/{node}/{action}',                     [MainController::class,    'getNodeAction'])->where('action', 'create')->name('form-crud');
+    Route::get('/node/{node}/{action}/{id}',                [MainController::class,    'getNodeAction'])->where('action', 'read|edit|delete')->name('form-crud');
+    Route::post('/node/{node}',                             [ProcessController::class, 'postNodeAction']);
+});
+
+Route::group(['prefix'=>'auth'], function(){
+    Route::get('/', function() {
+        return redirect('/auth/login');
+    });
+});
 
 Auth::routes();
+
+require __DIR__.'/auth.php';

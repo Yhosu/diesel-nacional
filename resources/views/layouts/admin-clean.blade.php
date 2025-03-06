@@ -14,9 +14,7 @@
         // Custom
         // 'resources/css/app.css',
         'resources/scss/main.scss',
-        'resources/scss/admin/main.scss',
         'resources/js/main.js',
-        'resources/js/admin/main.js',
     ])
 
     @include('templates.admin.styles')

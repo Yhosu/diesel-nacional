@@ -21,10 +21,8 @@
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite([
             // Custom
-            'resources/css/app.css',
             'resources/scss/main.scss',
             'resources/js/main.js',
-            'resources/js/master/main.js',
         ])
     @endif
 

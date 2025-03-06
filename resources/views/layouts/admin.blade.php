@@ -21,7 +21,6 @@
         // 'resources/css/app.css',
         'resources/scss/main.scss',
         'resources/js/main.js',
-        'resources/js/admin/main.js',
     ])
 
     @stack('head')

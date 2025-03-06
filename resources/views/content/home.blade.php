@@ -596,11 +596,12 @@
                             <!--testi-item-->
                             <div class="swiper-slide">
                                 <div class="testi-item fl-wrap">
-                                    <div class="testi-avatar"><img src="{{ \Asset::get_image_path('review-image', 'normal', $review->image) }}" alt=""></div>
+                                    <div class="testi-avatar"><img src="{{ $review['user']['avatar']['large'] ?? asset('assets/img/user.png') }}" alt=""></div>
                                     <div class="testimonilas-text fl-wrap">
-                                        <h3>{{ $review->name }}</h3>
-                                        <div class="star-rating" data-starrating="{{ $review->qualification }}"> </div>
-                                        <p>"{{ $review->detail }}"</p>
+                                        <h3>{{ $review['user']['username'] }}</h3>
+                                        <div class="star-rating" data-starrating="{{ $review['rating'] }}"> </div>
+                                        <p><a href="{{ $review['url'] }}" target="_blank"><b>"{{ $review['title'] }}"</b></a></p>
+                                        <p>"{{ trim( $review['text'] ) }}"</p>
                                         <span class="testi-number">{{ $key+1 }}.</span>
                                     </div>
                                 </div>

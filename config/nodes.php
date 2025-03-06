@@ -9,8 +9,7 @@ return [
         'menu',
         'menu-item',
         'characteristic',
-        'event',
-        'review',
+        'event'
     ],
     'paginate' => 100
 ];

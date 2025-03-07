@@ -600,7 +600,7 @@
                                     <div class="testimonilas-text fl-wrap">
                                         <h3>{{ $review['user']['username'] }}</h3>
                                         <div class="star-rating" data-starrating="{{ $review['rating'] }}"> </div>
-                                        <p><a href="{{ $review['url'] }}" target="_blank"><b>"{{ $review['title'] }}"</b></a></p>
+                                        <a href="{{ $review['url'] }}" target="_blank"><p>"{{ $review['title'] }}"</p></a>
                                         <p>"{{ trim( $review['text'] ) }}"</p>
                                         <span class="testi-number">{{ $key+1 }}.</span>
                                     </div>

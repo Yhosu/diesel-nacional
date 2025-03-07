@@ -28,4 +28,14 @@
 	.container_tmp {
 		width: 100%;
 	}
+	.whatsapp__btn-content {
+		.whatsapp__btn {
+			width: 62px;
+			height: 62px;
+			opacity: 1;
+			i {
+				font-size: 2rem;
+			}
+		}
+	}
 }

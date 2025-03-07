@@ -60,7 +60,7 @@
             <div class="header-inner  fl-wrap">
                 <div class="container_tmp">
                     <div class="header-container fl-wrap">
-                        <a href="{{ url('') }}" class="logo-holder"><img src="{{ asset('assets/img/logo-text-white.svg') }}" alt="{{ config('name') }}"></a>
+                        <a href="{{ url('') }}" class="logo-holder"><img src="{{ asset('assets/img/logo-complete-horizontal-white.svg') }}" alt="{{ config('name') }}"></a>
                         <div class="show-share-btn showshare htact"><i class="fal fa-bullhorn"></i> <span class="header-tooltip">Compartir</span></div>
                         <!-- nav-button-wrap-->
                         <div class="nav-button-wrap">
@@ -318,6 +318,15 @@
         <div class="element-item"></div>
     </div>
     <!-- cursor end-->   
+
+    <!-- whatsapp-->
+    <div class="whatsapp__btn-content">
+        <a href="https://api.whatsapp.com/send?phone=59177777777&text=Hola..." target="_blank" class="whatsapp__btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <!-- whatsapp end-->   
+    
 
     <!--=============== scripts  ===============-->
     <script src="{{ asset('assets/templates/master/dark/js/jquery.min.js') }}"></script>

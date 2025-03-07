@@ -132,6 +132,16 @@
                 <option {{ $value == '0' ? 'selected' : '' }} value="0">No</option>
                 <option {{ $value == '1' ? 'selected' : '' }} value="1">Si</option>
             </select>
+        @elseif($type === 'image')
+            @if($hasLabel)
+                <label for="{{ $customId ? ('field__custom-'.$id) : $id }}" class="form-label"
+                    {!! $propertyLabel !!}>
+                    <b>{{ $label }} @if($subtext) {!! $subtext !!} @endif</b>
+                </label>
+            @endif
+            <input placeholder="{{ $placeholder }}" type="file" value="{{ $value ?? '' }}" name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" class="{{ $classField }} form-control" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} {{ $min ? 'min='.$min : '' }} {{ $max ? 'max='.$max : '' }}
+                {!! $propertyField !!}
+            >
         @else
             @if($hasLabel)
                 <label for="{{ $customId ? ('field__custom-'.$id) : $id }}" class="form-label"

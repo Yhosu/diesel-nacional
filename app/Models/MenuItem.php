@@ -33,4 +33,23 @@ class MenuItem extends Model {
     public function getLang( $lang ) {
         return $this->$lang;
     }
+
+    public static $rules_create = array(
+        'menuId' => 'required',
+        'order' => 'required',
+        'title' => 'required',
+        'detail' => 'required',
+        'image' => 'required',
+        'price' => 'required',
+        'active' => 'required',
+	);
+		
+		/* Updating rules */
+    public static $rules_edit = array(
+        "id"=>"required",
+    );
+
+    public static $rules_delete = array(
+        "id"=>"required",
+    );    
 }

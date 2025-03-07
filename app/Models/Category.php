@@ -36,4 +36,20 @@ class Category extends Model {
 	public function getLang( $lang ) {
         return $this->$lang;
     }
+
+	public static $rules_create = array(
+        'order' => 'required',
+		'name' => 'required',
+		'detail' => 'required',
+		'active' => 'required'
+	);
+		
+		/* Updating rules */
+    public static $rules_edit = array(
+        "id"=>"required",
+    );
+
+    public static $rules_delete = array(
+        "id"=>"required",
+    );		    	
 }

@@ -32,4 +32,22 @@ class About extends Model {
 	public function getLang( $lang ) {
         return $this->$lang;
     }
+
+	public static $rules_create = array(
+        'number' => 'required',
+		'title' => 'required',
+		'description' => 'required',
+		'image_1' => 'required',
+		'image_2' => 'required',
+		'active' => 'required',
+	);
+		
+		/* Updating rules */
+    public static $rules_edit = array(
+        "id"=>"required",
+    );
+
+    public static $rules_delete = array(
+        "id"=>"required",
+    );		
 }

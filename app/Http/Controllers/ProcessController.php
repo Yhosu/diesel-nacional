@@ -29,9 +29,9 @@ class ProcessController extends Controller
         $node = $request['node'];
         if( !in_array( $action, ['create', 'edit'] ) ) return redirect($this->prev);
         $className = \Func::getModel( $node );
-        $validator = \Validator::make( $request, $rules );
         $rules     = (new $className)::${'rules_'.$action};
         $redirect  = '';
+        $validator = \Validator::make( $request, $rules );
         if ($validator->fails()) {
             $errors = $validator->errors()->all();
             return [
@@ -49,15 +49,15 @@ class ProcessController extends Controller
             $message = __('diesel.item_created');
             $redirect = url(sprintf('node/%s/edit/%s', $node, $item->id));
         } elseif ($action == 'edit') {
-            $item = $model::find($request['id']);
+            $item = $className::find($request['id']);
             $message = __('diesel.item_edited');
             $redirect = url(sprintf('node/%s/edit/%s', $node, $item->id));
         }
         $params = $request;
-        unset($params['id']);
+        unset($params['id'],$params['node'],$params['action']);
         foreach ($params as $key => $value) {
-            if( \Str::contains( $request['payment_method'], 'image' ) && !empty( $request[$key] ) &&  \Func::validateImageUrl( $value, $node . '-' . $key, $value, $item->$key ) ) {
-                $item->$key = \Asset::upload_image($request[$key], $node . '-' . $key);
+            if( \Str::contains( $key, 'image' ) && !empty( $request->$key ) &&  \Func::validateImageUrl( $value, $node . '-' . $key, $value, $item->$key ) ) {
+                $item->$key = \Asset::upload_image($request->$key, $node . '-' . $key);
             } else {
                 $item->$key = $value;
             }

@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'tripadvisor' => [
+        'url'         => env('TRIPADVISOR_URL', 'https://api.content.tripadvisor.com/api/v1/location'),
+        'merchant_id' => env('TRIPADVISOR_ID', '3645897'),
+        'api_key'     => env('TRIPADVISOR_KEY', '4949672BA24C464194CA2AFCBFB08808')
+    ]
 ];

@@ -27,7 +27,7 @@ class Func {
         $database = config('database.connections.mysql.database');
         $langCode = $arraySubtLang[$lang];
         $enum = 'enum(';
-        return \DB::select("
+        $result = \DB::select("
             select 
                 `column_name` as name, 
                 CASE
@@ -49,6 +49,31 @@ class Func {
                 `table_name` = '$table_name' and `column_name` not in ('created_at', 'updated_at', 'id') and `table_schema` = '$database'
             "
         );
+        foreach( $result as $item ) {
+            if( empty($item->options) && substr($item->name, -2) != 'Id' ) continue;
+            $item->options = !empty($item->options)
+                ? \Func::getEnumOptions( $item->options )
+                : \Func::getOptionsRelation( $item->name, $table_name );
+        }
+        return $result;
+    }
+
+    public static function getOptionsRelation( $column, $table ) {
+        $class = "App\Models\\" . ucfirst( str_replace('Id', '', $column) );
+        $elements = $class::get();
+        $arrayOptions = [];
+        foreach( $elements as $element ) {
+            $key = config('nodes.' . $table . '.'. $column . '.key');
+            $arrayOptions[] = [ 'key' => $element->id, 'value' => $element->$key];
+        }
+        return $arrayOptions;
+    }
+
+    public static function getEnumOptions( $options ) {
+        $options = explode(',', $options);
+        $arrayOptions = [];
+        foreach( $options as $option ) $arrayOptions[] = [ 'key' => $option, 'value' => __('diesel.subjects.' . $option)];
+        return $arrayOptions;
     }
 
     public static function getColumnsWithTimestamps( $table_name, $lang ) {
@@ -119,6 +144,12 @@ class Func {
             'comment' => __('diesel.created_at_to'),
             'options' => '',
         ];
+        foreach( $result as $item ) {
+            if( empty($item->options) && substr($item->name, -2) != 'Id' ) continue;
+            $item->options = !empty($item->options)
+                ? \Func::getEnumOptions( $item->options )
+                : \Func::getOptionsRelation( $item->name, $table_name );
+        }
         return $result;
     }
 

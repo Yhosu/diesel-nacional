@@ -37,10 +37,13 @@ class FormCrud extends Component
                 $this->form['id'] = $this->id;
             }
 
-            // $result = app('App\Http\Controllers\ProcessController')->postNodeAction($this->node_name, $this->action, $this->form);
             $result = app('App\Http\Controllers\ProcessController')->postNodeAction($this->form);
             if ($result['status']) {
                 session()->flash('message_success', $result['message']);
+                if (isset($result['item']) && $result['item']) {
+                    $this->item = $result['item'];
+                    $this->updateForm();
+                }
             } else {
                 if (isset($result['errors']) && is_array($result['errors']) && !empty($result['errors'])) {
                     $this->dispatch('alertErrors', $result);
@@ -51,7 +54,7 @@ class FormCrud extends Component
         }
     }
 
-    public function render()
+    public function updateForm()
     {
         $fields = $this->fields;
         foreach ($fields ?? [] as $field) {
@@ -62,9 +65,16 @@ class FormCrud extends Component
             }
         }
 
+        $this->fields = $fields;
+    }
+
+    public function render()
+    {
+        $this->updateForm();
+
         return view('livewire.components.crud-admin.form-crud', [
             'title'   => $this->title,
-            'fields'  => $fields,
+            'fields'  => $this->fields,
             'item'    => $this->item,
             'message' => $this->message,
             'id'      => $this->id,

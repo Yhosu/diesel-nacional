@@ -57,7 +57,7 @@
                         <i class="ficon" data-feather="moon"></i>
                     </a>
                 </li>
-                <li class="nav-item dropdown dropdown-notification me-25">
+                {{-- <li class="nav-item dropdown dropdown-notification me-25">
                     <a class="nav-link" href="#" data-bs-toggle="dropdown">
                         <i class="ficon" data-feather="bell"></i>
                         <span class="badge rounded-pill bg-danger badge-up">5</span>
@@ -121,7 +121,7 @@
                             <a class="btn btn-primary w-100" href="#">Todas las notificaciones</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown dropdown-user">
                     @if (auth()->check())
                         <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

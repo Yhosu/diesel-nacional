@@ -1,26 +1,27 @@
 <div class="d-block">
-    @if (session()->has('crud_success'))
+    @if (session()->has('message_success'))
         <x-cy-alert type="success">
-            {{ session('crud_success') }}
+            {{ session('message_success') }}
         </x-cy-alert>
-    @elseif(session()->has('crud_error'))
+    @elseif(session()->has('message_error'))
         <x-cy-alert type="error">
-            {{ session('crud_error') }}
+            {{ session('message_error') }}
         </x-cy-alert>
     @endif
     
     <form method="POST" class="row gy-1" wire:submit.prevent="submit">
-        @foreach ($fields as $field)
+        @foreach ($fields as $key => $field)
             <x-capyei.field
-                label="{{ $field->label }}"
+                label="{{ $field->comment }}"
                 type="{{ $field->type }}"
                 name="{{ $field->name }}"
                 propertyField='wire:model.defer="form.{{ $field->name }}"'
-                id="{{ $field->name.'-'.$field->id.'-'.$field->id }}"
-                placeholder="{{ $field->placeholder }}"
-                required="{{ $field->required }}"
+                id="{{ $field->name.'-'.$key }}"
+                placeholder="{{ $field->placeholder ?? '' }}"
+                required="{{ $field->required ?? false }}"
                 :errors="$errors->get(''.$field->name.'')"
-                class="col-12 col-md-{{ $field->col }}"
+                {{-- :value="$item[$field->name]" --}}
+                class="col-12 col-md-6"
             />
         @endforeach
     

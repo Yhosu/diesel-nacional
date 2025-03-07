@@ -31,20 +31,23 @@
                     <b>{{ $label }} @if($subtext) {!! $subtext !!} @endif</b>
                 </label>
             @endif
-            @if (isset($slot))
+            {{-- @if (isset($slot))
                 {{ $slot }}
-            @else
+            @else --}}
                 <select name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} class="{{ $classField }} form-control" {{ $multiple ? 'multiple="multiple"' : '' }}
                     {!! $propertyField !!}
                 >
                     @if ($placeholder)
                         <option value="" disabled>{{ $placeholder }}</option>
                     @endif
-                    @foreach ($options as $value_option => $text)
+                    {{-- @foreach ($options as $value_option => $text)
                         <option {{ $value == $value_option ? 'selected' : '' }} value="{{ $value_option }}">{{ $text }}</option>
+                    @endforeach --}}
+                    @foreach ($options as $option)
+                        <option {{ $value == $option->key ? 'selected' : '' }} value="{{ $option->key }}">{{ $option->value }}</option>
                     @endforeach
                 </select>
-            @endif
+            {{-- @endif --}}
         @elseif($type == 'checkbox' || $type == 'radio')
             <div class="form-check">
                 <div class="{{ $type }}__field">
@@ -113,6 +116,22 @@
                 >
                 <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
             </div>
+        @elseif($type === 'boolean')
+            @if($hasLabel)
+                <label for="{{ $customId ? ('field__custom-'.$id) : $id }}" class="form-label"
+                    {!! $propertyLabel !!}>
+                    <b>{{ $label }} @if($subtext) {!! $subtext !!} @endif</b>
+                </label>
+            @endif
+            <select name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} class="{{ $classField }} form-control"
+                {!! $propertyField !!}
+            >
+                @if ($placeholder)
+                    <option value="" disabled>{{ $placeholder }}</option>
+                @endif
+                <option {{ $value == '0' ? 'selected' : '' }} value="0">No</option>
+                <option {{ $value == '1' ? 'selected' : '' }} value="1">Si</option>
+            </select>
         @else
             @if($hasLabel)
                 <label for="{{ $customId ? ('field__custom-'.$id) : $id }}" class="form-label"

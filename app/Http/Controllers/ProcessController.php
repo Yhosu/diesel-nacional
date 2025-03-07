@@ -23,15 +23,24 @@ class ProcessController extends Controller
         return redirect($this->prev)->with('message_success', __('diesel.form_success'));
     }
 
-    public function postNodeAction( Request $request ) {
-        $action = $request->action;
-        $node = $request->node;
+    public function postNodeAction( $request ) {
+        $action = $request['action'];
+        \Log::info($request);
+        $node = $request['node'];
         if( !in_array( $action, ['create', 'edit'] ) ) return redirect($this->prev);
         $className = \Func::getModel( $node );
-        $validator = \Validator::make( $request->all(), $rules );
+        $validator = \Validator::make( $request, $rules );
         $rules     = (new $className)::${'rules_'.$action};
         $redirect  = '';
-        if ( $validator->fails() ) return redirect($this->prev)->with('message_error', __('diesel.empty_parameters'))->withErrors($validator)->withInput();
+        if ($validator->fails()) {
+            $errors = $validator->errors()->all();
+            return [
+                'status'  => false,
+                'message' => __('diesel.empty_parameters'),
+                'errors'  => $errors,
+            ];
+        }
+        // if ( $validator->fails() ) return redirect($this->prev)->with('message_error', __('diesel.empty_parameters'))->withErrors($validator)->withInput();
         $message = '';
         if ($action == 'create') {
             $item = new $className;
@@ -40,20 +49,26 @@ class ProcessController extends Controller
             $message = __('diesel.item_created');
             $redirect = url(sprintf('node/%s/edit/%s', $node, $item->id));
         } elseif ($action == 'edit') {
-            $item = $model::find($request->id);
+            $item = $model::find($request['id']);
             $message = __('diesel.item_edited');
             $redirect = url(sprintf('node/%s/edit/%s', $node, $item->id));
         }
-        $params = $request->all();
+        $params = $request;
         unset($params['id']);
         foreach ($params as $key => $value) {
-            if( \Str::contains( $request->payment_method, 'image' ) && !empty( $request->hasFile($key) ) &&  \Func::validateImageUrl( $value, $node . '-' . $key, $value, $item->$key ) ) {
-                $item->$key = \Asset::upload_image($request->file($key), $node . '-' . $key);
+            if( \Str::contains( $request['payment_method'], 'image' ) && !empty( $request[$key] ) &&  \Func::validateImageUrl( $value, $node . '-' . $key, $value, $item->$key ) ) {
+                $item->$key = \Asset::upload_image($request[$key], $node . '-' . $key);
             } else {
                 $item->$key = $value;
             }
         }
         $item->save();
-        return redirect($redirect)->with('message_success', __('diesel.action_successfully'));
+        return [
+            'status'  => true,
+            'action'  => $action,
+            'message' => __('diesel.action_successfully'),
+            'item'    => $item
+        ];
+        // return redirect($redirect)->with('message_success', __('diesel.action_successfully'));
     }
 }

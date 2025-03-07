@@ -144,6 +144,7 @@ class MainController extends Controller
 		$redirect = $evalItem['redirect'] ?? false;
 		if( $redirect ) return redirect( 'admin/node-list/' . $node )->with('message_success', $evalItem['message']);
 		// vardump( $result );
+		// die();
 		return view('livewire.pages.admin.form-crud', $result);
 	}
 }

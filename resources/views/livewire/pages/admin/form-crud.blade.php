@@ -11,11 +11,25 @@
             <h4 class="card-title">{{ __(''.$action.'') }} {{ $title }}</h4>
         </div>
         <div class="card-body">
-            <livewire:components.crud-admin.form-crud 
-                :node_name="$node"
+            {{-- <livewire:components.crud-admin.form-crud 
+                :title="$title"
+                :fields="$fields"
+                :item="$item"
+                :message="$message"
+                :id="$id"
                 :action="$action"
-                :id="$id ?? null"
-            />
+                :node="$node"
+            /> --}}
+
+            @livewire('components.crud-admin.form-crud', [
+                'title'   => $title,
+                'fields'  => $fields,
+                'item'    => $item,
+                'message' => $message,
+                'id'      => $id,
+                'action'  => $action,
+                'node'    => $node,
+            ])
         </div>
     </div>
 

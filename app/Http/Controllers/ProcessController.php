@@ -30,6 +30,7 @@ class ProcessController extends Controller
         if( !in_array( $action, ['create', 'edit'] ) ) return redirect($this->prev);
         $className = \Func::getModel( $node );
         $rules     = (new $className)::${'rules_'.$action};
+        $validator = \Validator::make( $request, $rules );
         $redirect  = '';
         $validator = \Validator::make( $request, $rules );
         if ($validator->fails()) {

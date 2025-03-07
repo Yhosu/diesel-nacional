@@ -4,6 +4,11 @@
             <h4 class="card-title">{{ $title }}</h4>
         </div>
         <div class="d-block">
+            @livewire('components.crud-admin.table-form-crud', [
+                'fields'  => $fields,
+                'item'    => $filters,
+                'node'    => $node_name,
+            ])
             @if ($items)
                 <div class="table-responsive">
                     <table class="table">

@@ -122,6 +122,7 @@ class MainController extends Controller
 			'node_name'	=> $node,
 		];
 		// vardump($result);
+		// die();
 		return view('livewire.pages.admin.table-crud', $result);
 	}
 

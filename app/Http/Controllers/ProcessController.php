@@ -25,7 +25,6 @@ class ProcessController extends Controller
 
     public function postNodeAction( $request ) {
         $action = $request['action'];
-        \Log::info($request);
         $node = $request['node'];
         if( !in_array( $action, ['create', 'edit'] ) ) return redirect($this->prev);
         $className = \Func::getModel( $node );
@@ -57,11 +56,9 @@ class ProcessController extends Controller
         $params = $request;
         unset($params['id'],$params['node'],$params['action']);
         foreach ($params as $key => $value) {
-            if( \Str::contains( $key, 'image' ) && !empty( $request->$key ) &&  \Func::validateImageUrl( $value, $node . '-' . $key, $value, $item->$key ) ) {
-                $item->$key = \Asset::upload_image($request->$key, $node . '-' . $key);
-            } else {
-                $item->$key = $value;
-            }
+            $item->$key = \Str::contains( $key, 'image' ) && !empty( $request->$key ) &&  \Func::validateImageUrl( $value, $node . '-' . $key, $value, $item->$key ) 
+                ? \Asset::upload_image($request->$key, $node . '-' . $key)
+                : $item->$key = $value;
         }
         $item->save();
         return [

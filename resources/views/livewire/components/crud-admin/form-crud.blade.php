@@ -19,7 +19,7 @@
                 propertyField='wire:model.defer="form.{{ $field->name }}"'
                 id="{{ $field->name.'-'.$key }}"
                 placeholder="{{ $field->placeholder ?? '' }}"
-                options="{{json_encode( $field->options )}}"
+                :options="$field->options"
                 required="{{ $field->required ?? false }}"
                 :errors="$errors->get(''.$field->name.'')"
                 class="col-12 {{ $field->type == 'froala' ? 'col-md-12' : 'col-md-6'}}"

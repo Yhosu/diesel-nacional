@@ -47,10 +47,10 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-flag">
                         <a class="dropdown-item {{ \App::getLocale() == 'en' ? 'active' : '' }}" href="{{ route('language', ['lang' => 'en']) }}" data-language="en">
-                            <i class="flag-icon flag-icon-us"></i> {{ __('english') }}
+                            <i class="flag-icon flag-icon-us"></i> {{ __('diesel.english') }}
                         </a>
                         <a class="dropdown-item {{ \App::getLocale() == 'es' ? 'active' : '' }}" href="{{ route('language', ['lang' => 'es']) }}" data-language="es">
-                            <i class="flag-icon flag-icon-es"></i> {{ __('spanish') }}
+                            <i class="flag-icon flag-icon-es"></i> {{ __('diesel.spanish') }}
                         </a>
                     </div>
                 </li>
@@ -137,9 +137,6 @@
                             </span>
                         </a>
                         <form id="logout-form" action="{{ url('process/auth/logout') }}" method="POST" class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-                            <a class="dropdown-item {{ request()->is('admin/account') ? 'active' : '' }}" href="{{ url('admin/account') }}">
-                                <i class="me-50" data-feather="user"></i> Mi cuenta
-                            </a>
                             @csrf
                             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">
                                 <i class="me-50" data-feather="power"></i> Cerrar sesión

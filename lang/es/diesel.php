@@ -72,5 +72,8 @@ return [
         'create' => 'Crear',
         'read' => 'Ver',
         'delete' => 'Eliminar',
-    ]
+    ],
+    'filters' => 'Filtros',
+    'spanish' => 'Español',
+    'english' => 'Inglés',
 ];

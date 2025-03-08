@@ -28,7 +28,7 @@
     
         @if ($action !== 'read')
             <div class="col-12">
-                <button type="submit" class="btn btn-primary waves-effect waves-float waves-light">{{ __(''.$action.'') }}</button>
+                <button type="submit" class="btn btn-primary waves-effect waves-float waves-light">{{ __('diesel.actions.'.$action.'') }}</button>
             </div>
         @endif
     </form>

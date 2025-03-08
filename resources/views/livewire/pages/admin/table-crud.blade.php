@@ -9,7 +9,7 @@
                 'node'    => $node_name,
             ]) --}}
             <div class="card-body">
-                <h5 class="card-subtitle mb-1">{{ __('filters') }}</h5>
+                <h5 class="card-subtitle mb-1">{{ __('diesel.filters') }}</h5>
                 <form method="GET" class="row gy-1" action="">
                     @foreach ($filters as $key => $field)
                         <x-capyei.field

@@ -321,7 +321,7 @@
 
     <!-- whatsapp-->
     <div class="whatsapp__btn-content">
-        <a href="https://api.whatsapp.com/send?phone=59177777777&text=Hola..." target="_blank" class="whatsapp__btn">
+        <a href="https://api.whatsapp.com/send?phone=59169002412&text=Hola que tal..." target="_blank" class="whatsapp__btn">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>

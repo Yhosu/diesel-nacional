@@ -35,3 +35,15 @@
 		}
 	}
 }
+.content__image {
+	width: 400px;
+	max-width: 100%;
+	display: block;
+	img {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1 / 1;
+		object-fit: scale-down;
+		object-position: center;
+	}
+}

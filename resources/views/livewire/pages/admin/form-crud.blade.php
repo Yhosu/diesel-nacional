@@ -70,17 +70,5 @@
                 });
             });
         </script>
-
-        {{-- <script>
-            let editor = new FroalaEditor(".froala-textarea", {
-                events: { 
-                    'contentChanged': function () { 
-                        @this.set('description', this.html.get());
-                    }, 
-                } 
-            }, function(){
-                editor.html.set($('.froala-textarea').attr('value'));
-            });
-        </script> --}}
     @endpush
 </x-admin-layout>

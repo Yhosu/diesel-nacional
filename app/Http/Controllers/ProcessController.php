@@ -33,11 +33,17 @@ class ProcessController extends Controller
         $redirect  = '';
         if ($validator->fails()) {
             $errors = $validator->errors()->all();
-            return [
-                'status'  => false,
-                'message' => __('diesel.empty_parameters'),
-                'errors'  => $errors,
-            ];
+            // return [
+            //     'status'  => false,
+            //     'message' => __('diesel.empty_parameters'),
+            //     'errors'  => $errors,
+            // ];
+
+            // if (isset($errors) && is_array($errors) && !empty($errors)) {
+            //     // $this->dispatch('alertErrors', [$errors]);
+            // } else {
+                session()->flash('message_error', (__('diesel.empty_parameters') ?? trans('responses.error.default')));
+            // }
         }
         // if ( $validator->fails() ) return redirect($this->prev)->with('message_error', __('diesel.empty_parameters'))->withErrors($validator)->withInput();
         $message = '';
@@ -63,12 +69,12 @@ class ProcessController extends Controller
                 : $item->$key = $value;
         }
         $item->save();
-        return [
-            'status'  => true,
-            'action'  => $action,
-            'message' => __('diesel.action_successfully'),
-            'item'    => $item
-        ];
-        // return redirect($redirect)->with('message_success', __('diesel.action_successfully'));
+        // return [
+        //     'status'  => true,
+        //     'action'  => $action,
+        //     'message' => __('diesel.action_successfully'),
+        //     'item'    => $item
+        // ];
+        return redirect($redirect)->with('message_success', __('diesel.action_successfully'));
     }
 }

@@ -45,7 +45,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
 
     /* LISTADOS Y CRUDS */
     Route::get('/node-list/{node}/{paginate?}/{excel?}',    [MainController::class,    'getNodeList']);
-    Route::get('/node/{node}/{action}',                     [MainController::class,    'getNodeAction'])->where('action', 'create')->name('form-crud');
+    Route::get('/node/{node}/{action}',                     [MainController::class,    'getNodeAction'])->where('action', 'create')->name('form-create');
     Route::get('/node/{node}/{action}/{id}',                [MainController::class,    'getNodeAction'])->where('action', 'read|edit|delete')->name('form-crud');
     Route::post('/node/{node}',                             [ProcessController::class, 'postNodeAction']);
 });

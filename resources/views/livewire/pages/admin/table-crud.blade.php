@@ -1,7 +1,16 @@
 <x-admin-layout>
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">{{ $title }}</h4>
+            {{-- <div class="row">
+                <div class="col-md-6"> --}}
+                    <h4 class="card-title">{{ $title }}</h4>
+                {{-- </div>
+                <div class="col-md-6"> --}}
+                    <a href="{{ route('form-create', ['node' => $node_name, 'action' => 'create']) }}" class="btn btn-icon btn-primary waves-effect waves-float waves-light">
+                        <x-cy-icon-feather icon="plus" /> Crear
+                    </a>
+                {{-- </div>
+            </div> --}}
         </div>
         <div class="d-block">
             {{-- @livewire('components.crud-admin.table-form-crud', [

@@ -136,12 +136,9 @@
                                 <span class="avatar-status-online"></span>
                             </span>
                         </a>
-                        <form id="logout-form" action="{{ url('process/auth/logout') }}" method="POST" class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-                            @csrf
-                            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">
-                                <i class="me-50" data-feather="power"></i> Cerrar sesión
-                            </a>
-                        </form>
+                        <a href="{{ url('logout') }}" class="dropdown-item">
+                            <i class="me-50" data-feather="power"></i> Cerrar sesión
+                        </a>
                     @else
                         <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="user-nav d-sm-flex d-none">

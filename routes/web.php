@@ -24,7 +24,7 @@ Route::get('/about-us',                              [MainController::class, 'sh
 Route::get('/contact',                               [MainController::class, 'showContact']);
 Route::get('/blog',                                  [MainController::class, 'showBlog']);
 Route::post('/post-contact-form',                    [ProcessController::class, 'postContactForm'])->name('contact-form');
-Route::get('/process/auth/logout',                   [MainController::class, 'findLogout']);
+Route::get('/logout',                                [MainController::class, 'findLogout']);
 Route::get('/change-locale/{lang}',                  [MainController::class, 'changeLocale'])->name('language');
 Route::get('/dashboard',                             [MainController::class, 'findDashboard'])->name('dashboard');
 Route::get('/test-nodes/{id?}',                      [MainController::class, 'findTestNodes']);

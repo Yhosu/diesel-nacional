@@ -136,9 +136,11 @@
                                 <span class="avatar-status-online"></span>
                             </span>
                         </a>
-                        <a href="{{ url('logout') }}" class="dropdown-item">
-                            <i class="me-50" data-feather="power"></i> Cerrar sesión
-                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
+                            <a href="{{ url('logout') }}" class="dropdown-item">
+                                <i class="me-50" data-feather="power"></i> Cerrar sesión
+                            </a>
+                        </div>
                     @else
                         <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="user-nav d-sm-flex d-none">

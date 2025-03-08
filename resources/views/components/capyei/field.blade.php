@@ -148,7 +148,7 @@
                 <option {{ $value == '0' ? 'selected' : '' }} value="0">No</option>
                 <option {{ $value == '1' ? 'selected' : '' }} value="1">Si</option>
             </select>
-        @elseif($type === 'image')
+        @elseif($type === 'image' || $type === 'video' || $type === 'file')
             @if($hasLabel)
                 <label for="{{ $customId ? ('field__custom-'.$id) : $id }}" class="form-label"
                     {!! $propertyLabel !!}>

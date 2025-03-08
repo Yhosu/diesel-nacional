@@ -23,15 +23,14 @@ class ProcessController extends Controller
         return redirect($this->prev)->with('message_success', __('diesel.form_success'));
     }
 
-    public function postNodeAction( $request ) {
-        $action = $request['action'];
-        $node = $request['node'];
+    public function postNodeAction( Request $request ) {
+        $action = $request->action;
+        $node = $request->node;
         if( !in_array( $action, ['create', 'edit'] ) ) return redirect($this->prev);
         $className = \Func::getModel( $node );
         $rules     = (new $className)::${'rules_'.$action};
-        $validator = \Validator::make( $request, $rules );
+        $validator = \Validator::make( $request->all(), $rules );
         $redirect  = '';
-        $validator = \Validator::make( $request, $rules );
         if ($validator->fails()) {
             $errors = $validator->errors()->all();
             return [
@@ -49,15 +48,18 @@ class ProcessController extends Controller
             $message = __('diesel.item_created');
             $redirect = url(sprintf('node/%s/edit/%s', $node, $item->id));
         } elseif ($action == 'edit') {
-            $item = $className::find($request['id']);
+            $item = $className::find($request->id);
             $message = __('diesel.item_edited');
             $redirect = url(sprintf('node/%s/edit/%s', $node, $item->id));
         }
-        $params = $request;
+        $params = $request->all();
         unset($params['id'],$params['node'],$params['action']);
         foreach ($params as $key => $value) {
-            $item->$key = \Str::contains( $key, 'image' ) && !empty( $request->$key ) &&  \Func::validateImageUrl( $value, $node . '-' . $key, $value, $item->$key ) 
-                ? \Asset::upload_image($request->$key, $node . '-' . $key)
+            if($request->hasFile($key)) {
+                \Log::info($request->name);
+            }
+            $item->$key = \Str::contains( $key, 'image' ) && !empty( $request->hasFile($key) ) &&  \Func::validateImageUrl( $value, $node . '-' . $key, $value, $item->$key ) 
+                ? \Asset::upload_image($request->file($key), $node . '-' . $key)
                 : $item->$key = $value;
         }
         $item->save();

@@ -4,10 +4,12 @@ namespace App\Livewire\Components\CrudAdmin;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Http\Request;
 
 class FormCrud extends Component
 {
     use WithFileUploads;
+
     public $title;
     public $fields = [];
     public $item;
@@ -32,6 +34,8 @@ class FormCrud extends Component
 
     public function submit()
     {
+        \Log::info('Form data 1:', $this->form);
+        
         if ($this->action !== 'read') {
             $this->form['node'] = $this->node;
             $this->form['action'] = $this->action;
@@ -40,7 +44,10 @@ class FormCrud extends Component
                 $this->form['id'] = $this->id;
             }
             if( isset( $this->form['description'] ) && $this->description ) $this->form['description'] = $this->description;
-            $result = app('App\Http\Controllers\ProcessController')->postNodeAction($this->form);
+
+            $request = new Request($this->form);
+
+            $result = app('App\Http\Controllers\ProcessController')->postNodeAction($request);
             if ($result['status']) {
                 session()->flash('message_success', $result['message']);
                 if (isset($result['item']) && $result['item']) {
@@ -61,10 +68,12 @@ class FormCrud extends Component
     {
         $fields = $this->fields;
         foreach ($fields ?? [] as $field) {
-            if ($field->type !== 'password') {
+            if ($field->type !== 'password' && $field->type !== 'image' && $field->type !== 'video' && $field->type !== 'file') {
                 $this->form[$field->name] = $this->item[$field->name] ?? null;
             } else {
-                $this->form[$field->name] = null;
+                if (!isset($this->form[$field->name])) {
+                    $this->form[$field->name] = null;
+                }
             }
         }
 
@@ -74,7 +83,6 @@ class FormCrud extends Component
     public function render()
     {
         $this->updateForm();
-
         return view('livewire.components.crud-admin.form-crud', [
             'title'   => $this->title,
             'fields'  => $this->fields,

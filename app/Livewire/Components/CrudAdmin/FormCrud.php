@@ -3,9 +3,11 @@
 namespace App\Livewire\Components\CrudAdmin;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class FormCrud extends Component
 {
+    use WithFileUploads;
     public $title;
     public $fields = [];
     public $item;
@@ -13,6 +15,7 @@ class FormCrud extends Component
     public $id;
     public $action;
     public $node;
+    public $description;
 
     public $form = [];
 
@@ -36,7 +39,7 @@ class FormCrud extends Component
             if ($this->id) {
                 $this->form['id'] = $this->id;
             }
-
+            if( isset( $this->form['description'] ) && $this->description ) $this->form['description'] = $this->description;
             $result = app('App\Http\Controllers\ProcessController')->postNodeAction($this->form);
             if ($result['status']) {
                 session()->flash('message_success', $result['message']);

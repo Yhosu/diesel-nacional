@@ -13,6 +13,7 @@ class Characteristic extends Model {
 	public $translatable = ['title', 'subtitle', 'detail'];
 	protected $es = 'Características';
 	protected $en = 'Characteristics';
+	public $casts = ['id'=>'string'];
 	public $timestamps = true;
 	protected $fillable = [
 		'order',

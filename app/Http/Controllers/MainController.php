@@ -98,9 +98,9 @@ class MainController extends Controller
         $filters   = $request->all();
         foreach( $filters as $key => $value ) {
             $key = str_replace('_from', '', $key);
-            if( !\Schema::hasColumn($table_name, trim( strtolower( $key ) ) ) ) continue;
+            if( !\Schema::hasColumn($table, trim( strtolower( $key ) ) ) ) continue;
             if( empty( $value ) ) continue;
-            $type = getTypeField($table_name, $key);
+            $type = getTypeField($table, $key);
             $items = $items->when( in_array( $type, ['int', 'bigint', 'tinyint', 'enum']), function( $q ) use( $key, $value ) {
                     return $q->where( $key, $value );
                 })->when( in_array($type, ['text', 'string', 'varchar'] ), function( $q ) use( $key, $value ) {
@@ -121,8 +121,6 @@ class MainController extends Controller
 			'items'   	=> $items,
 			'node_name'	=> $node,
 		];
-		// vardump($result);
-		// die();
 		return view('livewire.pages.admin.table-crud', $result);
 	}
 
@@ -153,8 +151,6 @@ class MainController extends Controller
 		];
 		$redirect = $evalItem['redirect'] ?? false;
 		if( $redirect ) return redirect( 'admin/node-list/' . $node )->with('message_success', $evalItem['message']);
-		// vardump( $result );
-		// die();
 		return view('livewire.pages.admin.form-crud', $result);
 	}
 }

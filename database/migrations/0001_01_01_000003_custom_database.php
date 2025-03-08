@@ -50,7 +50,7 @@ return new class extends Migration
         Schema::create('abouts', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->integer('number')->nullable()->comment('Número|Number');
-            $table->text('title')->nullable()->comment('Titúlo|Title');
+            $table->text('title')->nullable()->comment('Título|Title');
             $table->text('description')->nullable()->comment('Descripción|Description');
             $table->string('image_1')->nullable()->comment('Imagen Frontal|Frontal image');
             $table->string('image_2')->nullable()->comment('Imagen trasera|Back image');

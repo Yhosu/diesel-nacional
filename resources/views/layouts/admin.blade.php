@@ -11,6 +11,8 @@
     <title>Administrador | @yield('title', config('app.name'))</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
 
     @include('templates.admin.styles')
     
@@ -253,6 +255,10 @@
             }
             return data;
         }
+
+        // let editor = new FroalaEditor(".froala-textarea", {}, function(){
+        //     editor.html.set($('.froala-textarea').attr('value'));
+        // });
     </script>
 
     @stack('scripts')

@@ -42,7 +42,7 @@ class Func {
                     else `column_type`
                 end as type,
                 SUBSTRING_INDEX(`column_comment`, '|', '$langCode')  as comment,
-                CASE when LOCATE('{$enum}', `column_type`) > 0 then REPLACE( REPLACE( REPLACE(`column_type`, 'enum(', ''), ')', '' ), '\'', '' ) else '' end as options
+                CASE when LOCATE('{$enum}', `column_type`) > 0 then REPLACE( REPLACE( REPLACE(`column_type`, 'enum(', ''), ')', '' ), '\'', '' ) else '{}' end as options
             from 
                 `information_schema`.`COLUMNS`
             where 
@@ -50,10 +50,13 @@ class Func {
             "
         );
         foreach( $result as $item ) {
-            if( empty($item->options) && substr($item->name, -2) != 'Id' ) continue;
-            $item->options = !empty($item->options)
-                ? \Func::getEnumOptions( $item->options )
-                : \Func::getOptionsRelation( $item->name, $table_name );
+            if( $item->options == '{}' && substr($item->name, -2) != 'Id' ) {
+                $item->options = [];
+                continue;
+            }
+            $item->options = substr($item->name, -2) == 'Id'
+                ? \Func::getOptionsRelation( $item->name, $table_name )
+                : \Func::getEnumOptions( $item->options );
         }
         return $result;
     }
@@ -125,30 +128,45 @@ class Func {
                     else `column_type`
                 end as type,
                 SUBSTRING_INDEX(`column_comment`, '|', '$langCode')  as comment,
-                CASE when LOCATE('{$enum}', `column_type`) > 0 then REPLACE( REPLACE( REPLACE(`column_type`, 'enum(', ''), ')', '' ), '\'', '' ) else '' end as options
+                CASE when LOCATE('{$enum}', `column_type`) > 0 then REPLACE( REPLACE( REPLACE(`column_type`, 'enum(', ''), ')', '' ), '\'', '' ) else '{}' end as options
             from 
                 `information_schema`.`COLUMNS`
             where 
-                `table_name` = '$table_name' and `column_name` not in ('created_at', 'updated_at', 'id') and `table_schema` = '$database'
+                `table_name` = '$table_name' 
+                    and 
+                `column_name` not in ('created_at', 'updated_at', 'id') 
+                    and 
+                `table_schema` = '$database' 
+                    and 
+                LOCATE('detail', `column_name`) = 0 
+                    and 
+                LOCATE('description', `column_name`) = 0
+                    and 
+                LOCATE('image', `column_name`) = 0
+                    and 
+                LOCATE('int(', `column_type`) = 0
             "
         );
         $result[] = (object)[
             'name'    => 'created_at_from',
             'type'    => 'date',
             'comment' => __('diesel.created_at_from'),
-            'options' => '',
+            'options' => '{}',
         ];
         $result[] = (object)[
             'name'    => 'created_at_to',
             'type'    => 'date',
             'comment' => __('diesel.created_at_to'),
-            'options' => '',
+            'options' => '{}',
         ];
         foreach( $result as $item ) {
-            if( empty($item->options) && substr($item->name, -2) != 'Id' ) continue;
-            $item->options = !empty($item->options)
-                ? \Func::getEnumOptions( $item->options )
-                : \Func::getOptionsRelation( $item->name, $table_name );
+            if( $item->options == '{}' && substr($item->name, -2) != 'Id' ) {
+                $item->options = [];
+                continue;
+            }
+            $item->options = substr($item->name, -2) == 'Id'
+                ? \Func::getOptionsRelation( $item->name, $table_name )
+                : \Func::getEnumOptions( $item->options );
         }
         return $result;
     }

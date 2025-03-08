@@ -5,7 +5,6 @@
     'id',
     'customId'      => false,
     'label'         => '',
-    'options'       => [],
     'value'         => null,
     'disabled'      => false,
     'required'      => false,
@@ -21,7 +20,10 @@
     'classField'    => '',
     'min'           => null,
     'max'           => null,
+    'description',
+    'options'
 ])
+
 <div {{ $attributes->merge(['class' => "content__field " . ($fill ? 'fill' : '') . ""]) }}>
     <div class="d-block" {!! $property !!}>
         @if ($type == 'select')
@@ -43,8 +45,9 @@
                     {{-- @foreach ($options as $value_option => $text)
                         <option {{ $value == $value_option ? 'selected' : '' }} value="{{ $value_option }}">{{ $text }}</option>
                     @endforeach --}}
+                    <option value="">--Seleccione una opción--</option>
                     @foreach ($options as $option)
-                        <option {{ $value == $option->key ? 'selected' : '' }} value="{{ $option->key }}">{{ $option->value }}</option>
+                        <option {{ $value == $option['key'] || $option['key'] == request()->$name ?  'selected' : '' }} value="{{ $option['key'] }}">{{ $option['value'] }}</option>
                     @endforeach
                 </select>
             {{-- @endif --}}
@@ -91,6 +94,19 @@
                 >{{ $value ?? '' }}</textarea>
                 <span></span>
             </div>
+        @elseif($type == 'froala')
+            @if($hasLabel)
+                <label for="{{ $customId ? ('field__custom-'.$id) : $id }}" class="form-label"
+                    {!! $propertyLabel !!}>
+                    <b>{{ $label }} @if($subtext) {!! $subtext !!} @endif</b>
+                </label>
+            @endif
+            <div class="{{ $type }}__field" wire:ignore>
+                <textarea name="{{ $name }}" value="{!! $description ?? '' !!}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" class="{{ $classField }} form-control froala-textarea" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} rows="3"
+                    {!! $propertyField !!}
+                >{{ $value ?? '' }}</textarea>
+                <span></span>
+            </div>            
         @elseif($type == 'date')
             @if($hasLabel)
                 <label for="{{ $customId ? ('field__custom-'.$id) : $id }}" class="form-label"
@@ -99,7 +115,7 @@
                 </label>
             @endif
             <div class="d-block" wire:ignore>
-                <input placeholder="{{ $placeholder }}" type="text" value="{{ $value ?? '' }}" name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" class="{{ $classField }} flatpickr-basic form-control" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} {{ $min ? 'min='.$min : '' }} {{ $max ? 'max='.$max : '' }}
+                <input placeholder="{{ $placeholder }}" type="date" value="{{ $value ?? request()->$name ?? '' }}" name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" class="{{ $classField }} flatpickr-basic form-control" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} {{ $min ? 'min='.$min : '' }} {{ $max ? 'max='.$max : '' }}
                     {!! $propertyField !!}
                 >
             </div>
@@ -149,7 +165,7 @@
                     <b>{{ $label }} @if($subtext) {!! $subtext !!} @endif</b>
                 </label>
             @endif
-            <input placeholder="{{ $placeholder }}" type="{{ $type }}" value="{{ $value ?? '' }}" name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" class="{{ $classField }} form-control" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} {{ $min ? 'min='.$min : '' }} {{ $max ? 'max='.$max : '' }}
+            <input placeholder="{{ $placeholder }}" type="{{ $type }}" value="{{ $value ?? request()->$name ?? '' }}" name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" class="{{ $classField }} form-control" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} {{ $min ? 'min='.$min : '' }} {{ $max ? 'max='.$max : '' }}
                 {!! $propertyField !!}
             >
         @endif

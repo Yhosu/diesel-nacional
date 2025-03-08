@@ -66,5 +66,11 @@ return [
     'item_eliminated' => 'Item eliminado exitósamente.',
     'item_found' => 'Item obtenido exitósamente.',
     'empty_parameters' => 'Debe completar todos los campos requeridos',
-    'action_successfully' => 'Acción realizada con éxito.'
+    'action_successfully' => 'Acción realizada con éxito.',
+    'actions' => [
+        'edit' => 'Editar',
+        'create' => 'Crear',
+        'read' => 'Ver',
+        'delete' => 'Eliminar',
+    ]
 ];

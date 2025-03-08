@@ -13,6 +13,7 @@ class Information extends Model {
     protected $en = 'Information';
     protected $es = 'Información';
 	protected $table  = 'informations';
+    public $casts = ['id'=>'string'];
     protected $fillable = [
         'title',
         'subtitle'

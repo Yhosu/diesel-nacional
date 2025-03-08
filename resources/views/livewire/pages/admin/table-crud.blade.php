@@ -19,8 +19,9 @@
                             id="{{ $field->name.'-'.$key }}"
                             placeholder="{{ $field->placeholder ?? '' }}"
                             required="{{ $field->required ?? false }}"
+                            :options="$field->options"
                             :errors="$errors->get(''.$field->name.'')"
-                            class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2"
+                            class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"
                         />
                     @endforeach
                 
@@ -46,7 +47,7 @@
                             @foreach ($items as $item)
                                 <tr>
                                     @foreach ($fields as $head)
-                                        <td>{{ $item[$head->name] }}</td>
+                                        <td style="overflow: hidden; max-width: 120ch; white-space: nowrap;">{{ $item[$head->name] }}</td>
                                     @endforeach
                                     <td style="min-width: 150px">
                                         <div wire:ignore class="d-block">

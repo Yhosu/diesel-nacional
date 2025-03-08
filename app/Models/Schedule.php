@@ -13,6 +13,7 @@ class Schedule extends Model {
 	protected $es = 'Horario';
 	protected $en = 'Schedule';
 	public $translatable = ['title'];
+	protected $casts = ['id'=>'string'];
 	public $timestamps = true;
 	protected $fillable = [
 		'title',

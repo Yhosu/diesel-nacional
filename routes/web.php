@@ -15,7 +15,7 @@ Route::get('/', function() {
 });
 
 Route::get('/test-queries', function () {
-    vardump( \Func::getFilters( 'menu_items', 'es') );
+    vardump( \Func::getFilters( 'categories', 'es') );
 });
 
 Route::get('/home',                                  [MainController::class, 'showHome'])->name('home');

@@ -8,7 +8,7 @@
 
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">{{ __(''.$action.'') }} {{ $title }}</h4>
+            <h4 class="card-title">{{ __('diesel.actions.'.$action) }} | <b>{{ $title }}</b></h4>
         </div>
         <div class="card-body">
             {{-- <livewire:components.crud-admin.form-crud 
@@ -32,7 +32,6 @@
             ])
         </div>
     </div>
-
     @push('scripts')
         <script src="{{ asset('assets/templates/admin/resources/js/vendors/pickers/pickadate/legacy.js') }}"></script>
         <script src="{{ asset('assets/templates/admin/resources/js/vendors/pickers/flatpickr/flatpickr.min.js') }}"></script>

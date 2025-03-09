@@ -15,6 +15,7 @@ class Schedule extends Model {
 	public $translatable = ['title'];
 	protected $casts = ['id'=>'string'];
 	public $timestamps = true;
+	public $incrementing = false;
 	protected $fillable = [
 		'title',
 		'from',

@@ -1,5 +1,5 @@
 <div class="d-block">
-    @if (session()->has('message_success'))
+    {{-- @if (session()->has('message_success'))
         <x-cy-alert type="success">
             {{ session('message_success') }}
         </x-cy-alert>
@@ -7,9 +7,10 @@
         <x-cy-alert type="error">
             {{ session('message_error') }}
         </x-cy-alert>
-    @endif
+    @endif --}}
     
-    <form method="POST" class="row gy-1" action="{{ route('form', ['node' => $node]) }}">
+    <form method="POST" class="row gy-1" action="{{ route('form', ['node' => $node]) }}" enctype="multipart/form-data">
+        @csrf
         <input name="action" type="hidden" hidden value="{{ $action }}">
         <input name="node" type="hidden" hidden value="{{ $node }}">
         @if ($id)
@@ -22,6 +23,7 @@
                     label="{{ $field->comment }}"
                     type="{{ $field->type }}"
                     name="{{ $field->name }}"
+                    node="{{$node}}"
                     description="{{ $item->description ?? '' }}"
                     {{-- propertyField='wire:model.live="form.{{ $field->name }}"' --}}
                     id="{{ $field->name.'-'.$key }}"
@@ -29,13 +31,9 @@
                     :options="$field->options"
                     required="{{ $field->required ?? false }}"
                     :errors="$errors->get(''.$field->name.'')"
+                    :item="$item"
                     class="col-12 {{ $field->type == 'froala' ? 'col-md-12' : 'col-md-6'}}"
                 />
-                @if(isset($item[$field->name])) 
-                    <div class="content__image">
-                        <img src="{{ $item[$field->name] }}" alt="Image" />
-                    </div>
-                @endif
             @else
                 <x-capyei.field
                     label="{{ $field->comment }}"
@@ -43,8 +41,8 @@
                     name="{{ $field->name }}"
                     description="{{ $item->description ?? '' }}"
                     {{-- propertyField='wire:model.defer="form.{{ $field->name }}"' --}}
-                    value="{{ $item[$field->name] }}"
-                    id="{{ $field->name.'-'.$key }}"
+                    value="{{ $item[$field->name] ?? null }}"
+                    id="{{ $field->name }}"
                     placeholder="{{ $field->placeholder ?? '' }}"
                     :options="$field->options"
                     required="{{ $field->required ?? false }}"
@@ -66,10 +64,10 @@
     let editor = new FroalaEditor(".froala-textarea", {
         events: { 
             'contentChanged': function () { 
-                @this.set('description', this.html.get());
+                $(".froala-textarea").text(this.html.get())
+                $(".froala-textarea").attr('value', this.html.get())
             }, 
         } 
     }, function(){
-        editor.html.set($('.froala-textarea').attr('value'));
     });
 </script>

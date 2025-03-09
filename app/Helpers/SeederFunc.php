@@ -34,6 +34,16 @@ class SeederFunc {
                 'id'        => 4,
                 'name'      => 'review-image',
                 'extension' => 'png'
+            ],
+            [ 
+                'id'        => 5,
+                'name'      => 'information-image',
+                'extension' => 'png'
+            ],
+            [ 
+                'id'        => 6,
+                'name'      => 'menu-item-image',
+                'extension' => 'png'
             ]
         ];
         $insert_image_folders = \App\Models\ImageFolder::insert($image_folders);
@@ -97,6 +107,38 @@ class SeederFunc {
             [ 
                 'id'        => 8,
                 'parent_id' => 4,
+                'code'      => 'original',
+                'type'      => 'original',
+                'width'     => null,
+                'height'    => null,
+            ],
+            [ 
+                'id'        => 9,
+                'parent_id' => 5,
+                'code'      => 'normal',
+                'type'      => 'resize',
+                'width'     => 800,
+                'height'    => null,
+            ],
+            [ 
+                'id'        => 10,
+                'parent_id' => 5,
+                'code'      => 'original',
+                'type'      => 'original',
+                'width'     => null,
+                'height'    => null,
+            ],
+            [ 
+                'id'        => 11,
+                'parent_id' => 6,
+                'code'      => 'normal',
+                'type'      => 'resize',
+                'width'     => 800,
+                'height'    => null,
+            ],
+            [ 
+                'id'        => 12,
+                'parent_id' => 6,
                 'code'      => 'original',
                 'type'      => 'original',
                 'width'     => null,

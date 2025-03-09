@@ -65,8 +65,6 @@ class MainController extends Controller
 				'url' => url('node-list/' . $node),
 			];
 		}
-		vardump($arrayOptions);
-		die();
 		return view('admin.dashboard');
 	}
 
@@ -110,9 +108,8 @@ class MainController extends Controller
                 });
         }
         $items = $paginate
-            ? $items->paginate( config('nodes.paginate') )->appends( $request->all() ) 
-            : $items->get();
-			/* Contiene toda la INFO para poder iterar en una tabla con paginación */
+            ? $items->orderBy('created_at', 'DESC')->paginate( config('nodes.paginate') )->appends( $request->all() ) 
+            : $items->orderBy('created_at', 'DESC')->get();
 		$result = [
 			'title'   	=> __('diesel.list.' . $node ),
 			'filters' 	=> \Func::getFilters( $table, $lang ),

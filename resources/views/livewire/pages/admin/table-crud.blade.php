@@ -56,7 +56,13 @@
                             @foreach ($items as $item)
                                 <tr>
                                     @foreach ($fields as $head)
-                                        <td style="overflow: hidden; max-width: 120ch; white-space: nowrap;">{{ $item[$head->name] }}</td>
+                                        @if( $head->type == 'image' )
+                                            <td style="overflow: hidden; max-width: 120ch; white-space: nowrap;"><a href="{{\Asset::get_image_path($node_name. '-' .$head->name, 'normal', $item[$head->name])}}" target="_blank">{{ $item[$head->name] }}</a></td>
+                                        @elseif( substr($head->name, -2) == 'Id' )
+                                            <td style="overflow: hidden; max-width: 120ch; white-space: nowrap;">{{ \Func::getNameRelation( $filters, $head->name, $item[$head->name]) }}</td>
+                                        @else
+                                            <td style="overflow: hidden; max-width: 120ch; white-space: nowrap;">{{ $item[$head->name] }}</td>
+                                        @endif
                                     @endforeach
                                     <td style="min-width: 150px">
                                         <div wire:ignore class="d-block">

@@ -32,7 +32,7 @@ Route::get('/test-nodes/{id?}',                      [MainController::class, 'fi
 
 Route::middleware(['auth'])->prefix('admin')->group(function() {
     Route::get('/', function() {
-        return redirect('/admin/account');
+        return redirect('/admin/node-list/about');
     });
     Route::view('dashboard', 'content.admin.dashboard')->name('dashboard');
     Route::view('account', 'content.admin.account')->name('admin-account');

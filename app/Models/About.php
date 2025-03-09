@@ -13,6 +13,7 @@ class About extends Model {
 	protected $es = 'Acerca de';
 	protected $en = 'About';
 	protected $casts = ['id'=>'string'];
+	public $incrementing = false;
 	public $translatable = ['title', 'description'];
 	public $timestamps = true;
 	protected $fillable = [

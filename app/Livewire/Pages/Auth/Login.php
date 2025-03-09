@@ -25,7 +25,7 @@ class Login extends Component
         
         session()->flash('status', 'Sesión iniciada correctamente!');
 
-        $this->redirect('/admin/account');
+        $this->redirect('/admin/node-list/about');
     }
 
     public function render()

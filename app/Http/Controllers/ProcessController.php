@@ -52,14 +52,14 @@ class ProcessController extends Controller
             $item->created_at = date('Y-m-d H:i:s');
             $item->save();
             $message = __('diesel.item_created');
-            $redirect = url(sprintf('node/%s/edit/%s', $node, $item->id));
+            $redirect = url(sprintf('admin/node/%s/edit/%s', $node, $item->id));
         } elseif ($action == 'edit') {
             $item = $className::find($request->id);
             $message = __('diesel.item_edited');
-            $redirect = url(sprintf('node/%s/edit/%s', $node, $item->id));
+            $redirect = url(sprintf('admin/node/%s/edit/%s', $node, $item->id));
         }
         $params = $request->all();
-        unset($params['id'],$params['node'],$params['action']);
+        unset($params['id'],$params['node'],$params['action'],$params['_token']);
         foreach ($params as $key => $value) {
             if($request->hasFile($key)) {
                 \Log::info($request->name);

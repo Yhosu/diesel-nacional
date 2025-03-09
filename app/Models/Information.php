@@ -14,6 +14,7 @@ class Information extends Model {
     protected $es = 'Información';
 	protected $table  = 'informations';
     public $casts = ['id'=>'string'];
+    public $incrementing = false;
     protected $fillable = [
         'title',
         'subtitle'

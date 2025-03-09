@@ -252,9 +252,6 @@
             return data;
         }
 
-        // let editor = new FroalaEditor(".froala-textarea", {}, function(){
-        //     editor.html.set($('.froala-textarea').attr('value'));
-        // });
     </script>
 
     @stack('scripts')

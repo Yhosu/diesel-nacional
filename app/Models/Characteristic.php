@@ -15,6 +15,7 @@ class Characteristic extends Model {
 	protected $en = 'Characteristics';
 	public $casts = ['id'=>'string'];
 	public $timestamps = true;
+	public $incrementing = false;
 	protected $fillable = [
 		'order',
 		'title',

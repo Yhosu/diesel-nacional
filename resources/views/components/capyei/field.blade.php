@@ -21,7 +21,9 @@
     'min'           => null,
     'max'           => null,
     'description',
-    'options'
+    'options',
+    'item',
+    'node'
 ])
 
 <div {{ $attributes->merge(['class' => "content__field " . ($fill ? 'fill' : '') . ""]) }}>
@@ -102,9 +104,9 @@
                 </label>
             @endif
             <div class="{{ $type }}__field" wire:ignore>
-                <textarea name="{{ $name }}" value="{!! $description ?? '' !!}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" class="{{ $classField }} form-control froala-textarea" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} rows="3"
+                <textarea name="{{ $name }}" value="<p>gg</p>" id="{{ $customId ? ('field__custom-'.$id) : $id }}" class="{{ $classField }} form-control froala-textarea" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} rows="3"
                     {!! $propertyField !!}
-                >{{ $value ?? '' }}</textarea>
+                >{!! htmlspecialchars_decode($value) !!}</textarea>
                 <span></span>
             </div>            
         @elseif($type == 'date')
@@ -158,6 +160,22 @@
             <input placeholder="{{ $placeholder }}" type="file" value="{{ $value ?? '' }}" name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" class="{{ $classField }} form-control" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} {{ $min ? 'min='.$min : '' }} {{ $max ? 'max='.$max : '' }}
                 {!! $propertyField !!}
             >
+            <br>
+            @if(isset($item[$name])) 
+                <div class="content__image">
+                    <img src="{{\Asset::get_image_path( $node .'-'.$name, 'mini', $item[$name]) }}" alt="Image" />
+                </div>
+            @endif
+        @elseif($type === 'integer' || $type === 'double')
+            @if($hasLabel)
+                <label for="{{ $customId ? ('field__custom-'.$id) : $id }}" class="form-label"
+                    {!! $propertyLabel !!}>
+                    <b>{{ $label }} @if($subtext) {!! $subtext !!} @endif</b>
+                </label>
+            @endif
+            <input placeholder="{{ $placeholder }}" type="number" required onkeypress="return isNumberKey(event,this)" value="{{ $value ?? request()->$name ?? '' }}" name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" class="{{ $classField }} form-control" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} {{ $min ? 'min='.$min : '' }} {{ $max ? 'max='.$max : '' }}
+                {!! $propertyField !!}
+            >
         @else
             @if($hasLabel)
                 <label for="{{ $customId ? ('field__custom-'.$id) : $id }}" class="form-label"
@@ -178,3 +196,25 @@
         </div>
     @endif
 </div>
+<script>
+    function isNumberKey(evt, element) {
+  var charCode = (evt.which) ? evt.which : event.keyCode
+  if (charCode > 31 && (charCode < 48 || charCode > 57) && !(charCode == 46 || charCode == 8))
+    return false;
+  else {
+    var len = $(element).val().length;
+    var index = $(element).val().indexOf('.');
+    if (index > 0 && charCode == 46) {
+      return false;
+    }
+    if (index > 0) {
+      var CharAfterdot = (len + 1) - index;
+      if (CharAfterdot > 3) {
+        return false;
+      }
+    }
+
+  }
+  return true;
+}
+</script>

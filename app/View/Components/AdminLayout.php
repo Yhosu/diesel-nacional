@@ -18,6 +18,7 @@ class AdminLayout extends Component
 			$menu[] = [
 				'label' => __('diesel.list.' . $node),
 				'url'   => 'admin/node-list/' . $node,
+                'node'  => $node,
 			];
 		}
         return view('layouts.admin', [

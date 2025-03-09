@@ -39,6 +39,7 @@ class Func {
                     when LOCATE('varchar(', `column_type`) > 0 then 'text'
                     when LOCATE('tinyint(', `column_type`) > 0 then 'boolean'
                     when LOCATE('int(', `column_type`) > 0 then 'integer'
+                    when LOCATE('double', `column_type`) > 0 then 'double'
                     else `column_type`
                 end as type,
                 SUBSTRING_INDEX(`column_comment`, '|', '$langCode')  as comment,
@@ -96,6 +97,7 @@ class Func {
                     when LOCATE('varchar(', `column_type`) > 0 then 'text'
                     when LOCATE('tinyint(', `column_type`) > 0 then 'boolean'
                     when LOCATE('int(', `column_type`) > 0 then 'integer'
+                    when LOCATE('double', `column_type`) > 0 then 'double'
                     else `column_type`
                 end as type,
                 SUBSTRING_INDEX(`column_comment`, '|', '$langCode')  as comment,
@@ -125,6 +127,7 @@ class Func {
                     when LOCATE('varchar(', `column_type`) > 0 then 'text'
                     when LOCATE('tinyint(', `column_type`) > 0 then 'boolean'
                     when LOCATE('int(', `column_type`) > 0 then 'integer'
+                    when LOCATE('double', `column_type`) > 0 then 'double'
                     else `column_type`
                 end as type,
                 SUBSTRING_INDEX(`column_comment`, '|', '$langCode')  as comment,
@@ -145,6 +148,8 @@ class Func {
                 LOCATE('image', `column_name`) = 0
                     and 
                 LOCATE('int(', `column_type`) = 0
+                    and 
+                LOCATE('double', `column_type`) = 0
             "
         );
         $result[] = (object)[
@@ -206,44 +211,24 @@ class Func {
         }
 
         foreach ($items as $item) {
-            // if (isset($item['type']) && ($item['type'] === 'navigate' || $item['type'] === 'external')) {
-            //     echo '<li class="' . ($isFirstLevel ? 'nav-item ' : '') . (request()->is($item['url']) ? 'active' : '') . '">';
-            //     echo '<a class="d-flex align-items-center" href="' . ($item['type'] === 'navigate' ? url($item['url']) : $item['url']) . '" ' . ($item['type'] === 'external' ? 'target="_blank"' : '') . '>';
-            //     if (isset($item['type']_icon) && $item['type']_icon === 'feather') {
-            //         echo '<i data-feather="' . $item['icon'] . '"></i>';
-            //     } else {
-            //         echo '<i class="' . $item['icon'] . '"></i>';
-            //     }
-            //     echo '<span class="menu-title text-truncate" data-i18n="' . (isset($item['label']) ? $item['label'] : 'Opción de menú') . '">' . (isset($item['label']) ? $item['label'] : 'Opción de menú') . '</span>';
-            //     echo '</a>';
-
-            //     if (isset($item['submenu']) && is_array($item['submenu']) && count($item['submenu']) > 0) {
-            //         self::renderMenuHtml($item['submenu'], false);
-            //     }
-
-            //     echo '</li>';
-            // } else {
-            //     if (isset($item['label'])) {
-            //         echo '<li class="navigation-header">';
-            //         echo '<span data-i18n="' . $item['label'] . '">' . $item['label'] . '</span>';
-            //         echo '</li>';
-            //     } else {
-            //         echo '<li><hr></li>';
-            //     }
-            // }
-            echo '<li class="' . ($isFirstLevel ? 'nav-item ' : '') . (request()->is($item['url']) ? 'active' : '') . '">';
+            echo '<li class="' . ($isFirstLevel ? 'nav-item ' : '') . (request()->is($item['url']) || request()->segment(3) == $item['node'] ? 'active' : '') . '">';
             echo '<a class="d-flex align-items-center" href="' . (url($item['url'])). '">';
             echo '<i data-feather="hexagon"></i>';
             echo '<span class="menu-title text-truncate" data-i18n="' . (isset($item['label']) ? $item['label'] : 'Opción de menú') . '">' . (isset($item['label']) ? $item['label'] : 'Opción de menú') . '</span>';
             echo '</a>';
-
             if (isset($item['submenu']) && is_array($item['submenu']) && count($item['submenu']) > 0) {
                 self::renderMenuHtml($item['submenu'], false);
             }
-
             echo '</li>';
         }
 
         echo '</ul>';
+    }
+
+    public static function getNameRelation( $fields, $column, $key ) {
+        $elemCollect  = collect( $fields );
+        $elemRelation = (array)$elemCollect->firstWhere('name', $column) ?? [];
+        $item         = collect( $elemRelation['options'] )->firstWhere('key', $key);
+        return $item['value'];
     }
 }

@@ -74,3 +74,18 @@ function getTypeField( $table_name, $field ) {
 function getCardType( $card_number ) {
     return preg_match("/^5[1-5][0-9]{14}$/", $card_number) ? 'MASTERCARD' : 'VISA';
 }
+
+function currencyFormat(
+    $number,
+    $decimal = 2,
+    $negativeFormat = '<span class="neg">(%s)</span>' ) {
+    if ( !is_integer( $decimal ) ) {
+        $decimal = 2;
+    }
+    if ( empty( $number ) ) {
+        $number = 0;
+    }
+    return sprintf(
+        ( $number < 0 ) ? $negativeFormat : '%s',
+        number_format( abs( $number ), $decimal, ',', '.' ) );
+}

@@ -49,6 +49,11 @@ class SeederFunc {
                 'id'        => 7,
                 'name'      => 'event-image',
                 'extension' => 'jpg'
+            ],
+            [ 
+                'id'        => 8,
+                'name'      => 'menu-image',
+                'extension' => 'jpg'
             ]
         ];
         $insert_image_folders = \App\Models\ImageFolder::insert($image_folders);
@@ -160,6 +165,22 @@ class SeederFunc {
             [ 
                 'id'        => 14,
                 'parent_id' => 7,
+                'code'      => 'original',
+                'type'      => 'original',
+                'width'     => null,
+                'height'    => null,
+            ],
+            [ 
+                'id'        => 15,
+                'parent_id' => 8,
+                'code'      => 'normal',
+                'type'      => 'resize',
+                'width'     => 1920,
+                'height'    => null,
+            ],
+            [ 
+                'id'        => 16,
+                'parent_id' => 8,
                 'code'      => 'original',
                 'type'      => 'original',
                 'width'     => null,
@@ -378,8 +399,8 @@ class SeederFunc {
             [ 'order' => 2, 'title' => [ 'en' => 'Hamburguesa Simple', 'es' => 'Hamburguesa Simple' ] ],
             [ 'order' => 3, 'title' => [ 'en' => 'Lomito', 'es' => 'Lomito' ] ],
             [ 'order' => 4, 'title' => [ 'en' => 'Milanesa', 'es' => 'Milanesa' ] ],
-            [ 'order' => 5, 'title' => [ 'en' => 'Barros Luco Typical chilean fillet sandwich with cheese (in Marraqueta or french bread)', 'es' => 'Lomito con queso en marraqueta o pan francés' ] ],
-            [ 'order' => 6, 'title' => [ 'en' => 'Quesadillas (Cheese & Ham in wheat tortilla)', 'es' => 'Quesadillas (Queso solo o con jamón en tortilla de trigo)' ] ],
+            [ 'order' => 5, 'title' => [ 'en' => 'Barros Luco Typical chilean fillet sandwich with cheese', 'es' => 'Lomito con queso en marraqueta o pan francés' ], 'detail' => ['en'=>'In Marraqueta or french bread', 'es'=>''] ],
+            [ 'order' => 6, 'title' => [ 'en' => 'Quesadillas', 'es' => 'Quesadillas' ], 'detail' => ['en' => 'Cheese & Ham in wheat tortilla', 'es' =>'Queso solo o con jamón en tortilla de trigo'] ],
             [ 'order' => 7, 'title' => [ 'en' => 'Argentinian Empandas', 'es' => 'Empanadas Argentinas' ] ],
         ];
         $menu10->menu_items()->createMany($menuItems10);

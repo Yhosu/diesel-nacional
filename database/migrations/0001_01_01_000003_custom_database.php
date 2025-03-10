@@ -81,6 +81,7 @@ return new class extends Migration
             $table->integer('order')->nullable()->comment('Orden|Order');
             $table->text('title')->nullable()->comment('Nombre|Name');
             $table->text('detail')->nullable()->comment('Descripción|Description');
+            $table->string('image')->nullable()->comment('Imagen|Image');
             $table->boolean('active')->nullable()->default(1)->comment('¿Activo?|Active?');
             $table->timestamps();
         });

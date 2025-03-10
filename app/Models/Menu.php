@@ -20,7 +20,8 @@ class Menu extends Model {
         'order',
         'title',
         'detail',
-        'active'
+        'active',
+        'image'
     ];
 
     public static function boot() {

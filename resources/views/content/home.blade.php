@@ -72,7 +72,7 @@
                         </div>
                         <div class="text-block ">
                             {!! $about->description !!}
-                            <a href="{{ route('menu') }}" class="btn fl-btn custom-scroll-link">{{ __('diesel.check_menu_2') }}<i class="fal fa-long-arrow-right"></i></a>
+                            {{-- <a href="{{ route('menu') }}" class="btn fl-btn custom-scroll-link">{{ __('diesel.check_menu_2') }}<i class="fal fa-long-arrow-right"></i></a> --}}
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -100,9 +100,9 @@
                 <div class="overlay"></div>
                 <div class="quote-box">
                     <i class="fal fa-quote-right"></i>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi accusantium."</p>
-                    <div class="signature"><img src="https://restabook.kwst.net/dark/images/signature.png" alt=""></div>
-                    <h4>Kevin  Kowalsky - Restaurant?s cheaf</h4>
+                    <p>"{{ $scheduleText }}"</p>
+                    {{-- <div class="signature"><img src="https://restabook.kwst.net/dark/images/signature.png" alt=""></div> --}}
+                    <h4>{{ $scheduleTextSecondary }}</h4>
                 </div>
             </div>
             <div class="column-section-wrap dark-bg" >
@@ -128,7 +128,7 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="bold-separator"><span></span></div>
-                        <div class="big-number"><a href="#">+7(111)123456789</a></div>
+                        <div class="big-number"><a href="#">+{{ $phone->value }}</a></div>
                     </div>
                 </div>
                 <div class="illustration_bg">
@@ -253,10 +253,14 @@
                         <!--  hero-menu_header-->
                         <div class="col-md-3">
                             <div class="hero-menu_header fl-wrap">
-                                <ul class="tabs-menu     no-list-style change_bg">
-                                    @foreach( $category->menus as $key => $menu )
-                                    <li class="{{ $key == 0 ? 'current' : ''}}"><a href="#tab-{{ $key + 1}}" data-bgtab="https://restabook.kwst.net/dark/images/bg/{{ rand(4,9)}}.jpg"><span>0{{ $menu->order }}.</span>{{ $menu->title }}</a></li>
+                                <ul class="tabs-menu no-list-style change_bg">
+                                    @foreach( $menus as $key => $menu )
+                                    <li class="{{ $key == 0 ? 'current' : ''}}"><a href="#tab-{{ $key + 1}}" data-bgtab="https://restabook.kwst.net/dark/images/bg/{{ rand(4,9)}}.jpg"><span>0{{ $key + 1 }}.</span>{{ $menu->title }}</a></li>
                                     @endforeach
+                                </ul>
+                                <br>
+                                <ul>
+                                    <li class=""><a href="#sec4"><span>07.</span>{{ __('diesel.show_gallery')}}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -266,15 +270,15 @@
                             <div class="hero-menu_content fl-wrap">
                                 <div class="tabs-container">
                                     <div class="tab">
-                                        @foreach ($category->menus as $key => $menu)
+                                        @foreach ($menus as $key => $menu)
                                             @if( $key == 0 )
                                             <div id="tab-1" class="tab-content first-tab">
-                                                @foreach( $menu->menu_items as $menu_item )
+                                                @foreach( $menu->menu_items as $key2=>$menu_item )
                                                 <div class="hero-menu-item">
                                                     <div class="hero-menu-item-title fl-wrap">
-                                                        <h6><span>0{{ $menu_item->order}}.</span>{{ $menu_item->title }}</h6>
+                                                        <h6><span>0{{ $key2 + 1 }}.</span>{{ $menu_item->title }}</h6>
                                                         <div class="hmi-dec"></div>
-                                                        <span class="hero-menu-item-price">$0</span>
+                                                        <span class="hero-menu-item-price">Bs. {{$menu_item->price}}</span>
                                                     </div>
                                                     <div class="hero-menu-item-details">
                                                         <p>{{ $menu_item->detail }}</p>
@@ -286,15 +290,15 @@
                                             <div class="tab">
                                                 <div id="tab-{{ $key + 1 }}" class="tab-content">
                                                     <!-- header-menu-item-->
-                                                    @foreach( $menu->menu_items as $menu_item )
+                                                    @foreach( $menu->menu_items as $key2 => $menu_item )
                                                     <div class="hero-menu-item">
                                                         <div class="hero-menu-item-title fl-wrap">
-                                                            <h6><span>0{{ $menu_item->order}}.</span>{{ $menu_item->title }}</h6>
+                                                            <h6><span>0{{ $key2 + 1 }}.</span>{{ $menu_item->title }}</h6>
                                                             <div class="hmi-dec"></div>
-                                                            <span class="hero-menu-item-price">$0</span>
+                                                            <span class="hero-menu-item-price">${{ $menu_item->price }}</span>
                                                         </div>
                                                         <div class="hero-menu-item-details">
-                                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non .</p>
+                                                            <p>{{ $menu_item->detail }}</p>
                                                         </div>
                                                     </div>
                                                     @endforeach
@@ -311,7 +315,9 @@
                         </div>
                         <!--  hero-menu_content end  -->
                         <div class="clearfix"></div>
-                        <a href="{{ route('menu')}}" class="hero_btn" style="margin-left:30px;">{{ __('diesel.view_full_menu')}} <i class="fal fa-long-arrow-right"></i></a>
+                        @foreach ($categories as $category)
+                            <a href="{{ url('menu/'. $category->code) }}" class="hero_btn" style="margin-left:30px;">{{ __('diesel.view_full_menu')}}-{{ $category->name }}<i class="fal fa-long-arrow-right"></i></a>    
+                        @endforeach
                         <a href="#" class="pdf-link">Dowload PDF</a>
                     </div>
                 </div>
@@ -432,20 +438,23 @@
         <section class="hidden-section" data-scrollax-parent="true" id="sec4">
             <div class="container_tmp">
                 <div class="section-title">
-                    <h4>Enjoy your time in our restaurant with pleasure.</h4>
-                    <h2> Our Galley</h2>
+                    <h4>{{ $gallerySubtitle }}</h4>
+                    <h2> {{ $galleryTitle }}</h2>
                     <div class="dots-separator fl-wrap"><span></span></div>
                 </div>
                 <div class="clearfix"></div>
-                <div class="gallery_filter-button btn">Show Filters <i class="fal fa-long-arrow-down"></i></div>
+                <div class="gallery_filter-button btn"> <i class="fal fa-long-arrow-down"></i></div>
                 <!-- gallery-filters -->
                 <div class="gallery-filters gth">
-                    <a href="#" class="gallery-filter gallery-filter-active"  data-filter="*"><span>01.</span>All Images</a>
-                    <a href="#" class="gallery-filter " data-filter=".dishes"><span>02.</span>Dishes</a>
-                    <a href="#" class="gallery-filter" data-filter=".resta_img"><span>03.</span>Restaurant</a>
-                    <a href="#" class="gallery-filter" data-filter=".events"><span>04.</span>Events</a>
-                    <a href="#" class="gallery-filter" data-filter=".video_links"><span>05.</span>Video</a>
+                    <a href="#" class="gallery-filter gallery-filter-active"  data-filter="*"><span>01.</span>{{ __('diesel.all_images') }}</a>
+                    @php 
+                        $arrayFilters = ['dishes','resta_img','events','video_links'];
+                    @endphp 
+                    @foreach ($categories as $key => $category)
+                        <a href="#" class="gallery-filter " data-filter=".{{ $arrayFilters[$key+1]}}" rand(0,3)><span>0{{ $key + 2 }}.</span>{{ $category->name }} </a>
+                    @endforeach
                 </div>
+                <div class="feedback" style="right: -40px !important; z-index: 10000"> <a href="#sectionForm">[<i class="fa fa-plus"></i>] <span>Feedback</span></a> </div>
                 <!-- gallery-filters end-->
                 <!-- gallery start -->
                 <div class="gallery-items min-pad  lightgallery three-column fl-wrap" style="margin-bottom:50px;">
@@ -518,20 +527,14 @@
                 <div class="clearfix"></div>
                 <div class="bold-separator bold-separator_dark"><span></span></div>
                 <div class="clearfix"></div>
-                {{-- <a href="{{ route('menu') }}" class="btn show-rb">Book table now<i class="fal fa-long-arrow-right"></i></a> --}}
             </div>
         </section>
         <!--  section end  -->
         <!-- section   -->
         <section class="column-section no-padding hidden-section" data-scrollax-parent="true">
             <div class="column-wrap-bg right-wrap">
-                <div class="bg par-elem "  data-bg="https://restabook.kwst.net/dark/images/bg/10.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+                <div class="bg par-elem "  data-bg="{{ $mainEventImage ? \Asset::get_image_path('event-image', 'normal', $mainEventImage) : ''}}" data-scrollax="properties: { translateY: '30%' }"></div>
                 <div class="overlay"></div>
-                <div class="column-wrap-bg-text">
-                    <h3>Our Store</h3>
-                    <h4>Want to order food home? Visit our online store.</h4>
-                    <a href="about.html" class="btn  ajax">Buy online <i class="fal fa-long-arrow-right"></i></a>
-                </div>
             </div>
             <div class="column-section-wrap left-column-section dark-bg" >
                 <div class="container_tmp"  >
@@ -628,9 +631,9 @@
                         <div class="contact-details">
                             <h4>{{ __('diesel.contacts_details') }}</h4>
                             <ul>
-                                <li><span><i class="fal fa-map-marked-alt"></i> {{ __('diesel.locate_us') }} :</span> <a href="#">20 de Octubre Ave # 2271, La Paz, Bolivia</a></li>
-                                <li><span><i class="fal fa-phone-rotary"></i> {{ __('diesel.cellphone') }} :</span> <a href="#">+5917777777</a></li>
-                                <li><span><i class="fal fa-mailbox"></i> {{ __('diesel.email') }} :</span> <a href="#">inbox@dieselnacional.com</a></li>
+                                <li><span><i class="fal fa-map-marked-alt"></i> {{ $address->key }} :</span> <a href="#">{{ $address->value }}</a></li>
+                                <li><span><i class="fal fa-phone-rotary"></i> {{ $phone->key }} :</span> <a href="#">+{{ $phone->value }}</a></li>
+                                <li><span><i class="fal fa-mailbox"></i> {{ $email->key }} :</span> <a href="#">{{ $email->value }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -641,7 +644,7 @@
         </section>
         <!--  section  end-->
         <!--  section  -->
-        <section class="hidden-section con-sec big-padding" data-scrollax-parent="true">
+        <section class="hidden-section con-sec big-padding" data-scrollax-parent="true" id="sectionForm">
             <div class="container_tmp">
                 <div class="row">
                     <div class="col-md-8">
@@ -707,5 +710,33 @@
         <script  src="https://maps.google.com/maps/api/js?key=AIzaSyBszJ58szEVMAdEA5Mzzkqo03o9EusTYng"></script>
 
         <script src="{{ asset('assets/templates/master/dark/js/map.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                var countEvents = {!! $events->count() !!};
+                if ( countEvents == 1) {
+                    var j2 = new Swiper(".events-carousel .swiper-container", {
+                        preloadImages: false,
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        loop: true,
+                        grabCursor: true,
+                        mousewheel: false,
+                        centeredSlides: false,
+                        navigation: {
+                            nextEl: '.ec-button-next',
+                            prevEl: '.ec-button-prev',
+                        },
+                        breakpoints: {
+                            1064: {
+                                slidesPerView: 2,
+                            },
+                            640: {
+                                slidesPerView: 1,
+                            },
+                        }
+                    });
+                }
+            })
+        </script>
     @endpush
 </x-master-layout>

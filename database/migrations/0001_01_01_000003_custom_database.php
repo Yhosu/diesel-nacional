@@ -70,6 +70,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->integer('order')->nullable()->comment('Orden|Order');
             $table->text('name')->nullable()->comment('Nombre|Name');
+            $table->string('code')->nullable()->comment('Código|Code');
             $table->text('detail')->nullable()->comment('Detalle|Detail');
             $table->boolean('active')->nullable()->default(1)->comment('¿Activo?|Active?');
             $table->timestamps();
@@ -99,6 +100,7 @@ return new class extends Migration
             $table->integer('order')->nullable()->comment('Orden|Order');
             $table->text('title')->nullable()->comment('Título|Title');
             $table->text('subtitle')->nullable()->comment('Subtítulo|Subtitle');
+            $table->string('icon')->nullable()->comment('Font Awesome Ícono|Font Awesome Icon');
             $table->text('detail')->nullable()->comment('Detalle|Detail');
             $table->string('image')->nullable()->comment('Imagen|Image');
             $table->boolean('active')->nullable()->default(1)->comment('¿Activo?|Active?');
@@ -110,6 +112,8 @@ return new class extends Migration
             $table->text('title')->nullable()->comment('Título|Title');
             $table->text('subtitle')->nullable()->comment('Subtítulo|Subtitle');
             $table->text('detail')->nullable()->comment('Detalle|Detail');
+            $table->boolean('showBanner')->nullable()->default(0)->comment('Mostrar Banner|Show Banner');
+            $table->string('image')->nullable()->comment('Imagen|Image');
             $table->boolean('active')->nullable()->default(1)->comment('¿Activo?|Active?');
             $table->timestamps();
         });
@@ -120,7 +124,22 @@ return new class extends Migration
             $table->integer('qualification')->nullable()->comment('Calificación|Qualification');
             $table->string('image')->nullable()->comment('Imagen|Image');
             $table->timestamps();
-        });        
+        });
+        Schema::create('parameters', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('code')->nullable()->comment('Código|Code');
+            $table->text('key')->nullable()->comment('Clave|Key');
+            $table->text('value')->nullable()->comment('Valor|Value');
+            $table->timestamps();
+        });
+        Schema::create('social_networks', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('name')->nullable()->comment('Nombre|Name');
+            $table->string('icon')->nullable()->comment('Font Awesome Ícono|Font Awesome Icon');
+            $table->string('url')->nullable()->comment('Link de la red social|Social network Link');
+            $table->boolean('active')->nullable()->default(1)->comment('¿Activo?|Active?');
+            $table->timestamps();
+        });
     }
 
     /**

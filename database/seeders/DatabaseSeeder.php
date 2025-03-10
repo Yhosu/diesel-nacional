@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         \SeederFunc::loadCategoriesAndMenu();
         \SeederFunc::loadCharacteristics();
         \SeederFunc::loadEvents();
+        \SeederFunc::loadReviews();
     }
 }

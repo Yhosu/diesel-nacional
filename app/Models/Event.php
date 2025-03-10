@@ -20,7 +20,9 @@ class Event extends Model {
         'title',
         'subtitle',
         'detail',
-        'active'
+        'active',
+        'showBanner',
+        'image'
     ];
 
     public static function boot() {

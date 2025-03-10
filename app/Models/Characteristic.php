@@ -21,7 +21,8 @@ class Characteristic extends Model {
 		'title',
 		'detail',
 		'subtitle',
-		'image'
+		'image',
+		'icon'
 	];
 
 	public static function boot() {

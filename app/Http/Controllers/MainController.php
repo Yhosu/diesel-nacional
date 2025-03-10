@@ -20,7 +20,10 @@ class MainController extends Controller
 		$bannerInit 	 = \App\Models\Information::where('code', 'banner-init')->first();
 		$about 	    	 = \App\Models\About::where('number', 1)->first();
 		$schedules  	 = \App\Models\Schedule::where('active', 1)->orderBy('order', 'ASC')->get();
-		$category   	 = \App\Models\Category::with('menus')->where('order', 1)->first();
+		$categories   	 = \App\Models\Category::where('active', 1)->orderBy('order', 'ASC')->get();
+		$menu1 			 = \App\Models\Menu::with('menu_items')->whereHas('category', function($q){ $q->where('code', 'barra-diesel'); })->orderBy('order', 'ASC')->limit(2)->get();
+		$menu2 			 = \App\Models\Menu::with('menu_items')->whereHas('category', function($q){ $q->where('code', 'the-resto-diesel'); })->orderBy('order', 'ASC')->limit(2)->get()->merge($menu1);
+		$menus 			 = \App\Models\Menu::with('menu_items')->whereHas('category', function($q){ $q->where('code', 'diesel-bar-menu'); })->orderBy('order', 'ASC')->limit(2)->get()->merge($menu2);
 		$characteristics = \App\Models\Characteristic::where('active', 1)->orderBy('order', 'ASC')->get();
 		$events			 = \App\Models\Event::where('active', 1)->orderBy('order', 'ASC')->get();
 		$now 			 = date('ymd');
@@ -32,11 +35,31 @@ class MainController extends Controller
 			return $result;
         });
 		shuffle($reviews);
-		return view('content.home', compact('bannerInit', 'about', 'schedules', 'category', 'characteristics', 'events', 'reviews'));
+		$mainEventImage 	   = \App\Models\Event::where('active', 1)->where('showBanner', 1)->first()->image ?? null;
+		$scheduleText   	   = \App\Models\Parameter::where('code', 'schedule-text')->first()->value;
+		$scheduleTextSecondary = \App\Models\Parameter::where('code', 'schedule-text-secondary')->first()->value;
+		$galleryTitle 		   = \App\Models\Parameter::where('code', 'gallery-title')->first()->value;
+		$gallerySubtitle       = \App\Models\Parameter::where('code', 'gallery-subtitle')->first()->value;
+		return view('content.home', compact(
+			'bannerInit', 
+			'about', 
+			'schedules', 
+			'menus', 
+			'characteristics', 
+			'events', 
+			'reviews', 
+			'mainEventImage', 
+			'categories', 
+			'scheduleText', 
+			'scheduleTextSecondary', 
+			'galleryTitle', 
+			'gallerySubtitle'
+		));
 	}
 
-  	public function showMenu() {
-		return view('content.menu');
+  	public function showMenu( $code ) {
+		$category = \App\Models\Category::where('code', $code)->firstOrFail();
+		return view('content.menu', compact('category'));
 	}
 
   	public function showAbout() {
@@ -104,7 +127,7 @@ class MainController extends Controller
                     $query = "TRIM( REPLACE( REPLACE( REPLACE(  REPLACE( REPLACE( REPLACE( LOWER( `" . $key . "`), 'á', 'a' ), 'e', 'e' ), 'i', 'i' ), 'ó', 'o' ), 'u', 'u' ), ' ', '' ) ) LIKE '%" . $value ."%'";
                     return $q->whereRaw($query, []);
                 })->when( in_array( $type, ['datetime', 'date', 'timestamp'] ) && isset($filters[$key.'_from']) && isset( $filters[$key.'_to'] ) , function( $q ) use( $key, $value, $filters ) {
-                    return $q->whereDate($key, '>=',$filters[$key.'_from'])->whereDate($key, '<=', $filters[$key.'_to']);
+                    return $q->whereDate($key, '>=',$filters[$key.'_from'] . ' 00:00:00')->whereDate($key, '<=', $filters[$key.'_to'] . ' 23:59:00');
                 });
         }
         $items = $paginate

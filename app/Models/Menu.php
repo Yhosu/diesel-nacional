@@ -34,6 +34,10 @@ class Menu extends Model {
         return $this->hasMany(MenuItem::class, 'menuId', 'id')->where('active', 1)->orderBy('order', 'ASC')->limit(4);
     }
 
+    public function all_menu_items() {
+        return $this->hasMany(MenuItem::class, 'menuId', 'id')->where('active', 1)->orderBy('order', 'ASC');
+    }
+
     public function getLang( $lang ) {
         return $this->$lang;
     }
@@ -54,4 +58,8 @@ class Menu extends Model {
     public static $rules_delete = array(
         "id"=>"required",
     );
+
+    public function category() {
+        return $this->hasOne(Category::class, 'id', 'categoryId');
+    }
 }

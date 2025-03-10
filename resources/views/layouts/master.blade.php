@@ -52,7 +52,7 @@
                         <span>/</span>
                         <a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">Es</a>
                     </div>
-                    <div class="header-top_contacts"><a href="#"><span>{{ __('diesel.cellphone') }}:</span> +5917777777</a><a href="#"><span>{{ __('diesel.email') }}:</span> inbox@dieselnacional.com</a></div>
+                    <div class="header-top_contacts"><a href="#"><span>{{ $phone->key }}:</span> +{{ $phone->value }}</a><a href="#"><span>{{ $email->key }}:</span> {{ $email->value }}</a></div>
                 </div>
             </div>
             <!--header-top end -->
@@ -165,10 +165,9 @@
                         <div class="footer-social">
                             <span class="footer-social-title">{{ __('diesel.follow_us_on') }}:</span>
                             <ul>
-                                <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
+                                @foreach( $socialNetworks as $socialNetwork )
+                                    <li><a href="{{ $socialNetwork->url }}" target="_blank"><i class="{{ $socialNetwork->icon }}"></i></a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -180,8 +179,7 @@
                                 <div class="footer-widget">
                                     <div class="footer-widget-title">{{ __('diesel.about') }}</div>
                                     <div class="footer-widget-content">
-                                        <p>{{ __('diesel.about_us_description') }}</p>
-                                        {{-- <a href="{{ url('about') }}" class="footer-widget-content-link">Read more</a>                                                    	 --}}
+                                        <p>{{ $description->value }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -193,9 +191,9 @@
                                     <div class="footer-widget-content">
                                         <div class="footer-contacts footer-box fl-wrap">
                                             <ul>
-                                                <li><span>{{ __('diesel.cellphone') }}:</span><a href="#">+5917777777</a></li>
-                                                <li><span>{{ __('diesel.email') }}:</span><a href="#">inbox@dieselnacional.com</a></li>
-                                                <li><span>{{ __('diesel.locate_us') }}: </span><a href="#">20 de Octubre Ave # 2271, La Paz, Bolivia</a></li>
+                                                <li><span>{{ $phone->key }}:</span><a href="#">+{{ $phone->value }}</a></li>
+                                                <li><span>{{ $email->key }}:</span><a href="#">{{ $email->value }}</a></li>
+                                                <li><span>{{ $address->key }}: </span><a href="#">{{ $address->value }}</a></li>
                                             </ul>
                                         </div>
                                         {{-- <a href="contacts.html" class="footer-widget-content-link">Contáctanos</a>                                                    	 --}}
@@ -211,7 +209,7 @@
                                         <div class="subcribe-form fl-wrap">
                                             <p>{{ __('diesel.suscribe') }}</p>
                                             <form id="subscribe" class="fl-wrap">
-                                                <input class="enteremail" name="email" id="subscribe-email" placeholder="{{ __('diesel.email') }}" spellcheck="false" type="text">
+                                                <input class="enteremail" name="email" id="subscribe-email" placeholder="{{ $email->key }}" spellcheck="false" type="text">
                                                 <button type="submit" id="subscribe-button" class="subscribe-button color-bg">{{ __('diesel.btn_send_title')}} </button>
                                                 <label for="subscribe-email" class="subscribe-message"></label>
                                             </form>

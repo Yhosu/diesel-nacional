@@ -2177,7 +2177,7 @@ section.parallax-section.hero-section .section-title h2 {
 }
 .single-menu .hero-menu-item h6 {
 	color:#000;
-	font-size:17px;
+	font-size:13px;
 }
 .hero-menu-item-title h6 span {
 	position:absolute;
@@ -4774,4 +4774,13 @@ section {
 		-webkit-background-size: cover;
 		background-position: center;
 	}
+}
+
+.feedback {
+	background: #f9c381;
+	top: 50%;
+	right: -35px;
+	position: fixed;
+	transform: rotateZ(-90deg);
+	padding: 10px;
 }

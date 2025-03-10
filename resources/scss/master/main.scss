@@ -13,12 +13,12 @@
 
 .whatsapp__btn-content {
 	position: fixed;
-    bottom: 8%;
-    right: 8%;
+    bottom: 4%;
+    right: 0.5%;
     z-index: 2;
 	.whatsapp__btn {
-		width: 80px;
-		height: 80px;
+		width: 60px;
+		height: 60px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -31,7 +31,7 @@
 			opacity: 1;
 		}
 		i {
-			font-size: 3.5rem;
+			font-size: 2.5rem;
 		}
 	}
 }

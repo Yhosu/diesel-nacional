@@ -44,6 +44,11 @@ class SeederFunc {
                 'id'        => 6,
                 'name'      => 'menu-item-image',
                 'extension' => 'png'
+            ],
+            [ 
+                'id'        => 7,
+                'name'      => 'event-image',
+                'extension' => 'jpg'
             ]
         ];
         $insert_image_folders = \App\Models\ImageFolder::insert($image_folders);
@@ -144,6 +149,22 @@ class SeederFunc {
                 'width'     => null,
                 'height'    => null,
             ],
+            [ 
+                'id'        => 13,
+                'parent_id' => 7,
+                'code'      => 'normal',
+                'type'      => 'resize',
+                'width'     => 1920,
+                'height'    => null,
+            ],
+            [ 
+                'id'        => 14,
+                'parent_id' => 7,
+                'code'      => 'original',
+                'type'      => 'original',
+                'width'     => null,
+                'height'    => null,
+            ],
         ];
         $insert_image_sizes = \App\Models\ImageSize::insert($image_sizes);
     }
@@ -201,7 +222,8 @@ class SeederFunc {
 
     public static function loadCategoriesAndMenu() {
         $category1 = \App\Models\Category::create([
-            'order' => 1,
+            'order' => 2,
+            'code' => 'the-resto-diesel',
             'name' => [
                 'en' => 'THE RESTO DIESEL',
                 'es' => 'EL RESTO DIESEL'
@@ -212,7 +234,8 @@ class SeederFunc {
             ]
         ]);    
         $category2 = \App\Models\Category::create([
-            'order' => 2,
+            'code' => 'barra-diesel',
+            'order' => 3,
             'name' => [
                 'en' => 'LA BARRA DIESEL',
                 'es' => 'LA BARRA DIESEL'
@@ -223,32 +246,17 @@ class SeederFunc {
             ]
         ]);
         $category3 = \App\Models\Category::create([
-            'order' => 3,
+            'code' => 'diesel-bar-menu',
+            'order' => 1,
             'name' => [
-                'en' => '“CLASSIC” DIESEL NACIONAL',
-                'es' => 'DIESEL NACIONAL “CLASICO”'
+                'en' => 'THE DIESEL BAR',
+                'es' => 'EL BAR DIESEL'
             ],
             'detail' => [
                 'en' => '',
                 'es' => ''
             ]
         ]);  
-        $menu1 = \App\Models\Menu::create([
-            'categoryId' => $category1->id,
-            'order' => 1,
-            'title' => [
-                'en' => 'Main Dishes',
-                'es' => 'Diesel nacional “CLÁSICO”'
-            ],
-            'detail' => [
-                'en' => '',
-                'es' => ''
-            ]
-        ]); 
-        $menuItems1 = [
-            [ 'order' => 1, 'title' => [ 'en' => 'Individual Plates', 'es' => 'Platos Individuales' ] ]
-        ];
-        $menu1->menu_items()->createMany($menuItems1);
         $menu2 = \App\Models\Menu::create([
             'categoryId' => $category1->id,
             'order' => 2,
@@ -442,6 +450,411 @@ class SeederFunc {
             [ 'order' => 2, 'title' => [ 'en' => 'Anticuchos de Filete', 'es' => 'Anticuchos de Filete' ] ],
         ];
         $menu15->menu_items()->createMany($menuItems15);
+            /* Bar */
+        $menuBar1 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 1,
+            'title' => [
+                'en' => 'SIGNATURE & HOUSE COCKTAILS – FUTURE CLASSICS',
+                'es' => 'ESPECIALES COCKTALIS “DE LA CASA” & FUTUROS CLÁSICOS'
+            ]
+        ]); 
+        $menuBarItems1 = [
+            [ 'order' => 1, 'title' => [ 'en' => 'Acero', 'es' => 'Acero' ] ],
+            [ 'order' => 2, 'title' => [ 'en' => 'Anthrax', 'es' => 'Anthrax' ] ],
+            [ 'order' => 3, 'title' => [ 'en' => 'Apple Pie(Cinnamon Whiskey,Vanilla Vodka,apple juice)', 'es' => 'Apple Pie(Cinnamon Whiskey,Vanilla Vodka,apple juice)' ] ],
+            [ 'order' => 4, 'title' => [ 'en' => 'B-52', 'es' => 'B-52' ] ],
+            [ 'order' => 5, 'title' => [ 'en' => 'Beso Siciliano Sicilian Kiss (Bourbon, Amaretto)', 'es' => 'Beso Siciliano Sicilian Kiss (Bourbon, Amaretto)' ] ],
+            [ 'order' => 6, 'title' => [ 'en' => 'Cascada del Diablo Devil’s Waterfall ', 'es' => 'Cascada del Diablo Devil’s Waterfall' ] ],
+            [ 'order' => 7, 'title' => [ 'en' => 'Cucaracha Cockroach', 'es' => 'Cucaracha Cockroach' ] ],
+            [ 'order' => 8, 'title' => [ 'en' => '4x4 (Vodka & Red Bull)', 'es' => '4x4 (Vodka & Red Bull)' ] ],
+            [ 'order' => 9, 'title' => [ 'en' => 'Chitochatarra II', 'es' => 'Chitochatarra II' ] ],
+            [ 'order' => 10, 'title' => [ 'en' => 'Typical Bolivian Politician - Son of a Bitch’s corrupt dirty bussines', 'es' => 'Typical Bolivian Politician - Son of a Bitch’s corrupt dirty bussines' ] ],
+            [ 'order' => 11, 'title' => [ 'en' => 'Curtiss (fernet & Red Bull)', 'es' => 'Curtiss (fernet & Red Bull)' ] ],
+            [ 'order' => 12, 'title' => [ 'en' => 'Golden Cadillac', 'es' => 'Golden Cadillac' ] ],
+            [ 'order' => 13, 'title' => [ 'en' => 'Green Bull 	(fernet menta Mint Fernet & Red Bull)', 'es' => 'Green Bull 	(fernet menta Mint Fernet & Red Bull)' ] ],
+            [ 'order' => 14, 'title' => [ 'en' => 'Hot Buttered Rum', 'es' => 'Hot Buttered Rum' ] ],
+            [ 'order' => 15, 'title' => [ 'en' => 'Jaeger Bull ', 'es' => 'Jaeger Bull' ] ],
+            [ 'order' => 16, 'title' => [ 'en' => 'Jaeger Heaven & Hell (2 shots)', 'es' => 'Jaeger Heaven & Hell (2 shots)' ] ],
+            [ 'order' => 17, 'title' => [ 'en' => 'Kangaroo Cake', 'es' => 'Kangaroo Cake' ], 'detail' => ['en' => '(Absolut, Frangelico & Limones caramelizados Caramelized Lemon Slices)', 'es' => '(Absolut, Frangelico & Limones caramelizados Caramelized Lemon Slices)'] ],
+            [ 'order' => 18, 'title' => [ 'en' => 'Long Island Ice Tea', 'es' => 'Long Island Ice Tea' ] ],
+            [ 'order' => 19, 'title' => [ 'en' => 'Margarita Descalza', 'es' => 'Margarita Descalza' ], 'detail' => ['en' => 'Margarita con Singani', 'es' => 'Margarita con Singani'] ],
+            [ 'order' => 20, 'title' => [ 'en' => 'Petrodiesel ', 'es' => 'Petrodiesel ' ] ],
+            [ 'order' => 21, 'title' => [ 'en' => 'Primera Dama First Lady', 'es' => 'Primera Dama First Lady' ], 'detail' => ['en'=> 'Licor de Cacao & Red Bull', 'es'=>'Licor de Cacao & Red Bull'] ],
+            [ 'order' => 22, 'title' => [ 'en' => 'Quiroga Gullco Untranslatable', 'es' => 'Quiroga Gullco Untranslatable' ] ],
+            [ 'order' => 23, 'title' => [ 'en' => 'Redneck', 'es' => 'Redneck' ], 'detail' => ['en'=> 'Whisky, Red Bull', 'es'=>'Whisky, Red Bull'] ],
+            [ 'order' => 24, 'title' => [ 'en' => 'Red Rain', 'es' => 'Red Rain' ], 'detail' => ['en'=> 'Gin, Campari, Red Bull', 'es'=>'Gin, Campari, Red Bull'] ],
+            [ 'order' => 25, 'title' => [ 'en' => 'Toro Salvaje “Raging Bull”', 'es' => 'Toro Salvaje “Raging Bull”' ], 'detail' => ['en'=> 'Gin & Red Bull', 'es'=>'Licor de Cacao & Red Bull'] ],
+            [ 'order' => 26, 'title' => [ 'en' => '¡Viejo Verde!', 'es' => '¡Viejo Verde!' ], 'detail' => ['en'=> 'Ajenjo y manzana', 'es'=>'Ajenjo y manzana'] ],
+            [ 'order' => 27, 'title' => [ 'en' => '¡...que lo Parió!', 'es' => '¡...que lo Parió!' ], 'detail' => ['en'=> 'Tequila & locoto (Forbidden Hot!)', 'es'=>'Tequila & locoto (Forbidden Hot!)'] ],
+        ];
+        $menuBar1->menu_items()->createMany($menuBarItems1);
+        $menuBar2 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 2,
+            'title' => [
+                'en' => 'Others specials / Unclassifiable',
+                'es' => 'Otros / Inclasificables'
+            ]
+        ]); 
+        $menuBarItems2 = [
+            [ 'order' => 1, 'title' => [ 'en' => 'Toasted Almond', 'es' => 'Almendra Tostada' ] ],
+            [ 'order' => 2, 'title' => [ 'en' => 'Amaretto with Orange', 'es' => 'Amaretto con Naranja' ] ],
+            [ 'order' => 3, 'title' => [ 'en' => 'Amaretto Di Saronno con Naranja', 'es' => 'Amaretto Di Saronno con Naranja' ] ],
+            [ 'order' => 4, 'title' => [ 'en' => 'Amaretto Sour', 'es' => 'Amaretto Sour' ] ],
+            [ 'order' => 5, 'title' => [ 'en' => 'Aperol Spritz', 'es' => 'Aperol Spritz' ] ],
+            [ 'order' => 6, 'title' => [ 'en' => 'Caipirinha', 'es' => 'Caipirinha' ] ],
+            [ 'order' => 7, 'title' => [ 'en' => 'Expresso Martini', 'es' => 'Expresso Martini', 'detail' => ['en' => 'Kalhúa,Vodka,Expresso', 'es' => 'Kalhúa,Vodka,Expresso'] ] ],
+            [ 'order' => 8, 'title' => [ 'en' => 'Fernet con Cocacola', 'es' => 'Fernet con Cocacola' ] ],
+            [ 'order' => 9, 'title' => [ 'en' => 'Mint Fernet with 7up', 'es' => 'Fernet Menta con 7Up' ] ],
+            [ 'order' => 10, 'title' => [ 'en' => 'Gancia con Limón', 'es' => 'Gancia with Lemon Juice' ] ],
+            [ 'order' => 11, 'title' => [ 'en' => 'Pisco Sour', 'es' => 'Pisco Sour' ] ],
+        ];        
+        $menuBar2->menu_items()->createMany($menuBarItems2);
+        $menuBar3 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 3,
+            'title' => [
+                'en' => 'Vodka',
+                'es' => 'Vodka'
+            ]
+        ]); 
+        $menuBarItems3 = [
+            [ 'order' => 1, 'title' => [ 'en' => 'Absolut con Naranja  with Orange Juice', 'es' => 'Absolut con Naranja  with Orange Juice' ] ],
+            [ 'order' => 2, 'title' => [ 'en' => 'Absolut con Seven Up', 'es' => 'Absolut con Seven Up' ] ],
+            [ 'order' => 3, 'title' => [ 'en' => 'Golden Bullet', 'es' => 'Bala Dorada' ] ],
+            [ 'order' => 4, 'title' => [ 'en' => 'Bloody Mery', 'es' => 'Bloody Mery' ] ],
+            [ 'order' => 5, 'title' => [ 'en' => 'Blue Moon', 'es' => 'Blue Moon' ] ],
+            [ 'order' => 6, 'title' => [ 'en' => 'Crystalline', 'es' => 'Cristalino (Stolichnaya)' ] ],
+            [ 'order' => 7, 'title' => [ 'en' => 'Caipiroska (Stolichnaya)', 'es' => 'Caipiroska (Stolichnaya)' ] ],
+            [ 'order' => 8, 'title' => [ 'en' => 'White / Black Russian', 'es' => 'Ruso Blanco / Negro ' ] ],
+            [ 'order' => 9, 'title' => [ 'en' => 'Sex on the Beach', 'es' => 'Sex on the Beach' ] ],
+            [ 'order' => 10, 'title' => [ 'en' => 'San Mateo with Absolut Vodka', 'es' => 'San Mateo con Absolut' ] ],
+            [ 'order' => 11, 'title' => [ 'en' => 'Screwdriver  (Stolichnaya)', 'es' => 'Screwdriver  (Stolichnaya)' ] ],
+            [ 'order' => 12, 'title' => [ 'en' => 'Vodka Tonic (Stolichnaya)', 'es' => 'Vodka Tonic (Stolichnaya)' ] ],
+            [ 'order' => 13, 'title' => [ 'en' => 'Vodkatini (Stolichnaya)', 'es' => 'Vodkatini (Stolichnaya)' ] ],
+        ];        
+        $menuBar3->menu_items()->createMany($menuBarItems3);
+        $menuBar4 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 4,
+            'title' => [
+                'en' => 'Rum',
+                'es' => 'Ron'
+            ]
+        ]); 
+        $menuBarItems4 = [
+            [ 'order' => 1, 'title' => [ 'en' => 'Alexander', 'es' => 'Alexander' ] ],
+            [ 'order' => 2, 'title' => [ 'en' => 'Mojito Cubano', 'es' => 'Mojito Cubano' ] ],
+            [ 'order' => 3, 'title' => [ 'en' => '“RG”', 'es' => '“RG”' ], 'detail' => ['en' => 'Rum & Ginger Ale', 'es' => 'Ron con Ginger Ale'] ],
+            [ 'order' => 4, 'title' => [ 'en' => 'Daiquiri', 'es' => 'Daiquiri' ] ],
+            [ 'order' => 5, 'title' => [ 'en' => 'Daiquiri de frutas)', 'es' => 'Daiquiri de frutas' ] ],
+            [ 'order' => 6, 'title' => [ 'en' => 'Piña Colada', 'es' => 'Piña Colada' ] ],
+            [ 'order' => 7, 'title' => [ 'en' => 'Cubas', 'es' => 'Cubas' ] ],
+            [ 'order' => 8, 'title' => [ 'en' => 'Cuba Libre', 'es' => 'Cuba Libre' ], 'detail' => ['en' => 'White Havana', 'es' => 'Havana Blanco'] ],
+            [ 'order' => 9, 'title' => [ 'en' => 'Bacardi Limón', 'es' => 'Bacardi Limón' ], 'detail' => ['en' => 'with 7up', 'es' => 'con Seven Up'] ],
+            [ 'order' => 10, 'title' => [ 'en' => 'Barceló Gran Añejo (Dominicano)', 'es' => 'Barceló Gran Añejo (Dominicano)' ] ],
+            [ 'order' => 11, 'title' => [ 'en' => 'El Abuelo', 'es' => 'El Abuelo' ] ],
+            [ 'order' => 12, 'title' => [ 'en' => 'Flor de Caña 7', 'es' => 'Flor de Caña 7' ] ],
+            [ 'order' => 13, 'title' => [ 'en' => 'Flor de Caña 12 años', 'es' => 'Flor de Caña 12 años' ] ],
+            [ 'order' => 14, 'title' => [ 'en' => 'Havana 7', 'es' => 'Havana 7' ] ],
+            [ 'order' => 15, 'title' => [ 'en' => 'Medellín', 'es' => 'Medellín' ] ],
+            [ 'order' => 13, 'title' => [ 'en' => 'Solera', 'es' => 'Solera' ] ],
+        ];        
+        $menuBar4->menu_items()->createMany($menuBarItems4);
+        $menuBar5 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 5,
+            'title' => [
+                'en' => 'Gin',
+                'es' => 'Ginebra'
+            ]
+        ]); 
+        $menuBar6 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 6,
+            'title' => [
+                'en' => 'Singani',
+                'es' => 'Singani'
+            ]
+        ]); 
+        $menuBar7 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 7,
+            'title' => [
+                'en' => 'Wine',
+                'es' => 'Vino'
+            ]
+        ]); 
+        $menuBar8 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 8,
+            'title' => [
+                'en' => 'Whisky – Scotch',
+                'es' => 'Whisky – Scotch'
+            ]
+        ]); 
+        $menuBar9 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 9,
+            'title' => [
+                'en' => 'Tequila',
+                'es' => 'Tequila'
+            ]
+        ]); 
+        $menuBar10 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 10,
+            'title' => [
+                'en' => 'LICORES, APERITIVOS & DIGESTIVE',
+                'es' => 'LIQUORS, APÉRITIVS & DIGESTIVOS'
+            ]
+        ]); 
+        $menuBar11 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 11,
+            'title' => [
+                'en' => 'Table Wine (Bolivian wines)',
+                'es' => 'Vinos de Mesa (Boliviano)'
+            ]
+        ]); 
+        $menuBar12 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 12,
+            'title' => [
+                'en' => 'White Wine',
+                'es' => 'Blancos'
+            ]
+        ]); 
+        $menuBar13 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 13,
+            'title' => [
+                'en' => 'Red Wine',
+                'es' => 'Tinto'
+            ]
+        ]); 
+        $menuBar14 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 14,
+            'title' => [
+                'en' => 'Bolivian Beers',
+                'es' => 'Cervezas Bolivianas'
+            ]
+        ]); 
+        $menuBar15 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 15,
+            'title' => [
+                'en' => 'Imported Beers',
+                'es' => 'Cervezas Importadas'
+            ]
+        ]); 
+        $menuBar16 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 16,
+            'title' => [
+                'en' => 'SHOTS - Whisky',
+                'es' => 'PUROS - Whisky'
+            ]
+        ]); 
+        $menuBar17 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 17,
+            'title' => [
+                'en' => 'SHOTS - Bourbon',
+                'es' => 'PUROS - Bourbon'
+            ]
+        ]); 
+        $menuBar18 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 18,
+            'title' => [
+                'en' => 'SHOTS - Malt',
+                'es' => 'PUROS - Malta'
+            ]
+        ]); 
+        $menuBar19 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 19,
+            'title' => [
+                'en' => 'SHOTS - Cognac',
+                'es' => 'PUROS - Coñac'
+            ]
+        ]); 
+        $menuBar20 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 20,
+            'title' => [
+                'en' => 'SHOTS - Rum',
+                'es' => 'PUROS - Ron'
+            ]
+        ]); 
+        $menuBar21 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 21,
+            'title' => [
+                'en' => 'SHOTS - Gin',
+                'es' => 'PUROS - Ginebra'
+            ]
+        ]); 
+        $menuBar22 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 22,
+            'title' => [
+                'en' => 'Vodka (Just vodka)',
+                'es' => 'Vodka (Puro / Solo)'
+            ]
+        ]); 
+        $menuBar23 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 23,
+            'title' => [
+                'en' => 'Singani (Just pisco)',
+                'es' => 'Singani (Puro / Solo)'
+            ]
+        ]); 
+        $menuBar24 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 24,
+            'title' => [
+                'en' => 'Additional Soda',
+                'es' => 'Gaseosa Adicional'
+            ]
+        ]); 
+        $menuBar25 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 25,
+            'title' => [
+                'en' => 'Tea',
+                'es' => 'Te'
+            ]
+        ]); 
+        $menuBar26 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 26,
+            'title' => [
+                'en' => 'Coffee with Liquor',
+                'es' => 'Café Con Licor'
+            ]
+        ]); 
+        $menuBar27 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 27,
+            'title' => [
+                'en' => 'NON-ALCOHOLIC BEVERAGES',
+                'es' => 'BEBIDAS SIN ALCOHOL'
+            ]
+        ]); 
+        $menuBar28 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 28,
+            'title' => [
+                'en' => 'NATURAL JUICES',
+                'es' => 'JUGOS, ZUMOS NATURALES'
+            ]
+        ]); 
+        $menuBar29 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 29,
+            'title' => [
+                'en' => 'Bottled',
+                'es' => 'Envasados'
+            ]
+        ]); 
+        $menuBar30 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 30,
+            'title' => [
+                'en' => 'COFFEE & TEA',
+                'es' => 'CAFÉ, TÉ Y MATES'
+            ]
+        ]); 
+        $menuBar31 = \App\Models\Menu::create([
+            'categoryId' => $category3->id,
+            'order' => 31,
+            'title' => [
+                'en' => 'SODAS',
+                'es' => 'GASEOSAS'
+            ]
+        ]); 
+
+            /* Barra diesel classic */
+        $menuBarraDiesel1 = \App\Models\Menu::create([
+            'categoryId' => $category2->id,
+            'order' => 1,
+            'title' => [
+                'en' => 'Beef or Steak',
+                'es' => 'Carne de Res'
+            ]
+        ]); 
+        $menuBarraDieselItems1 = [
+            [ 'order' => 1, 'title' => [ 'en' => 'Bife de Chorizo', 'es' => 'Bife de Chorizo' ], 'detail' => ['en'=> '3/4 pound of argentinean imported meat', 'es' =>'350 grs carne Argentina'] ],
+            [ 'order' => 2, 'title' => [ 'en' => 'Bife de Chorizo nacional', 'es' => 'Bife de Chorizo nacional' ], 'detail' => ['en' => '250 grs', 'es' => '250 grs'] ],
+            [ 'order' => 3, 'title' => [ 'en' => 'Punta de “S”', 'es' => 'Punta de “S”' ] ],
+            [ 'order' => 4, 'title' => [ 'en' => 'BBQ Flank Steak', 'es' => 'Matambre a la Parrilla' ], 'detail' => ['en' => 'With French Fries', 'es'=> 'Con Papa Frita'] ],
+            [ 'order' => 5, 'title' => [ 'en' => 'Napolitan style Flank Steak', 'es' => 'Matambre a la Pizza' ], 'detail' => ['en' => 'With French Fries', 'es'=> 'Con Papa Frita'] ],
+            [ 'order' => 6, 'title' => [ 'en' => 'Costilla de Res a la Leña', 'es' => 'Costilla de Res a la Leña' ] ],
+            [ 'order' => 7, 'title' => [ 'en' => 'Giba', 'es' => 'Giba' ] ],
+            [ 'order' => 8, 'title' => [ 'en' => 'Skewer', 'es' => 'Pacumuto' ], 'detail' => ['en' => 'Meat and Sausage with French Fries', 'es' => 'Res y chorizo con papa frita'] ]
+        ];        
+        $menuBarraDiesel1->menu_items()->createMany($menuBarraDieselItems1);
+
+        $menuBarraDiesel2 = \App\Models\Menu::create([
+            'categoryId' => $category2->id,
+            'order' => 2,
+            'title' => [
+                'en' => 'Pork',
+                'es' => 'Cerdo'
+            ]
+        ]); 
+        $menuBarraDieselItems2 = [
+            [ 'order' => 1, 'title' => [ 'en' => 'Chancho a la Leña', 'es' => 'Chancho a la Leña' ] ],
+            [ 'order' => 2, 'title' => [ 'en' => 'Costillitas a la BBQ', 'es' => 'Costillitas a la BBQ' ] ],
+        ];        
+        $menuBarraDiesel2->menu_items()->createMany($menuBarraDieselItems2);
+
+        $menuBarraDiesel3 = \App\Models\Menu::create([
+            'categoryId' => $category2->id,
+            'order' => 3,
+            'title' => [
+                'en' => 'Chicken',
+                'es' => 'Pollo'
+            ]
+        ]); 
+        $menuBarraDieselItems3 = [
+            [ 'order' => 1, 'title' => [ 'en' => '1/2 Pollo deshuesado al Limón', 'es' => '1/2 Pollo deshuesado al Limón' ] ],
+            [ 'order' => 2, 'title' => [ 'en' => 'Grilled Chicken with salad', 'es' => 'Pollo a la parrilla con Ensalada' ] ],
+        ];        
+        $menuBarraDiesel3->menu_items()->createMany($menuBarraDieselItems3);
+        $menuBarraDiesel4 = \App\Models\Menu::create([
+            'categoryId' => $category2->id,
+            'order' => 4,
+            'title' => [
+                'en' => 'Fish',
+                'es' => 'Pescado'
+            ]
+        ]); 
+        $menuBarraDieselItems4 = [
+            [ 'order' => 1, 'title' => [ 'en' => 'Trucha a la parrilla con arroz blanco', 'es' => 'Trucha a la parrilla con arroz blanco' ] ],
+        ];        
+        $menuBarraDiesel4->menu_items()->createMany($menuBarraDieselItems4);
+        $menuBarraDiesel5 = \App\Models\Menu::create([
+            'categoryId' => $category2->id,
+            'order' => 5,
+            'title' => [
+                'en' => 'PLATTERS',
+                'es' => 'TABLAS'
+            ]
+        ]); 
+        $menuBarraDieselItems5 = [
+            [ 'order' => 1, 'title' => [ 'en' => 'Argentinian style Barbecue platter', 'es' => 'Tabla Parrillera' ], 'detail' => ['en'=>'for 2 (Punta de S, Pollo, Chorizo, Morcilla, Queso)', 'es' => '2 Personas (Punta de S, Pollo, Chorizo, Morcilla, Queso)'] ],
+            [ 'order' => 2, 'title' => [ 'en' => 'Argentinian style Barbecue platter', 'es' => 'Tabla Parrillera' ], 'detail' => ['en'=>'for 4 (Punta de S, Pollo, Chorizo, Morcilla, Queso)', 'es' => '4 Personas (Punta de S, Pollo, Chorizo, Morcilla, Queso)'] ],
+            [ 'order' => 3, 'title' => [ 'en' => 'Tapa de Cuadril', 'es' => 'Tapa de Cuadril' ], 'detail' => ['en'=>'Punta de S for 2', 'es' => 'Punta de S para 2'] ],
+            [ 'order' => 4, 'title' => [ 'en' => 'Lomo en pieza', 'es' => 'Lomo en pieza' ], 'detail' => ['en'=>'para 3 o 4', 'es' => 'para 3 o 4'] ],
+            
+        ];        
+        $menuBarraDiesel5->menu_items()->createMany($menuBarraDieselItems5);
     }
 
     public static function loadCharacteristics() {
@@ -455,6 +868,7 @@ class SeederFunc {
                 'en' => 'Daily New Fresh Menus',
                 'es' => 'Nuevos menús frescos del día'
             ],
+            'icon' => 'fal fa-fish',
             'detail' => [
                 'en' => 'ENJOY GREAT FOOD FOR GROUPS OR PERSONAL',
                 'es' => 'DISFRUTE DE UNA EXCELENTE COMIDA PARA GRUPOS O PERSONAL'
@@ -471,6 +885,7 @@ class SeederFunc {
                 'en' => 'Unique Ambiance for a Different Experience',
                 'es' => 'Ambiente único para una experiencia diferente'
             ],
+            'icon' => 'fal fa-fish',
             'detail' => [
                 'en' => 'FEEL THE PAST AND THE PRESENT AT A TIME',
                 'es' => 'SIENTE EL PASADO Y EL PRESENTE A LA VEZ'
@@ -487,6 +902,7 @@ class SeederFunc {
                 'en' => 'The Best Drinks for Great Moments',
                 'es' => 'Las mejores bebidas para grandes momentos'
             ],
+            'icon' => 'fal fa-fish',
             'detail' => [
                 'en' => 'SPECIAL DRINKS AND THE BEST BEERS',
                 'es' => 'DELICIOSAS BEBIDAS Y BUENAS CERVEZAS'
@@ -510,21 +926,117 @@ class SeederFunc {
                 'en' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus venenatis ornare felis ut viverra. Mauris suscipit libero ac mi viverra facilisis.',
                 'es' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus venenatis ornare felis ut viverra. Mauris suscipit libero ac mi viverra facilisis.'
             ],
+            'showBanner' => 1,
+            'image' => \Asset::upload_image(asset('assets/img/content/events/10.jpg'), 'event-image'),
         ]); 
     }
 
     public static function loadReviews() {
-        \App\Models\Review::create([
-            'name' => 'Josué Gutiérrez',
-            'detail' => 'Un lugar increíble con mucha buena música y muy buen ambiente.',
-            'qualification' => 5,
-            'image' => \Asset::upload_image(asset('assets/img/content/profile/user.png'), 'review-image'),
+        \App\Models\Parameter::create([
+            'code' => 'phone',
+            'key' => [
+                'es' => 'Teléfono',
+                'en' => 'Phone',
+            ],
+            'value' => [
+                'es' => '59169002412',
+                'en' => '59169002412'
+            ]
         ]); 
-        \App\Models\Review::create([
-            'name' => 'Esteban Soleri',
-            'detail' => 'La comida es deliciosa 100/100',
-            'qualification' => 5,
-            'image' => \Asset::upload_image(asset('assets/img/content/profile/user.png'), 'review-image'),
+        \App\Models\Parameter::create([
+            'code' => 'email',
+            'key' => [
+                'es' => 'Correo electrónico',
+                'en' => 'Email',
+            ],
+            'value' => [
+                'es' => 'inbox@dieselnacional.com',
+                'en' => 'inbox@dieselnacional.com'
+            ]
         ]); 
+        \App\Models\Parameter::create([
+            'code' => 'address',
+            'key' => [
+                'es' => 'Ubícanos en',
+                'en' => 'Locate us',
+            ],
+            'value' => [
+                'es' => '20 de Octubre Ave # 2271, La Paz, Bolivia',
+                'en' => '20 de Octubre Ave # 2271, La Paz, Bolivia'
+            ]
+        ]);
+        \App\Models\Parameter::create([
+            'code' => 'description',
+            'key' => [
+                'es' => 'Breve descripción Footer',
+                'en' => 'Footer Brief description',
+            ],
+            'value' => [
+                'es' => 'Con más de 20 años de existencia, Diesel Nacional es un clásico indiscutible de la vida nocturna de La Paz, “Una de las 7 Ciudades Maravilla del Mundo”.',
+                'en' => 'With more than 20 years of existence, Diesel Nacional is indisputably a Classic Pub-Restaurant of the nightlife of the City of La Paz, "One of the 7 Wonder Cities of the World".'
+            ]
+        ]);
+        \App\Models\Parameter::create([
+            'code' => 'gallery-title',
+            'key' => [
+                'es' => 'Título de la galería',
+                'en' => 'Gallery title',
+            ],
+            'value' => [
+                'es' => 'Nuestra galería',
+                'en' => 'Our Gallery',
+            ]
+        ]);
+        \App\Models\Parameter::create([
+            'code' => 'gallery-subtitle',
+            'key' => [
+                'es' => 'Subtítulo de la galería',
+                'en' => 'Gallery subtitle',
+            ],
+            'value' => [
+                'es' => 'Disfrute con placer de su estancia en nuestro restaurante.',
+                'en' => 'Enjoy your time in our restaurant with pleasure.',
+            ]
+        ]);
+        \App\Models\Parameter::create([
+            'code' => 'schedule-text',
+            'key' => [
+                'es' => 'Texto del banner de horario',
+                'en' => 'Schedule text of banner',
+            ],
+            'value' => [
+                'es' => 'En Diesel Nacional, la mente maestra adopta un enfoque ecléctico. Es, sin duda, una experiencia gastronómica emocionante, interesante y divertida, con puertas hechas de camiones, montones de arte chatarra y una iluminación digna de una mina. Diesel Nacional es un excelente lugar para pasar gratos momentos con amigos y disfrutar de tapas y bebidas… La comida se sirve hasta tarde, al igual que los cócteles y bebidas, y el personal es servicial y amable.',
+                'en' => 'In Diesel Nacional, the mastermind takes an eclectic approach. It is undoubtedly an exciting dining experience – interesting and fun – with doors made of trucks, piles of junk art, and lighting fit for a mine. Diesel Nacional is an excellent place to hang out with friends, enjoy tapas and drinks, and marvel at the beauty of rusting truck fenders. Food is served till late, and cocktails are stocked until late. The staff is helpful and friendly.',
+            ]
+        ]);
+        \App\Models\Parameter::create([
+            'code' => 'schedule-text-secondary',
+            'key' => [
+                'es' => 'Texto secundario del banner de horario',
+                'en' => 'Schedule text secondary of banner',
+            ],
+            'value' => [
+                'es' => 'nightflow.com 2025  - La Paz Nightlife  - A Complete Guide 2025',
+                'en' => 'nightflow.com 2025  - La Paz Nightlife  - A Complete Guide 2025',
+            ]
+        ]);
+        \App\Models\SocialNetwork::create([
+            'name'   => 'Facebook',
+            'icon'   => 'fab fa-facebook-f',
+            'url'    => 'https://www.facebook.com/people/Diesel-Nacional/61573756449486/',
+            'active' => 1,
+        ]);
+        \App\Models\SocialNetwork::create([
+            'name' => 'Instagram',
+            'icon' => 'fab fa-instagram',
+            'url'  => 'https://www.instagram.com/dieselnacional.pub/',
+            'active' => 1,
+        ]);
+        \App\Models\SocialNetwork::create([
+            'name' => 'Twitter',
+            'icon' => 'fab fa-twitter',
+            'url'  => 'https://x.com',
+            'active' => 0,
+        ]);
     }
 }

@@ -58,7 +58,9 @@ return [
         'menu-item' => 'Items del menú',
         'characteristic' => 'Características',
         'event' => 'Eventos',
-        'review' => 'Reseñas'
+        'review' => 'Reseñas',
+        'parameter' => 'Global parameters',
+        'social-network' => 'Social networks',
     ],
     'created_at_from' => 'Fecha de Creación (Desde)',
     'created_at_to' => 'Fecha de Creación (Hasta)',
@@ -76,4 +78,6 @@ return [
     'filters' => 'Filtros',
     'spanish' => 'Español',
     'english' => 'Inglés',
+    'show_gallery' => 'Ver Galería',
+    'all_images' => 'Todas las Imágenes'
 ];

@@ -7,18 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Spatie\Translatable\HasTranslations;
 
-class Parameter extends Model {
+class SocialNetwork extends Model {
     use HasFactory, HasTranslations;
-    public $translatable = ['key', 'value'];
-    protected $es = 'Parámetros Globales';
-	protected $en = 'Global parameters';
-	protected $table  = 'parameters';
+    protected $es = 'Red Social';
+	protected $en = 'Social Network';
+	protected $table  = 'social_networks';
 	public $timestamps = true;
     public $incrementing = false;
     protected $fillable = [
-		'code',
-        'key',
-        'value'
+        'name',
+        'icon',
+        'url',
+        'active'
     ];
 
     public static function boot() {
@@ -33,8 +33,9 @@ class Parameter extends Model {
     }
 
     public static $rules_create = array(
-        'key' => 'required',
-        'value' => 'required'
+        'name' => 'required',
+        'icon' => 'required',
+        'url'  => 'required',
 	);
 		
 		/* Updating rules */

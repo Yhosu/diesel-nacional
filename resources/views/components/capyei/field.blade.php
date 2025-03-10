@@ -147,8 +147,8 @@
                 @if ($placeholder)
                     <option value="" disabled>{{ $placeholder }}</option>
                 @endif
-                <option {{ $value == '0' ? 'selected' : '' }} value="0">No</option>
                 <option {{ $value == '1' ? 'selected' : '' }} value="1">Si</option>
+                <option {{ $value == '0' ? 'selected' : '' }} value="0">No</option>
             </select>
         @elseif($type === 'image' || $type === 'video' || $type === 'file')
             @if($hasLabel)

@@ -17,6 +17,7 @@ class Category extends Model {
 	public $incrementing = false;
 	protected $casts = ['id'=>'string'];
 	protected $fillable = [
+		'code',
 		'name',
 		'active'
 	];
@@ -30,6 +31,10 @@ class Category extends Model {
 
 	public function menus() {
 		return $this->hasMany(Menu::class, 'categoryId', 'id')->where('active', 1)->orderBy('order', 'ASC')->limit(7);
+	}
+
+	public function all_menus() {
+		return $this->hasMany(Menu::class, 'categoryId', 'id')->where('active', 1)->orderBy('order', 'ASC');
 	}
 
 	public function getLang( $lang ) {

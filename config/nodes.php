@@ -9,7 +9,9 @@ return [
         'menu',
         'menu-item',
         'characteristic',
-        'event'
+        'event',
+        'parameter',
+        'social-network',
     ],
     'paginate' => 100,
 

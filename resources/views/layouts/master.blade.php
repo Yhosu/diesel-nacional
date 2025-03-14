@@ -61,7 +61,7 @@
                 <div class="container_tmp">
                     <div class="header-container fl-wrap">
                         <a href="{{ url('') }}" class="logo-holder"><img src="{{ asset('assets/img/logo-complete-horizontal-white.svg') }}" alt="{{ config('name') }}"></a>
-                        <div class="show-share-btn showshare htact"><i class="fal fa-bullhorn"></i> <span class="header-tooltip">Compartir</span></div>
+                        <div class="show-share-btn showshare htact" style="margin-left: 24px;"><i class="fal fa-bullhorn"></i> <span class="header-tooltip">Compartir</span></div>
                         <!-- nav-button-wrap-->
                         <div class="nav-button-wrap">
                             <div class="nav-button">

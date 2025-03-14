@@ -32,7 +32,8 @@ class Menu extends Model {
     }
 
     public function menu_items() {
-        return $this->hasMany(MenuItem::class, 'menuId', 'id')->where('active', 1)->orderBy('order', 'ASC')->limit(4);
+        return $this->hasMany(MenuItem::class, 'menuId', 'id')->where('active', 1)->orderBy('order', 'ASC');
+        // return $this->hasMany(MenuItem::class, 'menuId', 'id')->where('active', 1)->orderBy('order', 'ASC')->limit(4);
     }
 
     public function all_menu_items() {

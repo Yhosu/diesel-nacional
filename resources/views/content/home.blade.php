@@ -62,7 +62,7 @@
     <!-- content  -->
     <div class="content">
         <section class="hidden-section big-padding" data-scrollax-parent="true" id="sec2">
-            <div class="container_tmp">
+            <div class="container_tmp pad-x__mobile">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="section-title text-align_left">
@@ -454,7 +454,7 @@
                         <a href="#" class="gallery-filter " data-filter=".{{ $arrayFilters[$key+1]}}" rand(0,3)><span>0{{ $key + 2 }}.</span>{{ $category->name }} </a>
                     @endforeach
                 </div>
-                <div class="feedback" style="right: -40px !important; z-index: 10000"> <a href="#sectionForm">[<i class="fa fa-plus"></i>] <span>Feedback</span></a> </div>
+                <div class="feedback" style="right: -40px !important; z-index: 10000"> <a href="#sectionForm" class="custom-scroll-link">[<i class="fa fa-plus"></i>] <span>Feedback</span></a> </div>
                 <!-- gallery-filters end-->
                 <!-- gallery start -->
                 <div class="gallery-items min-pad  lightgallery three-column fl-wrap" style="margin-bottom:50px;">
@@ -628,7 +628,7 @@
             <div class="map-view-wrap">
                 <div class="container_tmp">
                     <div class="map-view-wrap_item">
-                        <div class="contact-details">
+                        <div class="contact-details pad-x__mobile">
                             <h4>{{ __('diesel.contacts_details') }}</h4>
                             <ul>
                                 <li><span><i class="fal fa-map-marked-alt"></i> {{ $address->key }} :</span> <a href="#">{{ $address->value }}</a></li>

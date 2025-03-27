@@ -60,7 +60,7 @@
             <div class="header-inner  fl-wrap">
                 <div class="container_tmp">
                     <div class="header-container fl-wrap">
-                        <a href="{{ url('') }}" class="logo-holder"><img src="{{ asset('assets/img/logo-complete-horizontal-white.svg') }}" alt="{{ config('name') }}"></a>
+                        <a href="{{ url('') }}" class="logo-holder"><img src="{{ asset('assets/img/logo-complete-horizontal-gold.svg') }}" alt="{{ config('name') }}"></a>
                         <div class="show-share-btn showshare htact" style="margin-left: 24px;"><i class="fal fa-bullhorn"></i> <span class="header-tooltip">Compartir</span></div>
                         <!-- nav-button-wrap-->
                         <div class="nav-button-wrap">
@@ -160,7 +160,7 @@
             <footer class="fl-wrap dark-bg fixed-footer">
                 <div class="container_tmp">
                     <div class="footer-top fl-wrap">
-                        <a href="{{ url('') }}" class="footer-logo"><img src="{{ asset('assets/img/logo-white.svg') }}" alt="{{ config('name') }}"></a>
+                        <a href="{{ url('') }}" class="footer-logo"><img src="{{ asset('assets/img/logo-gold.svg') }}" alt="{{ config('name') }}"></a>
                         <div class="lang-wrap"><a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">En</a><span>/</span><a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">Es</a></div>
                         <div class="footer-social">
                             <span class="footer-social-title">{{ __('diesel.follow_us_on') }}:</span>

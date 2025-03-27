@@ -77,8 +77,11 @@
 		padding-left: 1rem;
 		padding-right: 1rem;
 	}
-	.contact-details h4 {
-		color: white !important;
+	.contact-details {
+		padding-bottom: 1rem;
+		h4 {
+			color: white !important;
+		}
 	}
 
 	.menu-wrapper.single-menu {
@@ -87,6 +90,17 @@
 		}
 		.menu-wrapper-title-item h4 {
 			font-size: 25px;
+		}
+	}
+	.hero-bottom-container {
+		padding: 1rem;
+	}
+	
+	.section__getting-touch {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		.contactform-wrap {
+			padding-bottom: 1rem;
 		}
 	}
 }

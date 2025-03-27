@@ -644,7 +644,7 @@
         </section>
         <!--  section  end-->
         <!--  section  -->
-        <section class="hidden-section con-sec big-padding" data-scrollax-parent="true" id="sectionForm">
+        <section class="hidden-section con-sec big-padding section__getting-touch" data-scrollax-parent="true" id="sectionForm">
             <div class="container_tmp">
                 <div class="row">
                     <div class="col-md-8">

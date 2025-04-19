@@ -6,10 +6,6 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProcessController;
 use Illuminate\Support\Facades\Http;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function() {
     return redirect('/home');
 });
@@ -36,12 +32,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
     });
     Route::view('dashboard', 'content.admin.dashboard')->name('dashboard');
     Route::view('account', 'content.admin.account')->name('admin-account');
-    
-    // Route::prefix('node/{node}')->group(function () {
-    //     Route::get('/', [MainController::class, 'showNodeTableCrud'])->name('table-crud');
-    //     Route::get('{action}', [MainController::class, 'showNodeFormCrud'])->where('action', 'create')->name('form-crud');
-    //     Route::get('{action}/{id}', [MainController::class, 'showNodeFormCrud'])->where('action', 'read|edit')->name('form-crud');
-    // });
 
     /* LISTADOS Y CRUDS */
     Route::get('/node-list/{node}/{paginate?}/{excel?}',    [MainController::class,    'getNodeList']);

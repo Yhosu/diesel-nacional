@@ -1,7 +1,7 @@
 <x-master-layout>
     <!-- hero-wrap-->
     <div class="hero-wrap fl-wrap full-height" data-scrollax-parent="true" id="sec1">
-        <div class="bg par-elem "  data-bg="https://restabook.kwst.net/dark/images/bg/2.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+        <div class="bg par-elem "  data-bg="{{ asset('assets/img/content/Foto-para-banner.jpeg') }}" data-scrollax="properties: { translateY: '30%' }"></div>
         <div class="overlay"></div>
         <div class="hero-title-wrap fl-wrap">
             <div class="container_tmp">
@@ -96,7 +96,7 @@
         <!-- section   -->
         <section class="column-section no-padding hidden-section" data-scrollax-parent="true">
             <div class="column-wrap-bg left-wrap">
-                <div class="bg par-elem "  data-bg="https://restabook.kwst.net/dark/images/bg/12.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+                <div class="bg par-elem "  data-bg="{{ asset('assets/img/content/IMG_4866.jpeg') }}" data-scrollax="properties: { translateY: '30%' }"></div>
                 <div class="overlay"></div>
                 <div class="quote-box">
                     <i class="fal fa-quote-right"></i>
@@ -236,7 +236,7 @@
         <section class="parallax-section dark-bg hidden-section" data-scrollax-parent="true" id="sec3">
             <div class="brush-dec2"></div>
             <div class="brush-dec"></div>
-            <div class="bg par-elem bg_tabs"  data-bg="https://restabook.kwst.net/dark/images/bg/4.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+            <div class="bg par-elem bg_tabs"  data-bg="{{ asset('assets/img/content/Foto_Descubre_Nuestro_Menu.jpeg')}}" data-scrollax="properties: { translateY: '30%' }"></div>
             <div class="cd-tabs-layer" data-frame="10">
                 <div class="tabs-layer"></div>
             </div>
@@ -247,8 +247,39 @@
                     <h2>{{ __('diesel.discover_our_menu') }}</h2>
                     <div class="dots-separator fl-wrap"><span></span></div>
                 </div>
+                <div class="cards-wrap fl-wrap">
+                    <div class="row">
+                        <!--card item -->
+                        @foreach ($categories as $key => $category)
+                        <div class="col-md-4">
+                            <!-- team-item -->
+                            <div class="team-box">
+                                <div class="team-photo">
+                                    <img src="{{ \Asset::get_image_path('category-image', 'normal', $category->image) }}" alt="" class="respimg">
+                                    <div class="overlay"></div>
+                                    <div class="team-social">
+                                        <span class="ts_title">Ver más</span>
+                                        <ul class="no-list-style">
+                                            <li><a href="{{ url('menu/'. $category->code) }}"><i class="fa fa-search"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="team-info fl-wrap">
+                                    <h3> {{ $category->name }} </h3>
+                                    <h4>{{ $category->detail }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                        <!--card item end -->
+                    </div>
+                    <div class="section-dec sec-dec_top"></div>
+                    <div class="section-dec sec-dec_bottom"></div>
+                </div>                
+                
+
                 <!--  hero-menu_header  end-->
-                <div class="hero-menu tabs-act fl-wrap">
+                {{-- <div class="hero-menu tabs-act fl-wrap">
                     <div class="row">
                         <!--  hero-menu_header-->
                         <div class="col-md-3">
@@ -320,7 +351,7 @@
                         @endforeach
                         <a href="#" class="pdf-link">Dowload PDF</a>
                     </div>
-                </div>
+                </div> --}}
                 <!--  hero-menu  end-->
             </div>
         </section>
@@ -376,64 +407,6 @@
             </div>
         </section>
         <!-- section end  -->
-        <!--  section  TODO: VISITAS -->
-        {{-- <section class="parallax-section dark-bg hidden-section" data-scrollax-parent="true">
-            <div class="brush-dec2"></div>
-            <div class="brush-dec"></div>
-            <div class="bg par-elem bg_tabs"  data-bg="https://restabook.kwst.net/dark/images/bg/14.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
-            <div class="overlay"></div>
-            <div class="container_tmp">
-                <!-- inline-facts -->
-                <div class="inline-facts-wrap">
-                    <div class="inline-facts">
-                        <div class="milestone-counter">
-                            <div class="stats animaper">
-                                <div class="num" data-content="0" data-num="254">154</div>
-                            </div>
-                        </div>
-                        <h6>New Visiters Every Week</h6>
-                    </div>
-                </div>
-                <!-- inline-facts end -->
-                <!-- inline-facts  -->
-                <div class="inline-facts-wrap">
-                    <div class="inline-facts">
-                        <div class="milestone-counter">
-                            <div class="stats animaper">
-                                <div class="num" data-content="0" data-num="12168">12168</div>
-                            </div>
-                        </div>
-                        <h6>Happy Customers Every Year</h6>
-                    </div>
-                </div>
-                <!-- inline-facts end -->
-                <!-- inline-facts  -->
-                <div class="inline-facts-wrap">
-                    <div class="inline-facts">
-                        <div class="milestone-counter">
-                            <div class="stats animaper">
-                                <div class="num" data-content="0" data-num="172">172</div>
-                            </div>
-                        </div>
-                        <h6>Won Awards</h6>
-                    </div>
-                </div>
-                <!-- inline-facts end -->
-                <!-- inline-facts  -->
-                <div class="inline-facts-wrap">
-                    <div class="inline-facts">
-                        <div class="milestone-counter">
-                            <div class="stats animaper">
-                                <div class="num" data-content="0" data-num="732">732</div>
-                            </div>
-                        </div>
-                        <h6>Weekly Deliveries</h6>
-                    </div>
-                </div>
-                <!-- inline-facts end -->
-            </div>
-        </section> --}}
-        <!--  section  VISITAS end-->
         <!--  section  -->
         <section class="hidden-section" data-scrollax-parent="true" id="sec4">
             <div class="container_tmp">
@@ -458,16 +431,19 @@
                 <!-- gallery-filters end-->
                 <!-- gallery start -->
                 <div class="gallery-items min-pad  lightgallery three-column fl-wrap" style="margin-bottom:50px;">
-                    <!-- gallery-item-->
-                    <div class="gallery-item dishes">
-                        <div class="grid-item-holder hov_zoom">
-                            <a href="https://restabook.kwst.net/dark/images/all/1.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                            <img  src="https://restabook.kwst.net/dark/images/all/1.jpg"    alt="">
+                    @foreach( $dieselBarImages as $dieselBarImage )
+                        <div class="gallery-item resta_img">
+                            <div class="grid-item-holder hov_zoom">
+                                <a href="{{ asset('assets/img/diesel-bar/'.$dieselBarImage)}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                <img  src="{{ asset('assets/img/diesel-bar/'.$dieselBarImage)}}"    alt="">
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
+                    <!-- gallery-item-->
+                    
                     <!-- gallery-item end-->
                     <!-- gallery-item-->
-                    <div class="gallery-item resta_img events">
+                    <div class="gallery-item events">
                         <div class="grid-item-holder hov_zoom">
                             <a href="https://restabook.kwst.net/dark/images/all/14.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
                             <img  src="https://restabook.kwst.net/dark/images/all/14.jpg"    alt="">
@@ -483,7 +459,7 @@
                     </div>
                     <!-- gallery-item end-->
                     <!-- gallery-item-->
-                    <div class="gallery-item resta_img events">
+                    <div class="gallery-item events">
                         <div class="grid-item-holder hov_zoom">
                             <a href="https://restabook.kwst.net/dark/images/all/10.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
                             <img  src="https://restabook.kwst.net/dark/images/all/10.jpg"    alt="">
@@ -491,7 +467,7 @@
                     </div>
                     <!-- gallery-item end-->
                     <!-- gallery-item-->
-                    <div class="gallery-item resta_img video_links">
+                    <div class="gallery-item video_links">
                         <div class="grid-item-holder hov_zoom">
                             <a href="https://vimeo.com/10322316" class="box-media-zoom   popup-image"><i class="fal fa-play"></i></a>
                             <img  src="https://restabook.kwst.net/dark/images/all/11.jpg"    alt="">
@@ -507,7 +483,7 @@
                     </div>
                     <!-- gallery-item end-->
                     <!-- gallery-item-->
-                    <div class="gallery-item resta_img events video_links">
+                    <div class="gallery-item events video_links">
                         <div class="grid-item-holder hov_zoom">
                             <a href="https://www.youtube.com/watch?v=GlrxcuEDyF8" class="box-media-zoom   popup-image"><i class="fal fa-play"></i></a>
                             <img  src="https://restabook.kwst.net/dark/images/all/16.jpg"    alt="">
@@ -515,7 +491,7 @@
                     </div>
                     <!-- gallery-item end-->
                     <!-- gallery-item-->
-                    <div class="gallery-item resta_img dishes">
+                    <div class="gallery-item dishes">
                         <div class="grid-item-holder hov_zoom">
                             <a href="https://restabook.kwst.net/dark/images/all/13.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
                             <img  src="https://restabook.kwst.net/dark/images/all/13.jpg"    alt="">

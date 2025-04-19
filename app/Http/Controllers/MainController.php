@@ -40,6 +40,9 @@ class MainController extends Controller
 		$scheduleTextSecondary = \App\Models\Parameter::where('code', 'schedule-text-secondary')->first()->value;
 		$galleryTitle 		   = \App\Models\Parameter::where('code', 'gallery-title')->first()->value;
 		$gallerySubtitle       = \App\Models\Parameter::where('code', 'gallery-subtitle')->first()->value;
+		$dieselBarImages	   = array_filter(scandir(public_path('assets/img/diesel-bar')), function($item) {
+			return $item[0] !== '.';
+		});
 		return view('content.home', compact(
 			'bannerInit', 
 			'about', 
@@ -53,7 +56,8 @@ class MainController extends Controller
 			'scheduleText', 
 			'scheduleTextSecondary', 
 			'galleryTitle', 
-			'gallerySubtitle'
+			'gallerySubtitle',
+			'dieselBarImages'
 		));
 	}
 

@@ -128,7 +128,8 @@ class MainController extends Controller
             $items = $items->when( in_array( $type, ['int', 'bigint', 'tinyint', 'enum']), function( $q ) use( $key, $value ) {
                     return $q->where( $key, $value );
                 })->when( in_array($type, ['text', 'string', 'varchar'] ), function( $q ) use( $key, $value ) {
-                    $query = "TRIM( REPLACE( REPLACE( REPLACE(  REPLACE( REPLACE( REPLACE( LOWER( `" . $key . "`), 'á', 'a' ), 'e', 'e' ), 'i', 'i' ), 'ó', 'o' ), 'u', 'u' ), ' ', '' ) ) LIKE '%" . $value ."%'";
+
+                    $query = "TRIM( REPLACE( REPLACE( REPLACE(  REPLACE( REPLACE( REPLACE( LOWER( `" . $key . "`), 'á', 'a' ), 'e', 'e' ), 'i', 'i' ), 'ó', 'o' ), 'u', 'u' ), ' ', '' ) ) LIKE '%" . clean4search( $value ) ."%'";
                     return $q->whereRaw($query, []);
                 })->when( in_array( $type, ['datetime', 'date', 'timestamp'] ) && isset($filters[$key.'_from']) && isset( $filters[$key.'_to'] ) , function( $q ) use( $key, $value, $filters ) {
                     return $q->whereDate($key, '>=',$filters[$key.'_from'] . ' 00:00:00')->whereDate($key, '<=', $filters[$key.'_to'] . ' 23:59:00');

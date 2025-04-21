@@ -668,7 +668,7 @@
                         <div class="section-dec sec-dec_top"></div>
                     </div>
                     <div class="col-md-4">
-                        <img src="https://restabook.kwst.net/dark/images/all/22.jpg"  class="respimg"  alt="">
+                        <img src="{{ asset('assets/img/content/footer.jpeg') }}"  class="respimg"  alt="">
                     </div>
                 </div>
             </div>

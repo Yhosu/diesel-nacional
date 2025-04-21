@@ -1,7 +1,7 @@
 <x-master-layout>
     <div class="content woocommerce">
         <section class="parallax-section hero-section hidden-section" data-scrollax-parent="true">
-            <div class="bg par-elem "  data-bg="https://restabook.kwst.net/dark/images/bg/12.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+            <div class="bg par-elem "  data-bg="{{ \Asset::get_image_path( 'category-image', 'normal', $category->image ) }} " data-scrollax="properties: { translateY: '30%' }"></div>
             <div class="overlay"></div>
             <div class="container_tmp">
                 <div class="section-title">

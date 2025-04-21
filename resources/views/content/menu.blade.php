@@ -32,14 +32,14 @@
                             <h4>{{ $menu->title }}</h4>
                             <h5>{{ $menu->detail }}</h5>
                         </div>
-                        <div class="bg par-elem" data-bg="https://webredox.net/demo/wp/restabook/dark/wp-content/uploads/2020/05/2.jpg" data-scrollax="properties: { translateY: '40%' }" style="background-image: url('https://webredox.net/demo/wp/restabook/dark/wp-content/uploads/2020/05/2.jpg'); transform: translateZ(0px) translateY(-39.5098%);"></div>
+                        <div class="bg par-elem" data-bg="{{ \Asset::get_image_path( 'menu-image', 'normal', $menu->image ) }}" data-scrollax="properties: { translateY: '40%' }" style="background-image: url('https://webredox.net/demo/wp/restabook/dark/wp-content/uploads/2020/05/2.jpg'); transform: translateZ(0px) translateY(-39.5098%);"></div>
                         <div class="overlay"></div>
                         <span class="menu-wrapper-title_number">{{ $key + 1 }}.</span>
                     </div>
                     @foreach ($menu->all_menu_items as $menuItem)
                     <div class="hero-menu-item rs-dark-loop" style="height: 88px;">
-                        <a href="https://webredox.net/demo/wp/restabook/dark/wp-content/uploads/2020/05/2-4.jpg" class="hero-menu-item-img image-popup">
-                            <img src="https://webredox.net/demo/wp/restabook/dark/wp-content/uploads/2020/05/2-4.jpg" alt="{{ $menuItem->title }}" />
+                        <a href="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : 'https://webredox.net/demo/wp/restabook/dark/wp-content/uploads/2020/05/2-4.jpg' }}" class="hero-menu-item-img image-popup">
+                            <img src="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : 'https://webredox.net/demo/wp/restabook/dark/wp-content/uploads/2020/05/2-4.jpg' }}" alt="{{ $menuItem->title }}" />
                         </a>
                         <div class="hero-menu-item-title fl-wrap">
                             <h6><a href="javascript:void(0);" class="a-default-color">{{ $menuItem->title }}</a></h6>

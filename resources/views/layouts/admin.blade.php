@@ -251,7 +251,6 @@
             }
             return data;
         }
-
     </script>
 
     @stack('scripts')

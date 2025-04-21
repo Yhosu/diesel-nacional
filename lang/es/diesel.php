@@ -79,5 +79,8 @@ return [
     'spanish' => 'Español',
     'english' => 'Inglés',
     'show_gallery' => 'Ver Galería',
-    'all_images' => 'Todas las Imágenes'
+    'all_images' => 'Todas las Imágenes',
+
+    'created_at' => 'Fecha de creación',
+    'updated_at' => 'Fecha de actualización'
 ];

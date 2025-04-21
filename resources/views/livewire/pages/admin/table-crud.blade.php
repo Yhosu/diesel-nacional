@@ -42,12 +42,16 @@
                 </form>
             </div>
             @if ($items)
-                <div class="table-responsive">
-                    <table class="table">
+                <div class="table-responsive" style="padding: 25px;">
+                    <div class="paginator px-2">
+                        {{ $items->links('vendor.pagination.bootstrap-5') }}
+                    </div>
+                    <table class="table display nowrap" id="table-responsive___id">
                         <thead>
                             <tr>
+                                <th></th>
                                 @foreach ($fields as $head)
-                                    <th>{{ $head->comment }}</th>
+                                    <th>{{ !empty( $head->comment ) ? $head->comment : __('diesel.' . $head->name ) }}</th>
                                 @endforeach
                                 <th style="min-width: 150px">Acciones</th>
                             </tr>
@@ -55,6 +59,7 @@
                         <tbody>
                             @foreach ($items as $item)
                                 <tr>
+                                    <td></td>
                                     @foreach ($fields as $head)
                                         @if( $head->type == 'image' )
                                             <td style="overflow: hidden; max-width: 120ch; white-space: nowrap;"><a href="{{\Asset::get_image_path($node_name. '-' .$head->name, 'normal', $item[$head->name])}}" target="_blank">{{ $item[$head->name] }}</a></td>
@@ -81,9 +86,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="paginator px-2">
-                        {{ $items->links('vendor.pagination.bootstrap-5') }}
-                    </div>
                 </div>
             @endif
         </div>
@@ -113,3 +115,26 @@
         </script>
     @endpush
 </x-admin-layout>
+<script>
+    var table = $('#table-responsive___id').DataTable({
+        responsive: {
+            details: {
+                type: 'column'
+            }
+        },
+        columnDefs: [{
+            className: 'control',
+            orderable: false,
+            targets: 0
+        }],
+        order: [1, 'asc']
+    });
+
+    $('#btn-show-all-doc').on('click', expandCollapseAll);
+
+    function expandCollapseAll() {
+        table.rows('.parent').nodes().to$().find('td:first-child').trigger('click').length || 
+        table.rows(':not(.parent)').nodes().to$().find('td:first-child').trigger('click')
+    }
+    
+</script>

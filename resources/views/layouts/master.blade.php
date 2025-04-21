@@ -330,7 +330,6 @@
     <script src="{{ asset('assets/templates/master/dark/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/templates/master/dark/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/templates/master/dark/js/scripts.js') }}"></script>
-
     @stack('scripts')
 </body>
 </html>

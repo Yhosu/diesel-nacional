@@ -37,7 +37,7 @@ return [
     'subscribe_title' => 'Subscribe',
     'contact_title' => 'Contact',
     'get_in_touch' => 'Get in Touch',
-    'get_in_touch_message' => 'For Reservations, please contact us on WhatsApp +591 XXX XXX XXX:',
+    'get_in_touch_message' => 'For Reservations, please contact us on WhatsApp +591 70155405:',
     'subjects' => [
         'any' => 'Any',
         'upcoming-events' => 'Upcoming Events',

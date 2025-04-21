@@ -37,7 +37,7 @@ return [
     'subscribe_title' => 'Suscríbete',
     'contact_title' => 'Contacto',
     'get_in_touch' => 'Ponte en contacto con nosotros',
-    'get_in_touch_message' => 'Para reservas, por favor contáctenos al WhatsApp +591 XXX XXX XXX:',
+    'get_in_touch_message' => 'Para reservas, por favor contáctenos al WhatsApp +591 70155405:',
     'subjects' => [
         'any' => 'Cualquiera',
         'upcoming-events' => 'Próximos eventos',

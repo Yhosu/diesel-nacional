@@ -38,8 +38,8 @@
                     </div>
                     @foreach ($menu->all_menu_items as $menuItem)
                     <div class="hero-menu-item rs-dark-loop" style="height: 88px;">
-                        <a href="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : 'https://webredox.net/demo/wp/restabook/dark/wp-content/uploads/2020/05/2-4.jpg' }}" class="hero-menu-item-img image-popup">
-                            <img src="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : 'https://webredox.net/demo/wp/restabook/dark/wp-content/uploads/2020/05/2-4.jpg' }}" alt="{{ $menuItem->title }}" />
+                        <a href="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }}" class="hero-menu-item-img image-popup">
+                            <img src="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }}" alt="{{ $menuItem->title }}" />
                         </a>
                         <div class="hero-menu-item-title fl-wrap">
                             <h6><a href="javascript:void(0);" class="a-default-color">{{ $menuItem->title }}</a></h6>

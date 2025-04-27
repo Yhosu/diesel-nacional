@@ -36,7 +36,7 @@
                 
                     <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 align-self-end">
                         <button type="submit" class="btn btn-icon btn-primary waves-effect waves-float waves-light" title="{{ __('filter') }}">
-                            <x-cy-icon-feather icon="filter" />
+                            <x-cy-icon-feather icon="filter" /> {{ __('diesel.search') }}
                         </button>
                     </div>
                 </form>

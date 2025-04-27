@@ -111,6 +111,7 @@ class MainController extends Controller
 	public function getNodeList( $node, $paginate = true, $excel = false ) {
 		$request = request();
         $availableNodes = config('nodes.available_nodes');
+		$noRestricts = ['xt_with_image'];
         if( !in_array( $node, $availableNodes ) ) return redirect($this->prev);
 		$lang 	   = \App::getLocale();
 		$className = \Func::getModel( $node );
@@ -122,15 +123,18 @@ class MainController extends Controller
         $filters   = $request->all();
         foreach( $filters as $key => $value ) {
             $key = str_replace('_from', '', $key);
-            if( !\Schema::hasColumn($table, trim( strtolower( $key ) ) ) ) continue;
+            if( !\Schema::hasColumn($table, trim( strtolower( $key ) ) ) && !in_array($key, $noRestricts) ) continue;
             if( empty( $value ) ) continue;
-            $type = getTypeField($table, $key);
-            $items = $items->when( in_array( $type, ['int', 'bigint', 'tinyint', 'enum']), function( $q ) use( $key, $value ) {
+            $type = \Str::contains( $key, 'xt_') ? 'extra' : getTypeField($table, $key);
+            $items = $items->when( \Str::contains( $key, 'xt_with_image'), function( $q ) use( $key, $value ) {
+					return $q->whereNotNull('image');
+				})->when( in_array( $type, ['int', 'bigint', 'tinyint', 'enum']), function( $q ) use( $key, $value ) {
                     return $q->where( $key, $value );
                 })->when( in_array($type, ['text', 'string', 'varchar'] ), function( $q ) use( $key, $value ) {
-
-                    $query = "TRIM( REPLACE( REPLACE( REPLACE(  REPLACE( REPLACE( REPLACE( LOWER( `" . $key . "`), 'á', 'a' ), 'e', 'e' ), 'i', 'i' ), 'ó', 'o' ), 'u', 'u' ), ' ', '' ) ) LIKE '%" . clean4search( $value ) ."%'";
-                    return $q->whereRaw($query, []);
+					$isUuid = preg_match('/^[a-f\d]{8}(-[a-f\d]{4}){4}[a-f\d]{8}$/i', $value);
+					if( $isUuid ) return $q->where( $key, $value );
+                    $query = "TRIM( REPLACE( REPLACE(  REPLACE( REPLACE( REPLACE( LOWER( `" . $key . "`), 'á', 'a' ), 'e', 'e' ), 'i', 'i' ), 'ó', 'o' ), 'u', 'u' ) ) LIKE '%" . clean4search( $value ) ."%'";
+					return $q->whereRaw($query, []);
                 })->when( in_array( $type, ['datetime', 'date', 'timestamp'] ) && isset($filters[$key.'_from']) && isset( $filters[$key.'_to'] ) , function( $q ) use( $key, $value, $filters ) {
                     return $q->whereDate($key, '>=',$filters[$key.'_from'] . ' 00:00:00')->whereDate($key, '<=', $filters[$key.'_to'] . ' 23:59:00');
                 });

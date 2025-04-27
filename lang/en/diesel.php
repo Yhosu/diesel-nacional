@@ -82,5 +82,7 @@ return [
     'all_images' => 'All Images',
 
     'created_at' => 'Created At',
-    'updated_at' => 'Updated At'
+    'updated_at' => 'Updated At',
+    'search' => 'Search',
+    'with_image' => 'With image?',
 ];

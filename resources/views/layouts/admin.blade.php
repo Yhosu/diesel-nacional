@@ -251,6 +251,9 @@
             }
             return data;
         }
+        $(document).ready(function() {
+            $('.selectTwo').select2();
+        });
     </script>
 
     @stack('scripts')

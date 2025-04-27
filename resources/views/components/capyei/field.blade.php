@@ -38,7 +38,7 @@
             {{-- @if (isset($slot))
                 {{ $slot }}
             @else --}}
-                <select name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} class="{{ $classField }} form-control" {{ $multiple ? 'multiple="multiple"' : '' }}
+                <select name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} class="{{ $classField }} form-control selectTwo" {{ $multiple ? 'multiple="multiple"' : '' }}
                     {!! $propertyField !!}
                 >
                     @if ($placeholder)
@@ -141,7 +141,7 @@
                     <b>{{ $label }} @if($subtext) {!! $subtext !!} @endif</b>
                 </label>
             @endif
-            <select name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} class="{{ $classField }} form-control"
+            <select name="{{ $name }}" id="{{ $customId ? ('field__custom-'.$id) : $id }}" {{ $disabled ? 'disabled' : '' }} {{ $required ? 'required' : '' }} class="{{ $classField }} form-control selectTwo"
                 {!! $propertyField !!}
             >
                 @if ($placeholder)

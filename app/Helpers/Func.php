@@ -19,7 +19,7 @@ class Func {
     }
 
     public static function getTypeField( $table_name, $field ) {
-        return \DB::getSchemaBuilder()->getColumnType($table_name, $field);
+        return \DB::getSchemaBuilder()->getColumnType($table_name, $field) ?? 'extra';
     }
 
     public static function getColumns( $table_name, $lang ) {
@@ -173,6 +173,10 @@ class Func {
                 ? \Func::getOptionsRelation( $item->name, $table_name )
                 : \Func::getEnumOptions( $item->options );
         }
+        if( method_exists('App\Helpers\Func', 'extra_filters_' . $table_name ) ) {
+            $fn = 'extra_filters_' . $table_name;
+            \Func::$fn( $result );
+        }
         return $result;
     }
 
@@ -231,4 +235,22 @@ class Func {
         $item         = collect( $elemRelation['options'] )->firstWhere('key', $key);
         return $item['value'];
     }
+
+    public static function extra_filters_menu_items( &$result ) {
+        $result[] = (object)[
+            'name'    => 'xt_with_image',
+            'type'    => 'select',
+            'comment' => __('diesel.with_image'),
+            'options' => [
+                [
+                    'key' => 0,
+                    'value' => 'No',
+                ],
+                [
+                    'key' => 1,
+                    'value' => 'Si',
+                ]
+            ],
+        ];
+    }    
 }

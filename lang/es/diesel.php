@@ -82,5 +82,7 @@ return [
     'all_images' => 'Todas las Imágenes',
 
     'created_at' => 'Fecha de creación',
-    'updated_at' => 'Fecha de actualización'
+    'updated_at' => 'Fecha de actualización',
+    'search' => 'Buscar',
+    'with_image' => '¿Con imagen?',
 ];

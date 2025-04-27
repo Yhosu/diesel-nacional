@@ -424,7 +424,9 @@
                         $arrayFilters = ['dishes','resta_img','events','video_links'];
                     @endphp 
                     @foreach ($categories as $key => $category)
-                        <a href="#" class="gallery-filter " data-filter=".{{ $arrayFilters[$key+1]}}" rand(0,3)><span>0{{ $key + 2 }}.</span>{{ $category->name }} </a>
+                        @if( isset( $arrayFilters[$key+1] ) )
+                            <a href="#" class="gallery-filter " data-filter=".{{ $arrayFilters[$key+1]}}" rand(0,3)><span>0{{ $key + 2 }}.</span>{{ $category->name }} </a>
+                        @endif
                     @endforeach
                 </div>
                 <div class="feedback" style="right: -40px !important; z-index: 10000"> <a href="#sectionForm" class="custom-scroll-link">[<i class="fa fa-plus"></i>] <span>Feedback</span></a> </div>

@@ -251,7 +251,7 @@
                     <div class="row">
                         <!--card item -->
                         @foreach ($categories as $key => $category)
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <!-- team-item -->
                             <div class="team-box">
                                 <div class="team-photo">

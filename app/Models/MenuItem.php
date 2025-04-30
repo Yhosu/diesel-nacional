@@ -52,4 +52,8 @@ class MenuItem extends Model {
     public static $rules_delete = array(
         "id"=>"required",
     );    
+
+    public function menu() {
+        return $this->hasOne(Menu::class, 'id', 'menuId');
+    }
 }

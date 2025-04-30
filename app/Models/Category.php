@@ -56,5 +56,7 @@ class Category extends Model {
 
     public static $rules_delete = array(
         "id"=>"required",
-    );		    	
+    );
+
+	
 }

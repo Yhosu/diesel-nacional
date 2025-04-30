@@ -25,7 +25,37 @@
             </nav>
             <div class="brush-dec2 brush-dec_bottom"></div>
             <div class="container">
-                @foreach ($category->all_menus as $key => $menu)
+                @php
+                    $menuItems = \App\Models\MenuItem::whereHas('menu', function($q) use($category ) {
+                        $q->where('categoryId', $category->id);
+                    })->paginate(6);
+                @endphp 
+                <div class="cards-wrap fl-wrap">
+                    <div class="row">
+                        @foreach ($menuItems as $key => $menuItem)
+                        <div class="col-md-3">
+                            <!-- team-item -->
+                            <div class="team-box">
+                                <div class="team-photo">
+                                    <img src="{{ \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image) }}" alt="" class="respimg">
+                                    <div class="overlay"></div>
+                                    <div class="team-social">
+                                        {{-- <span class="ts_title">{{ $menuItem->title }}</span> --}}
+                                        {{-- <ul class="no-list-style">
+                                            <li><a href="{{ url('menu/'. $menuItem->code) }}"><i class="fa fa-search"></i></a></li>
+                                        </ul> --}}
+                                    </div>
+                                </div>
+                                <div class="team-info fl-wrap">
+                                    <h3> {{ $menuItem->title }} </h3>
+                                    <h4>{{ $menuItem->detail }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                {{-- @foreach ($category->all_menus as $key => $menu)
                 <div class="menu-wrapper single-menu fl-wrap" id="{{ $menu->id }}" data-scrollax-parent="true">
                     <div class="menu-wrapper-title fl-wrap">
                         <div class="menu-wrapper-title-item">
@@ -57,7 +87,7 @@
                     @endforeach
                 </div>
                 <div class="dots-separator fl-wrap"><span></span></div>    
-                @endforeach
+                @endforeach --}}
                 <div class="clearfix"></div>
                 <div class="bold-separator bold-separator_dark"><span></span></div>
                 <div class="clearfix"></div>

@@ -127,7 +127,8 @@ class MainController extends Controller
             if( empty( $value ) ) continue;
             $type = \Str::contains( $key, 'xt_') ? 'extra' : getTypeField($table, $key);
             $items = $items->when( \Str::contains( $key, 'xt_with_image'), function( $q ) use( $key, $value ) {
-					return $q->whereNotNull('image');
+					$boolImage = filter_var($value, FILTER_VALIDATE_BOOLEAN);
+					return $boolImage ? $q->whereNotNull('image') : $q->whereNull('image');
 				})->when( in_array( $type, ['int', 'bigint', 'tinyint', 'enum']), function( $q ) use( $key, $value ) {
                     return $q->where( $key, $value );
                 })->when( in_array($type, ['text', 'string', 'varchar'] ), function( $q ) use( $key, $value ) {

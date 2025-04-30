@@ -243,11 +243,11 @@ class Func {
             'comment' => __('diesel.with_image'),
             'options' => [
                 [
-                    'key' => 0,
+                    'key' => 'false',
                     'value' => 'No',
                 ],
                 [
-                    'key' => 1,
+                    'key' => 'true',
                     'value' => 'Si',
                 ]
             ],

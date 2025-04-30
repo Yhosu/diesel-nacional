@@ -37,7 +37,7 @@
                             <!-- team-item -->
                             <div class="team-box">
                                 <div class="team-photo">
-                                    <img src="{{ {{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }} }}" alt="" class="respimg">
+                                    <img src="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }}" alt="" class="respimg">
                                     <div class="overlay"></div>
                                     <div class="team-social">
                                         {{-- <span class="ts_title">{{ $menuItem->title }}</span> --}}

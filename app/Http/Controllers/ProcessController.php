@@ -69,12 +69,6 @@ class ProcessController extends Controller
                 : $item->$key = $value;
         }
         $item->save();
-        // return [
-        //     'status'  => true,
-        //     'action'  => $action,
-        //     'message' => __('diesel.action_successfully'),
-        //     'item'    => $item
-        // ];
         return redirect($redirect)->with('message_success', __('diesel.action_successfully'));
     }
 

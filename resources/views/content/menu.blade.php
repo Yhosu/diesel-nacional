@@ -1,4 +1,5 @@
 <x-master-layout>
+    
     <div class="content woocommerce">
         <section class="parallax-section hero-section hidden-section" data-scrollax-parent="true">
             <div class="bg par-elem "  data-bg="{{ \Asset::get_image_path( 'category-image', 'normal', $category->image ) }} " data-scrollax="properties: { translateY: '30%' }"></div>
@@ -12,7 +13,6 @@
             <div class="brush-dec"></div>
         </section>
 
-        
         <section class="small-top-padding">
             <nav class="scroll-nav scroll-init">
                 <ul>
@@ -34,6 +34,9 @@
                     <div class="row more__items">
                         @include('includes.menu-items', ['menuItems'=>$menuItems, 'page'=> 1])
                     </div>
+                </div>
+                <div>
+                    <div class="loader"></div> 
                 </div>
                 <input type="hidden" id="input-category" value="{{ $category->id }}">
                 <input type="hidden" id="input-current__page" name="current__page" value="{{ $menuItems->currentPage() }}">
@@ -66,12 +69,14 @@
             var category = $('#input-category').val();
             var nextPage = parseInt( $('#input-current__page').val() ) + 1;
             if( nextPage == 1 ) return;
+            $('.loader').show();
             $.ajax({
                 type : 'POST',
                 url  : '/load-more-products',
                 cache: true,
                 data : {"page": nextPage, "category":category, "_token": "{{ csrf_token() }}"},
                 success : function(response) {
+                    $('.loader').hide();
                     if( response['status'] && response['html'] ) {
                         $('.more__items').append(response['html']);
                         $('#input-current__page').val(nextPage);
@@ -88,6 +93,7 @@
             });            
         });
         $(document).ready(function(){
+            $('.loader').hide();
         });
     </script>
     @endpush

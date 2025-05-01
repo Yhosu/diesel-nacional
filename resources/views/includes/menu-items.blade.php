@@ -11,7 +11,6 @@
         </div>
         <div class="team-info fl-wrap">
             <h4>{{ $menuItem->title }}</h4>
-            <h4>{{ $menuItem->detail }}</h4>
         </div>
     </div>
 </div>

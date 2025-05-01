@@ -28,7 +28,7 @@
                 @php
                     $menuItems = \App\Models\MenuItem::whereHas('menu', function($q) use($category ) {
                         $q->where('categoryId', $category->id);
-                    })->paginate(config('nodes.per_page_front'), ['*'], 'page', 1);
+                    })->whereNotNull('image')->paginate(config('nodes.per_page_front'), ['*'], 'page', 1);
                 @endphp 
                 <div class="cards-wrap fl-wrap">
                     <div class="row more__items">

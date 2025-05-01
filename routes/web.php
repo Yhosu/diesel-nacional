@@ -23,6 +23,7 @@ Route::post('/post-contact-form',                    [ProcessController::class, 
 Route::get('/logout',                                [MainController::class, 'findLogout']);
 Route::get('/change-locale/{lang}',                  [MainController::class, 'changeLocale'])->name('language');
 Route::get('/dashboard',                             [MainController::class, 'findDashboard']);
+Route::post('/load-more-products',                   [ProcessController::class, 'findLoadMoreProducts']);
 Route::get('/test-nodes/{id?}',                      [MainController::class, 'findTestNodes']);
 
 

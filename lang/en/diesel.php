@@ -85,4 +85,6 @@ return [
     'updated_at' => 'Updated At',
     'search' => 'Search',
     'with_image' => 'With image?',
+    'show_more' => 'See more',
+    'download_pdf' => 'Download menu in PDF'
 ];

@@ -26,4 +26,5 @@ return [
             'key' => 'title'
         ]
     ],
+    'per_page_front' => 3
 ];

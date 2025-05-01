@@ -85,4 +85,6 @@ return [
     'updated_at' => 'Fecha de actualización',
     'search' => 'Buscar',
     'with_image' => '¿Con imagen?',
+    'show_more' => 'Ver más',
+    'download_pdf' => 'Descargar menú en PDF'
 ];

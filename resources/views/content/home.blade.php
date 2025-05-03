@@ -131,7 +131,9 @@
                     </div>
                 </div>
                 <div class="illustration_bg">
-                    <div class="bg"  data-bg="https://restabook.kwst.net/dark/images/bg/dec/7.png"></div>
+                    {{-- <div class="bg"  data-bg="https://restabook.kwst.net/dark/images/bg/dec/7.png"></div> --}}
+                    <div class="bg"  data-bg="{{ asset('assets/background/7_11zon.png') }}" ></div>
+                    
                 </div>
             </div>
         </section>
@@ -312,7 +314,7 @@
                 <div class="images-collage-item col_par" style="width:120px" data-position-left="83" data-position-top="87" data-zindex="1" data-scrollax="properties: { translateY: '150px' }"><img src="https://restabook.kwst.net/dark/images/cube.png" alt=""></div>
             </div>
             <div class="section-bg">
-                <div class="bg"  data-bg="https://restabook.kwst.net/dark/images/bg/dec/section-bg.png"></div>
+                <div class="bg"  data-bg="{{ asset('assets/background/section-bg.png') }}"></div>
             </div>
         </section>
         <!-- section end  -->
@@ -404,7 +406,8 @@
                     </div>
                 </div>
                 <div class="illustration_bg">
-                    <div class="bg"  data-bg="https://restabook.kwst.net/dark/images/bg/dec/6.png"></div>
+                    <div class="bg"  data-bg="{{ asset('assets/background/UpComingEvents_11zon.png') }}"></div>
+                    {{-- <div class="bg"  data-bg="https://restabook.kwst.net/dark/images/bg/dec/6.png"></div> --}}
                 </div>
             </div>
         </section>
@@ -530,7 +533,7 @@
                 </div>
             </div>
             <div class="section-bg">
-                <div class="bg"  data-bg="https://restabook.kwst.net/dark/images/bg/dec/section-bg.png"></div>
+                <div class="bg"  data-bg="{{ asset('assets/background/section-bg.png') }}"></div>
             </div>
         </section>
         <!--  section end  -->

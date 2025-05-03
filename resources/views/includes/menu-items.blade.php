@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="padding-bottom: 50px !important;">
 @foreach ($menuItems as $key => $menuItem)
 <div class="col-md-4">
     <!-- team-item -->

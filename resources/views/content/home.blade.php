@@ -1,7 +1,7 @@
 <x-master-layout>
     <!-- hero-wrap-->
     <div class="hero-wrap fl-wrap full-height" data-scrollax-parent="true" id="sec1">
-        <div class="bg par-elem "  data-bg="{{ asset('assets/img/content/Foto-para-banner.jpeg') }}" data-scrollax="properties: { translateY: '30%' }"></div>
+        <div class="bg par-elem "  data-bg="{{ asset('assets/img/content/Foto-para-banner.jpeg') }}" data-scrollax="properties: { translateY: '30%' }" fetchpriority="high"></div>
         <div class="overlay"></div>
         <div class="hero-title-wrap fl-wrap">
             <div class="container_tmp">

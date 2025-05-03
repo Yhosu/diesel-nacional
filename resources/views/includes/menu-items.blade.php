@@ -1,6 +1,6 @@
-
+<div class="row">
 @foreach ($menuItems as $key => $menuItem)
-<div class="col-md-4" style="margin-top: 50px !important;">
+<div class="col-md-4">
     <!-- team-item -->
     <div class="team-box">
         <div class="team-photo">
@@ -15,3 +15,4 @@
     </div>
 </div>
 @endforeach
+</div>

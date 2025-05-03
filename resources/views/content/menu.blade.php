@@ -30,10 +30,8 @@
                         $q->where('categoryId', $category->id);
                     })->whereNotNull('image')->paginate(config('nodes.per_page_front'), ['*'], 'page', 1);
                 @endphp 
-                <div class="cards-wrap fl-wrap">
-                    <div class="row more__items">
-                        @include('includes.menu-items', ['menuItems'=>$menuItems, 'page'=> 1])
-                    </div>
+                <div class="cards-wrap fl-wrap more__items">
+                    @include('includes.menu-items', ['menuItems'=>$menuItems, 'page'=> 1])
                 </div>
                 <div>
                     <div class="loader"></div> 

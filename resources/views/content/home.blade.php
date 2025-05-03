@@ -25,10 +25,9 @@
         <!--hero-social-->
         <div class="hero-social">
             <ul>
-                <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
+                @foreach( $socialNetworks as $socialNetwork )
+                    <li><a href="{{ $socialNetwork->url }}" target="_blank"><i class="{{ $socialNetwork->icon }}"></i></a></li>
+                @endforeach
             </ul>
         </div>
         <!--hero-social end-->
@@ -656,6 +655,7 @@
                                                     <option value="upcoming-events">{{ __('diesel.subjects.upcoming-events') }} </option>
                                                     <option value="book-table">{{ __('diesel.subjects.book-table') }}</option>
                                                     <option value="banquet">{{ __('diesel.subjects.banquet') }}</option>
+                                                    <option value="banquet">{{ __('diesel.subjects.order') }}</option>
                                                     <option value="other">{{ __('diesel.subjects.other') }}</option>
                                                 </select>
                                             </div>

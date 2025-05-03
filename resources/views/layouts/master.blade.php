@@ -48,9 +48,9 @@
             <div class="header-top">
                 <div class="container_tmp">
                     <div class="lang-wrap">
-                        <a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">En</a>
+                        <a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">EN</a>
                         <span>/</span>
-                        <a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">Es</a>
+                        <a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">ES</a>
                     </div>
                     <div class="header-top_contacts"><a href="#"><span>{{ $phone->key }}:</span> +{{ $phone->value }}</a><a href="#"><span>{{ $email->key }}:</span> {{ $email->value }}</a></div>
                 </div>
@@ -91,6 +91,7 @@
                                     <li><a href="#sec4">{{ __('diesel.menu.gallery') }}</a></li>
                                     <li><a href="#sec5">{{ __('diesel.menu.comments') }}</a></li>
                                     <li><a href="#sec6">{{ __('diesel.menu.contact') }}</a></li>
+                                    <li><a href="#sectionForm">{{ __('diesel.menu.reservations') }}</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -161,7 +162,7 @@
                 <div class="container_tmp">
                     <div class="footer-top fl-wrap">
                         <a href="{{ url('') }}" class="footer-logo"><img src="{{ asset('assets/img/logo-gold.svg') }}" alt="{{ config('name') }}"></a>
-                        <div class="lang-wrap"><a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">En</a><span>/</span><a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">Es</a></div>
+                        <div class="lang-wrap"><a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">EN</a><span>/</span><a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">ES</a></div>
                         <div class="footer-social">
                             <span class="footer-social-title">{{ __('diesel.follow_us_on') }}:</span>
                             <ul>

@@ -13,6 +13,7 @@ return [
         'gallery' => 'GALERÍA',
         'comments' => 'COMENTARIOS',
         'contact' => 'CONTACTO',
+        'reservations' => 'RESERVACIONES',
     ],
     'promo_video' => 'Ver video de promoción',
     'check_menu' => 'Nuestro Menú',
@@ -43,7 +44,8 @@ return [
         'upcoming-events' => 'Próximos eventos',
         'book-table' => 'Reservas',
         'banquet' => 'Banquete',
-        'other' => 'Otro'
+        'other' => 'Otro',
+        'order' => 'Orden para llevar'
     ],
     'form_success' => 'Formulario enviado con éxito',
     'contacts_details' => 'Datos de Contacto',

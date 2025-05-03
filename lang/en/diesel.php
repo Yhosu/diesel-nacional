@@ -12,6 +12,7 @@ return [
         'gallery' => 'GALLERY',
         'comments' => 'COMMENTS',
         'contact' => 'CONTACT',
+        'reservations' => 'RESERVATIONS',
     ],
     'promo_video' => 'View promo video',
     'check_menu' => 'Our Menu',
@@ -43,7 +44,8 @@ return [
         'upcoming-events' => 'Upcoming Events',
         'book-table' => 'Reservation',
         'banquet' => 'Banquet',
-        'other' => 'Other'
+        'other' => 'Other',
+        'order' => 'Order to pick Up'
     ],
     'form_success' => 'Form sent successfully',
     'contacts_details' => 'Contacts Details',
@@ -86,5 +88,6 @@ return [
     'search' => 'Search',
     'with_image' => 'With image?',
     'show_more' => 'See more',
-    'download_pdf' => 'Download menu in PDF'
+    'download_pdf' => 'Download menu in PDF',
+    
 ];

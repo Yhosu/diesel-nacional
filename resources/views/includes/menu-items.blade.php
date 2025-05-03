@@ -1,6 +1,6 @@
 
 @foreach ($menuItems as $key => $menuItem)
-<div class="col-md-4 page{{$page}}">
+<div class="col-md-4 page{{$page}}" style="padding: 25px !important;">
     <!-- team-item -->
     <div class="team-box">
         <div class="team-photo">

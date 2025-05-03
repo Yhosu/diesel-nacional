@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('name')->nullable()->comment('Nombre|Name');
             $table->string('email')->nullable()->comment('Email|Email');
             $table->string('phone')->nullable()->comment('Teléfono|Phone');
-            $table->enum('subject', ['any', 'upcoming-events', 'book-table', 'banquet', 'other'])->nullable()->default('any')->comment('Motivo|Subject');
+            $table->enum('subject', ['any', 'upcoming-events', 'book-table', 'banquet', 'other', 'order'])->nullable()->default('any')->comment('Motivo|Subject');
             $table->text('comments')->nullable()->comment('Comentarios|Comments');
             $table->timestamps();
         });

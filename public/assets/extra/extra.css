@@ -20,3 +20,78 @@
 	background:#f9f9f9;
 	top:220px;
 }
+
+.dec-img {
+    position: relative;
+    display: inline-table;
+    width: 80px;
+    height: 80px;    
+}
+@import url(https://db.onlinewebfonts.com/c/cbd74e2a53762836f1853c459cd8293f?family=Imagine+Serif+Stamp+Rough); 
+@import url(https://db.onlinewebfonts.com/c/7a71e1a8b2d7edcfa5e25cdefb7dc7c1?family=Our+Serif+Hand); 
+@import url(https://db.onlinewebfonts.com/c/e5b38fc8a405b9de2da31804f25b66af?family=Niagara+Engraved); 
+@import url(https://db.onlinewebfonts.com/c/bac9b0a77a85290bb801cacd7628a419?family=Onyx); 
+@font-face {
+    font-family: "Imagine Serif Stamp Rough";
+    src: url("https://db.onlinewebfonts.com/t/cbd74e2a53762836f1853c459cd8293f.eot");
+    src: url("https://db.onlinewebfonts.com/t/cbd74e2a53762836f1853c459cd8293f.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/cbd74e2a53762836f1853c459cd8293f.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/cbd74e2a53762836f1853c459cd8293f.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/cbd74e2a53762836f1853c459cd8293f.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/cbd74e2a53762836f1853c459cd8293f.svg#Imagine Serif Stamp Rough")format("svg");
+}
+@font-face {
+    font-family: "Our Serif Hand";
+    src: url("https://db.onlinewebfonts.com/t/7a71e1a8b2d7edcfa5e25cdefb7dc7c1.eot");
+    src: url("https://db.onlinewebfonts.com/t/7a71e1a8b2d7edcfa5e25cdefb7dc7c1.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7a71e1a8b2d7edcfa5e25cdefb7dc7c1.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7a71e1a8b2d7edcfa5e25cdefb7dc7c1.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7a71e1a8b2d7edcfa5e25cdefb7dc7c1.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7a71e1a8b2d7edcfa5e25cdefb7dc7c1.svg#Our Serif Hand")format("svg");
+}
+@font-face {
+    font-family: "Niagara Engraved";
+    src: url("https://db.onlinewebfonts.com/t/e5b38fc8a405b9de2da31804f25b66af.eot");
+    src: url("https://db.onlinewebfonts.com/t/e5b38fc8a405b9de2da31804f25b66af.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/e5b38fc8a405b9de2da31804f25b66af.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/e5b38fc8a405b9de2da31804f25b66af.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/e5b38fc8a405b9de2da31804f25b66af.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/e5b38fc8a405b9de2da31804f25b66af.svg#Niagara Engraved")format("svg");
+}
+@font-face {
+    font-family: "Onyx";
+    src: url("https://db.onlinewebfonts.com/t/bac9b0a77a85290bb801cacd7628a419.eot");
+    src: url("https://db.onlinewebfonts.com/t/bac9b0a77a85290bb801cacd7628a419.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/bac9b0a77a85290bb801cacd7628a419.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/bac9b0a77a85290bb801cacd7628a419.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/bac9b0a77a85290bb801cacd7628a419.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/bac9b0a77a85290bb801cacd7628a419.svg#Onyx")format("svg");
+}
+.title__blackrock-diesel {
+    font-family: "Imagine Serif Stamp Rough" !important;  
+    font-size: 4.5em !important;
+}
+.subtitle__blackrock-diesel {
+    font-family: "Our Serif Hand" !important;  
+    font-size: 4em !important;
+    color:white;
+}
+.title__diesel-bar-menu {
+    font-family: "Niagara Engraved" !important;  
+    font-size: 5em !important;
+}
+.subtitle__diesel-bar-menu {
+    font-family: "Our Serif Hand" !important;  
+    font-size: 4em !important;
+    color:white;
+}
+
+.title__the-resto-diesel {
+    font-family: "Onyx" !important;  
+    font-size: 5em !important;
+}
+.subtitle__the-resto-diesel {
+    font-family: "Our Serif Hand" !important;  
+    font-size: 4em !important;
+    color:white;
+}

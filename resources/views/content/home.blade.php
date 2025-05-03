@@ -291,7 +291,10 @@
                                     <div class="cf-inner">
                                         <div class="inner">
                                             <div class="dec-icon">
-                                                <i class="fal fa-fish"></i>
+                                                @if( $characteristic->image_back )
+                                                    <img src="{{ \Asset::get_image_path('characteristic-image_back', 'normal', $characteristic->image_back ) }}" class="dec-img">
+                                                @endif
+                                                {{-- <i class="fal fa-fish"></i> --}}
                                             </div>
                                             <p>{{ $characteristic->detail }}</p>
                                         </div>

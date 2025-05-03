@@ -161,11 +161,15 @@
                 {!! $propertyField !!}
             >
             <br>
-            @if(isset($item[$name])) 
-                <div class="content__image">
-                    <img src="{{\Asset::get_image_path( $node .'-'.$name, 'mini', $item[$name]) }}" alt="Image" />
-                </div>
-            @endif
+            @if( isset($item[$name]) )
+                @if( $type == 'file' )
+                    <div><a href="{{ \Asset::get_file( $node. '-'. $name, $item[$name] ) }}" target="_blank">Descargar</a></div>
+                @elseif( $type == 'image' ) 
+                    <div class="content__image">
+                        <img src="{{\Asset::get_image_path( $node .'-'.$name, 'mini', $item[$name]) }}" alt="Image" />
+                    </div>
+                @endif
+            @endif 
         @elseif($type === 'integer' || $type === 'double')
             @if($hasLabel)
                 <label for="{{ $customId ? ('field__custom-'.$id) : $id }}" class="form-label"

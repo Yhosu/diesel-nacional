@@ -33,19 +33,8 @@ class ProcessController extends Controller
         $redirect  = '';
         if ($validator->fails()) {
             $errors = $validator->errors()->all();
-            // return [
-            //     'status'  => false,
-            //     'message' => __('diesel.empty_parameters'),
-            //     'errors'  => $errors,
-            // ];
-
-            // if (isset($errors) && is_array($errors) && !empty($errors)) {
-            //     // $this->dispatch('alertErrors', [$errors]);
-            // } else {
-                session()->flash('message_error', (__('diesel.empty_parameters') ?? trans('responses.error.default')));
-            // }
+            session()->flash('message_error', (__('diesel.empty_parameters') ?? trans('responses.error.default')));
         }
-        // if ( $validator->fails() ) return redirect($this->prev)->with('message_error', __('diesel.empty_parameters'))->withErrors($validator)->withInput();
         $message = '';
         if ($action == 'create') {
             $item = new $className;
@@ -61,12 +50,13 @@ class ProcessController extends Controller
         $params = $request->all();
         unset($params['id'],$params['node'],$params['action'],$params['_token']);
         foreach ($params as $key => $value) {
-            if($request->hasFile($key)) {
-                \Log::info($request->name);
+            if( \Str::contains( $key, 'image' ) && !empty( $request->hasFile($key) ) && \Func::validateImageUrl( $value, $node . '-' . $key, $value, $item->$key ) ) {
+                $item->$key = \Asset::upload_image($request->file($key), $node . '-' . $key);
+            } elseif( \Str::contains( $key, 'file' ) && !empty( $request->hasFile($key) ) && \Func::validateFileUrl( $value, $node . '-' . $key, $value, $item->$key ) ) {
+                $item->$key = \Asset::upload_file($request->file($key), $node . '-' . $key);
+            } else {
+                $item->$key = $value;
             }
-            $item->$key = \Str::contains( $key, 'image' ) && !empty( $request->hasFile($key) ) &&  \Func::validateImageUrl( $value, $node . '-' . $key, $value, $item->$key ) 
-                ? \Asset::upload_image($request->file($key), $node . '-' . $key)
-                : $item->$key = $value;
         }
         $item->save();
         return redirect($redirect)->with('message_success', __('diesel.action_successfully'));

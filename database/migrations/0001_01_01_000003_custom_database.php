@@ -71,6 +71,7 @@ return new class extends Migration
             $table->integer('order')->nullable()->comment('Orden|Order');
             $table->text('name')->nullable()->comment('Nombre|Name');
             $table->string('code')->nullable()->comment('Código|Code');
+            $table->string('file')->nullable()->comment('PDF Menú Categoría|PDF Category Menú');
             $table->text('detail')->nullable()->comment('Detalle|Detail');
             $table->boolean('active')->nullable()->default(1)->comment('¿Activo?|Active?');
             $table->timestamps();
@@ -104,6 +105,7 @@ return new class extends Migration
             $table->string('icon')->nullable()->comment('Font Awesome Ícono|Font Awesome Icon');
             $table->text('detail')->nullable()->comment('Detalle|Detail');
             $table->string('image')->nullable()->comment('Imagen|Image');
+            $table->string('image_back')->nullable()->comment('Imagen Atrás|Back Image');
             $table->boolean('active')->nullable()->default(1)->comment('¿Activo?|Active?');
             $table->timestamps();
         });

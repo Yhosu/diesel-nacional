@@ -6,7 +6,8 @@
             <div class="overlay"></div>
             <div class="container_tmp">
                 <div class="section-title">
-                    <h2>{{ $category->name }}</h2>
+                    <h2 class="title__{{ $category->code }}">{{ $category->name }}</h2>
+                    <h3 class="subtitle__{{ $category->code }}">"{{ $category->detail }}"</h3>
                     <div class="dots-separator fl-wrap"><span></span></div>
                 </div>
             </div>
@@ -43,7 +44,9 @@
                 <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="#" class="btn" target="_self">{{ __('diesel.download_pdf') }}</i></a>
+                        @if( $category->file )
+                            <a href="{{ \Asset::get_file( 'category-file', $category->file ) }}" target="_blank" class="btn" target="_self">{{ __('diesel.download_pdf') }}</i></a>
+                        @endif
                     </div>
                     <div class="col-md-6">
                         <a href="javascript:void(0)" id="btn-show__more" class="btn" target="_self">{{ __('diesel.show_more') }}</i></a>

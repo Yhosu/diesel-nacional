@@ -36,6 +36,7 @@ class Func {
                     when LOCATE('{$enum}', `column_type`) >  0 then 'select'
                     when LOCATE('description', `column_name`) > 0 then 'froala'
                     when LOCATE('image', `column_name`) > 0 then 'image'
+                    when LOCATE('file', `column_name`) > 0 then 'file'
                     when LOCATE('varchar(', `column_type`) > 0 then 'text'
                     when LOCATE('tinyint(', `column_type`) > 0 then 'boolean'
                     when LOCATE('int(', `column_type`) > 0 then 'integer'
@@ -205,6 +206,10 @@ class Func {
 
     public static function validateImageUrl( $value, $folder, $file, $image ) {
         return $value != 'null' && !empty( $value ) && ( \Asset::get_image_path($folder, 'mini', $image) != \Asset::get_image_path($folder, 'mini', $file) );
+    }
+
+    public static function validateFileUrl( $value, $folder, $file, $image ) {
+        return $value != 'null' && !empty( $value ) && ( \Asset::get_file($folder, $image) != \Asset::get_file($folder, $file) );
     }
 
     public static function renderMenuHtml($items, $isFirstLevel = true) {

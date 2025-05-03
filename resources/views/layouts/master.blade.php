@@ -15,6 +15,7 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/templates/master/dark/css/style.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/templates/master/dark/css/dark-style.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/templates/master/dark/css/color.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/extra/extra.css') }}">
     <meta property="og:image" content="https://dieselnacional.pub/assets/img/content/Foto-para-banner.jpeg"/>
     @stack('prehead')
 

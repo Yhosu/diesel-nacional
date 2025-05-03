@@ -70,7 +70,7 @@
                             <div class="dots-separator fl-wrap"><span></span></div>
                         </div>
                         <div class="text-block ">
-                            {!! $about->description !!}
+                            {!! \Func::clearFroalaText( $about->description ) !!}
                             {{-- <a href="{{ route('menu') }}" class="btn fl-btn custom-scroll-link">{{ __('diesel.check_menu_2') }}<i class="fal fa-long-arrow-right"></i></a> --}}
                         </div>
                     </div>
@@ -137,99 +137,6 @@
         </section>
         <!-- section end -->
         <!--  section    -->
-        {{-- <section data-scrollax-parent="true">
-            <div class="container_tmp">
-                <div class="section-title">
-                    <h4>Our awesome team</h4>
-                    <h2>Met Our Chefs</h2>
-                    <div class="dots-separator fl-wrap"><span></span></div>
-                </div>
-                <div class="about-wrap  fl-wrap">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <!-- team-item -->
-                            <div class="team-box">
-                                <div class="team-photo">
-                                    <img src="https://restabook.kwst.net/dark/images/team/1.jpg" alt="" class="respimg">
-                                    <div class="overlay"></div>
-                                    <div class="team-social">
-                                        <span class="ts_title">Follow</span>
-                                        <ul class="no-list-style">
-                                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="team-info fl-wrap">
-                                    <h3> Kevin  Gray </h3>
-                                    <h4>Master chef in New York</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- team-item  end-->
-                        <!-- team-item -->
-                        <div class="col-md-4">
-                            <div class="team-box">
-                                <div class="team-photo">
-                                    <img src="https://restabook.kwst.net/dark/images/team/2.jpg" alt="" class="respimg">
-                                    <div class="overlay"></div>
-                                    <div class="team-social">
-                                        <span class="ts_title">Follow</span>
-                                        <ul class="no-list-style">
-                                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="team-info fl-wrap">
-                                    <h3> Austin Evon </h3>
-                                    <h4>Master chef in Florida</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- team-item end  -->
-                        <!-- team-item -->
-                        <div class="col-md-4">
-                            <div class="team-box">
-                                <div class="team-photo">
-                                    <img src="https://restabook.kwst.net/dark/images/team/3.jpg" alt="" class="respimg">
-                                    <div class="overlay"></div>
-                                    <div class="team-social">
-                                        <span class="ts_title">Follow</span>
-                                        <ul class="no-list-style">
-                                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="team-info fl-wrap">
-                                    <h3> Taylor Roberts </h3>
-                                    <h4>Master chef in Maiami</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- team-item end  -->
-                        <div class="col-md-8">
-                            <div class="align-text-block">
-                                <h4>Want to cook something tasty? Read our best recipes.</h4>
-                                <a href="blog.html" class="btn">Recipes Book <i class="fal fa-long-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="section-dec sec-dec_top"></div>
-                </div>
-                <div class="wave-bg wave-bg_right " data-scrollax="properties: { translateY: '-150px' }"></div>
-            </div>
-        </section> --}}
         <!--  section end  -->
         <!--  section  -->
         <section class="parallax-section dark-bg hidden-section" data-scrollax-parent="true" id="sec3">
@@ -423,81 +330,25 @@
                         $arrayFilters = ['dishes','resta_img','events','video_links'];
                     @endphp 
                     @foreach ($categories as $key => $category)
-                        @if( isset( $arrayFilters[$key+1] ) )
-                            <a href="#" class="gallery-filter " data-filter=".{{ $arrayFilters[$key+1]}}" rand(0,3)><span>0{{ $key + 2 }}.</span>{{ $category->name }} </a>
-                        @endif
+                        <a href="#" class="gallery-filter " data-filter=".{{ $category->code }}" rand(0,3)><span>0{{ $key + 2 }}.</span>{{ $category->name }} </a>
+                        {{-- @if( isset( $arrayFilters[$key+1] ) )
+                        @endif --}}
                     @endforeach
                 </div>
                 <div class="feedback" style="right: -40px !important; z-index: 10000"> <a href="#sectionForm" class="custom-scroll-link">[<i class="fa fa-plus"></i>] <span>Feedback</span></a> </div>
                 <!-- gallery-filters end-->
                 <!-- gallery start -->
                 <div class="gallery-items min-pad  lightgallery three-column fl-wrap" style="margin-bottom:50px;">
-                    @foreach( $dieselBarImages as $dieselBarImage )
-                        <div class="gallery-item resta_img">
-                            <div class="grid-item-holder hov_zoom">
-                                <a href="{{ asset('assets/img/diesel-bar/'.$dieselBarImage)}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                                <img  src="{{ asset('assets/img/diesel-bar/'.$dieselBarImage)}}"    alt="">
+                    @foreach( $categories as $category )
+                        @foreach( $category->menu_items as $menuItem )
+                            <div class="gallery-item {{ $category->code }}">
+                                <div class="grid-item-holder hov_zoom">
+                                    <a href="{{ \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) }}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+                                    <img  src="{{ \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) }}" alt="">
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     @endforeach
-                    <!-- gallery-item-->
-                    
-                    <!-- gallery-item end-->
-                    <!-- gallery-item-->
-                    <div class="gallery-item events">
-                        <div class="grid-item-holder hov_zoom">
-                            <a href="https://restabook.kwst.net/dark/images/all/14.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                            <img  src="https://restabook.kwst.net/dark/images/all/14.jpg"    alt="">
-                        </div>
-                    </div>
-                    <!-- gallery-item end-->
-                    <!-- gallery-item-->
-                    <div class="gallery-item gallery-item-second dishes">
-                        <div class="grid-item-holder hov_zoom">
-                            <a href="https://restabook.kwst.net/dark/images/all/2.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                            <img  src="https://restabook.kwst.net/dark/images/all/2.jpg"    alt="">
-                        </div>
-                    </div>
-                    <!-- gallery-item end-->
-                    <!-- gallery-item-->
-                    <div class="gallery-item events">
-                        <div class="grid-item-holder hov_zoom">
-                            <a href="https://restabook.kwst.net/dark/images/all/10.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                            <img  src="https://restabook.kwst.net/dark/images/all/10.jpg"    alt="">
-                        </div>
-                    </div>
-                    <!-- gallery-item end-->
-                    <!-- gallery-item-->
-                    <div class="gallery-item video_links">
-                        <div class="grid-item-holder hov_zoom">
-                            <a href="https://vimeo.com/10322316" class="box-media-zoom   popup-image"><i class="fal fa-play"></i></a>
-                            <img  src="https://restabook.kwst.net/dark/images/all/11.jpg"    alt="">
-                        </div>
-                    </div>
-                    <!-- gallery-item end-->
-                    <!-- gallery-item-->
-                    <div class="gallery-item dishes">
-                        <div class="grid-item-holder hov_zoom">
-                            <a href="https://restabook.kwst.net/dark/images/all/17.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                            <img  src="https://restabook.kwst.net/dark/images/all/17.jpg"    alt="">
-                        </div>
-                    </div>
-                    <!-- gallery-item end-->
-                    <!-- gallery-item-->
-                    <div class="gallery-item events video_links">
-                        <div class="grid-item-holder hov_zoom">
-                            <a href="https://www.youtube.com/watch?v=GlrxcuEDyF8" class="box-media-zoom   popup-image"><i class="fal fa-play"></i></a>
-                            <img  src="https://restabook.kwst.net/dark/images/all/16.jpg"    alt="">
-                        </div>
-                    </div>
-                    <!-- gallery-item end-->
-                    <!-- gallery-item-->
-                    <div class="gallery-item dishes">
-                        <div class="grid-item-holder hov_zoom">
-                            <a href="https://restabook.kwst.net/dark/images/all/13.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                            <img  src="https://restabook.kwst.net/dark/images/all/13.jpg"    alt="">
-                        </div>
-                    </div>
                     <!-- gallery-item end-->
                 </div>
                 <!-- gallery end -->
@@ -562,6 +413,7 @@
                 <div class="section-title">
                     <h4>{{ __('diesel.what_said_about_us') }}</h4>
                     <h2>{{ __('diesel.customer_reviews') }}</h2>
+                    <div><img src="{{ asset('assets/img/tripadvisor.png')}}" alt="" class="extra-thumbnail"></div>
                     <div class="dots-separator fl-wrap"><span></span></div>
                 </div>
             </div>
@@ -576,7 +428,7 @@
                             <!--testi-item-->
                             <div class="swiper-slide">
                                 <div class="testi-item fl-wrap">
-                                    <div class="testi-avatar"><img src="{{ $review['user']['avatar']['large'] ?? asset('assets/img/user.png') }}" alt=""></div>
+                                    <div class="testi-avatar testi-avatar-litle-margin"><img src="{{ $review['user']['avatar']['large'] ?? asset('assets/img/user.png') }}" alt=""></div>
                                     <div class="testimonilas-text fl-wrap">
                                         <h3>{{ $review['user']['username'] }}</h3>
                                         <div class="star-rating" data-starrating="{{ $review['rating'] }}"> </div>
@@ -604,7 +456,7 @@
             <!-- map-view-wrap -->
             <div class="map-view-wrap">
                 <div class="container_tmp">
-                    <div class="map-view-wrap_item">
+                    <div class="map-view-wrap_item_md">
                         <div class="contact-details pad-x__mobile">
                             <h4>{{ __('diesel.contacts_details') }}</h4>
                             <ul>

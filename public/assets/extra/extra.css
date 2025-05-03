@@ -1,0 +1,22 @@
+.respimg-two {
+	width: 100%;
+  height: 350px !important;
+}
+
+.testi-avatar-litle-margin {
+    margin-top: 8px !important
+}
+
+.extra-thumbnail {
+    max-width: 170px;
+    max-height: 170px;
+    padding-top: 15px !important;
+}
+
+.map-view-wrap_item_md {
+	position:relative;
+	float:left;
+	width:420px;
+	background:#f9f9f9;
+	top:220px;
+}

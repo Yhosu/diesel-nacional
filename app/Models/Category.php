@@ -58,5 +58,14 @@ class Category extends Model {
         "id"=>"required",
     );
 
-	
+	public function menu_items() {
+		return $this->hasManyThrough(
+            MenuItem::class,
+            Menu::class,
+            'categoryId', 
+            'menuId',
+            'id',
+            'id'
+        )->whereNotNull('menu_items.image');
+	}
 }

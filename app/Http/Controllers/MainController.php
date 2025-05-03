@@ -28,7 +28,7 @@ class MainController extends Controller
 		$events			 = \App\Models\Event::where('active', 1)->orderBy('order', 'ASC')->get();
 		$now 			 = date('ymd');
 		$reviews 		 = \Cache::store('database')->remember($now, 86400, function() {
-            $responseSpanish = \Http::get(config('services.tripadvisor.url').'/' . config('services.tripadvisor.merchant_id') . '/reviews?language=es&limit=10&key=' . config('services.tripadvisor.api_key'))->json();
+            $responseSpanish = \Http::get(config('services.tripadvisor.url').'/' . config('services.tripadvisor.merchant_id') . '/reviews?language=es&limit=6&key=' . config('services.tripadvisor.api_key'))->json();
 			$responseEnglish = \Http::get(config('services.tripadvisor.url').'/' . config('services.tripadvisor.merchant_id') . '/reviews?language=en&limit=10&key=' . config('services.tripadvisor.api_key'))->json();
 			$result = array_merge($responseSpanish['data'],$responseEnglish['data']);
 			shuffle($result);

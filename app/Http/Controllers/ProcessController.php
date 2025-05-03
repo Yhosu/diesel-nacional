@@ -77,8 +77,7 @@ class ProcessController extends Controller
         $category = $request->category;
         $menuItems = \App\Models\MenuItem::whereHas('menu', function($q) use($category) {
             $q->where('categoryId', $category);
-        })->whereNotNull('image')->paginate(config('nodes.per_page_front'), ['*'], 'page', $request->page);
-        \Log::info($menuItems->count());
+        })->whereNotNull('image')->orderBy('order')->paginate(config('nodes.per_page_front'), ['*'], 'page', $request->page);
         $html = $menuItems->count() > 0 ? view('includes.menu-items', ['menuItems'=>$menuItems, 'page'=>$request->page ])->render() : '';
         return [ 'status' => true, 'html' => $html ];
 	}    

@@ -78,7 +78,8 @@
                 success : function(response) {
                     $('.loader').hide();
                     if( response['status'] && response['html'] ) {
-                        $('.more__items').append(response['html']);
+                        response['html']
+                        $( response['html'] ).appendTo( ".more__items" );
                         $('#input-current__page').val(nextPage);
                     } else{
                         $('#input-current__page').val(0);

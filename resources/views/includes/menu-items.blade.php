@@ -1,6 +1,6 @@
 
 @foreach ($menuItems as $key => $menuItem)
-<div class="col-md-4" style="margin-top: 100px !important;">
+<div class="col-md-4" style="margin-top: 50px !important;">
     <!-- team-item -->
     <div class="team-box">
         <div class="team-photo">

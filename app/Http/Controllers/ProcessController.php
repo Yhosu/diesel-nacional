@@ -73,7 +73,6 @@ class ProcessController extends Controller
     }
 
     public function findLoadMoreProducts( Request $request ) {
-        \Log::info($request->all());
         $category = $request->category;
         $menuItems = \App\Models\MenuItem::whereHas('menu', function($q) use($category) {
             $q->where('categoryId', $category);

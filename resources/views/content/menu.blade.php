@@ -39,14 +39,8 @@
                     <div class="bold-separator bold-separator_dark"><span></span></div>
                     <div class="clearfix"></div>
                 </div>
-                <div>
-                    <div class="loader"></div> 
-                </div>
                 <input type="hidden" id="input-category" value="{{ $category->id }}">
                 <input type="hidden" id="input-current__page" name="current__page" value="{{ $menuItems->currentPage() }}">
-                <div class="clearfix"></div>
-                <div class="bold-separator bold-separator_dark"><span></span></div>
-                <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-md-6">
                         @if( $category->file )

@@ -406,7 +406,7 @@
                     </div>
                 </div>
                 <div class="illustration_bg">
-                    <div class="bg"  data-bg="{{ asset('assets/background/UpComingEvents_11zon.png') }}"></div>
+                    <div class="bg"  data-bg="{{ asset('assets/background/7_11zon.png') }}"></div>
                     {{-- <div class="bg"  data-bg="https://restabook.kwst.net/dark/images/bg/dec/6.png"></div> --}}
                 </div>
             </div>

@@ -1,18 +1,27 @@
-<div class="row">
+<div class="gallery-items min-pad  lightgallery three-column fl-wrap" style="margin-bottom: 50px; position: relative; height: 6927.91px;">
 @foreach ($menuItems as $key => $menuItem)
-<div class="col-md-4" style="margin-bottom: 20px !important;">
-    <!-- team-item -->
+    <div class="gallery-item the-atmosphere" style="position: absolute; left: 0px; top: 5292px;">
+        <div class="grid-item-holder hov_zoom">
+            <a href="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+            <img src="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }}" alt="" class="respimg-two">
+            <div class="caption" style="position: absolute; bottom: 8px; right: 16px; z-index:1000"><p>{{ $menuItem->title }}</p></div>
+        </div>
+    </div>
+{{-- <div class="col-md-4" style="margin-bottom: 20px !important;">
     <div class="team-box">
         <div class="team-photo">
             <img src="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }}" alt="" class="respimg-two">
             <div class="overlay"></div>
             <div class="team-social">
+                <ul class="no-list-style">
+                    <li><a href="{{ url('menu/'. $category->code) }}"><i class="fa fa-search"></i></a></li>
+                </ul>
             </div>
         </div>
         <div class="team-info fl-wrap">
             <h4>{{ $menuItem->title }}</h4>
         </div>
     </div>
-</div>
+</div> --}}
 @endforeach
 </div>

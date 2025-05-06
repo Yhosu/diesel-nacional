@@ -4,7 +4,7 @@
         <div class="grid-item-holder hov_zoom">
             <a href="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
             <img src="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }}" alt="" class="respimg-two">
-            <div class="caption__image"><p>{{ $menuItem->title }}</p></div>
+            <div class="caption__image"><p><b>{{ $menuItem->title }}</b></p></div>
         </div>
     </div>
 {{-- <div class="col-md-4" style="margin-bottom: 20px !important;">

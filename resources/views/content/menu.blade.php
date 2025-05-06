@@ -31,13 +31,13 @@
                         $q->where('categoryId', $category->id);
                     })->whereNotNull('image')->orderBy('order')->paginate(config('nodes.per_page_front'), ['*'], 'page', 1);
                 @endphp 
-                <div class="cards-wrap fl-wrap more__items">
-                    <div class="gallery-items min-pad  lightgallery three-column fl-wrap" style="margin-bottom:50px;">
+                <div class="cards-wrap fl-wrap">
+                    <div class="gallery-items min-pad  lightgallery three-column fl-wrap more__items" style="margin-bottom:50px;">
                         @include('includes.menu-items', ['menuItems'=>$menuItems, 'page'=> 1])
-                        <div class="clearfix"></div>
-                        <div class="bold-separator bold-separator_dark"><span></span></div>
-                        <div class="clearfix"></div>
                     </div>
+                    <div class="clearfix"></div>
+                    <div class="bold-separator bold-separator_dark"><span></span></div>
+                    <div class="clearfix"></div>
                 </div>
                 <div>
                     <div class="loader"></div> 

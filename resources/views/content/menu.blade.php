@@ -35,11 +35,10 @@
                     @include('includes.menu-items', ['menuItems'=>$menuItems, 'page'=> 1])
                     {{-- <div class="gallery-items min-pad  lightgallery three-column fl-wrap " style="margin-bottom:50px;">
                     </div> --}}
-                    <div class="clearfix"></div>
-                    <div class="bold-separator bold-separator_dark"><span></span></div>
-                    <div class="clearfix"></div>
                 </div>
-                
+                <div class="clearfix"></div>
+                <div class="bold-separator bold-separator_dark"><span></span></div>
+                <div class="clearfix"></div>
                 <input type="hidden" id="input-category" value="{{ $category->id }}">
                 <input type="hidden" id="input-current__page" name="current__page" value="{{ $menuItems->currentPage() }}">
                 <div class="row">

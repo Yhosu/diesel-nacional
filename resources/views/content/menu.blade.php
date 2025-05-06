@@ -78,6 +78,15 @@
                         response['html']
                         $( response['html'] ).appendTo( ".more__items" );
                         $('#input-current__page').val(nextPage);
+                        $(".lightgallery").data("lightGallery").destroy(true);
+                        $(".lightgallery"),
+                        $(".lightgallery").lightGallery({
+                            selector: ".lightgallery a.popup-image",
+                            cssEasing: "cubic-bezier(0.25, 0, 0.25, 1)",
+                            download: false,
+                            loop: false,
+                            counter: false
+                        });
                     } else{
                         $('#input-current__page').val(0);
                         // Swal.close();

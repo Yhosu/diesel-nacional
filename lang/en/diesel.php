@@ -25,7 +25,7 @@ return [
     'discover_our_menu' => 'Our Varied Bar-Resto-Grill Menu Offers in a Great Atmosphere',
     'people_choose_us' => 'Why do people choose us?',
     'top_notch' => 'Because we make the difference in La Paz’s Nightlife!',
-    'upcoming_events' => 'Upcoming Events',
+    'upcoming_events' => 'NEWS AND ADVICE',
     'what_said_about_us' => 'What said about us',
     'customer_reviews' => 'Customer Reviews',
     'about' => 'About us',

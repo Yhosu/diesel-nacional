@@ -103,6 +103,9 @@
 			padding-bottom: 1rem;
 		}
 	}
+	.lang-wrap.mobile__element {
+		display: block !important;
+	}
 }
 
 @media (max-height: 712px) {

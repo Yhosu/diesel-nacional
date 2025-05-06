@@ -9,6 +9,9 @@
     </div>
 @endforeach
 </div>
+<div class="clearfix"></div>
+<div class="bold-separator bold-separator_dark"><span></span></div>
+<div class="clearfix"></div>
 
 {{-- <div class="col-md-4" style="margin-bottom: 20px !important;">
     <div class="team-box">

@@ -1,4 +1,4 @@
-<div class="gallery-items min-pad  lightgallery three-column fl-wrap" style="margin-bottom: 50px; position: relative; height: 6927.91px;">
+
 @foreach ($menuItems as $key => $menuItem)
     <div class="gallery-item the-atmosphere" style="position: absolute; left: 0px; top: 5292px;">
         <div class="grid-item-holder hov_zoom">
@@ -7,6 +7,7 @@
             <div class="caption__image"><p><b>{{ $menuItem->title }}</b></p></div>
         </div>
     </div>
+@endforeach
 {{-- <div class="col-md-4" style="margin-bottom: 20px !important;">
     <div class="team-box">
         <div class="team-photo">
@@ -23,5 +24,3 @@
         </div>
     </div>
 </div> --}}
-@endforeach
-</div>

@@ -31,8 +31,10 @@
                         $q->where('categoryId', $category->id);
                     })->whereNotNull('image')->orderBy('order')->paginate(config('nodes.per_page_front'), ['*'], 'page', 1);
                 @endphp 
-                <div class="cards-wrap fl-wrap more__items">
-                    @include('includes.menu-items', ['menuItems'=>$menuItems, 'page'=> 1])
+                <div class="cards-wrap fl-wrap">
+                    <div class="gallery-items min-pad  lightgallery three-column fl-wrap more__items" style="margin-bottom: 50px; position: relative; height: 6927.91px;">
+                        @include('includes.menu-items', ['menuItems'=>$menuItems, 'page'=> 1])
+                    </div>
                 </div>
                 <div>
                     <div class="loader"></div> 

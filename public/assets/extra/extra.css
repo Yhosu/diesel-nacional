@@ -98,6 +98,12 @@
 .caption__image {
     position: absolute; bottom: -5px !important; right: 16px; z-index:1000
 }
+.caption__centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .caption__image p {
     font-size: 1.35em !important;
 }

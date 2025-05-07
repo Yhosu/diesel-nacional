@@ -255,7 +255,7 @@
                 <div class="gallery-filters gth">
                     <a href="#" class="gallery-filter gallery-filter-active font-courier_new show__all" style="margin: 0 25px !important;" data-filter="*"><span>1.</span>{{ __('diesel.all_images') }}</a>
                     @foreach ($categories as $key => $category)
-                        <a href="#" class="gallery-filter font-courier_new show__category" style="margin: 0 25px !important;" data-filter=".{{ $category->code }}" rand(0,3)><span>{{ $key + 2 }}.</span>{{ $category->name }} </a>
+                        <a href="#" class="gallery-filter font-courier_new show__category"  data-category="{{ $category->code }}" style="margin: 0 25px !important;" data-filter=".{{ $category->code }}" rand(0,3)><span>{{ $key + 2 }}.</span>{{ $category->name }} </a>
                     @endforeach
                 </div>
                 <div class="feedback" style="right: -40px !important; z-index: 10000"> <a href="#sectionForm" class="custom-scroll-link">[<i class="fa fa-plus"></i>] <span>Feedback</span></a> </div>
@@ -271,7 +271,7 @@
                                 </div>
                             </div>
                         @endforeach
-                        <div class="gallery-item {{ $category->code }} show-more__images" style="display:none !important;">
+                        <div class="gallery-item {{ $category->code }} show-more__images {{ $category->code }}-more" style="display:none !important;">
                             <div class="grid-item-holder hov_zoom">
                                 <img  src="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" alt="" style="opacity: 0.1;filter: grayscale(100%);">
                                 <div class="caption__centered" style="z-index: 1000 !important;"><a href="{{ url('menu/' . $category->code) }}"><p><b>{{ __('diesel.show_more')}}</b></p></a></div>
@@ -499,7 +499,9 @@
             })
 
             $('.show__category').click(function(){
-                $('.show-more__images').show();
+                $('.show-more__images').hide();
+                var category = $(this).data('category') + '-more';
+                $(`.${category}`).show();
             })
             $('.show__all').click(function(){
                 $('.show-more__images').hide();

@@ -507,6 +507,7 @@
                 document.querySelectorAll('.show-more__images').forEach(function(el) {
                     el.style.display = 'none';
                 });
+                $('.show__all').click();
             })
             $('.show__all').click();
         </script>

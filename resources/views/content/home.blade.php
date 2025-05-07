@@ -274,7 +274,7 @@
                         <div class="gallery-item {{ $category->code }} show-more__images {{ $category->code }}-more" style="display:none !important;">
                             <div class="grid-item-holder hov_zoom">
                                 <img  src="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" alt="" style="opacity: 0.1;filter: grayscale(100%);">
-                                <div class="caption__centered" style="z-index: 1000 !important;"><a href="{{ url('menu/' . $category->code) }}"><p><b>{{ __('diesel.show_more')}}-{{ $category->name }}</b></p></a></div>
+                                <div class="caption__centered" style="z-index: 1000 !important;"><a href="{{ url('menu/' . $category->code) }}"><p><b>{{ __('diesel.show_more')}}<br>{{ $category->name }}</b></p></a></div>
                             </div>
                         </div>
                     @endforeach

@@ -107,6 +107,6 @@
 .caption__image p {
     font-size: 1.35em !important;
 }
-.caption__centered p {
+.caption__centered p a {
     font-size: 1.35em !important;
 }

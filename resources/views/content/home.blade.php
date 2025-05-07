@@ -504,6 +504,7 @@
                 $(`.${category}`).show();
             })
             $('.show__all').click(function(){
+                console.log('aaa');
                 $('.show-more__images').hide();
                 $('.show-more__images').hide();
             })

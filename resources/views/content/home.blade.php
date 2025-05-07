@@ -273,7 +273,7 @@
                         @endforeach
                         <div class="gallery-item {{ $category->code }} show-more__images" style="display:none !important;">
                             <div class="grid-item-holder hov_zoom">
-                                <a href="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" class=""><i class="fal fa-search"></i> {{ __('diesel.show_more') }}</a>
+                                <a href="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" class="box-media-zoom"><i class="fal fa-search"></i></a>
                                 <img  src="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" alt="">
                             </div>
                         </div>

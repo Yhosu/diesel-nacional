@@ -253,9 +253,9 @@
                 <div class="gallery_filter-button btn"> <i class="fal fa-long-arrow-down"></i></div>
                 <!-- gallery-filters -->
                 <div class="gallery-filters gth">
-                    <a href="#" class="gallery-filter gallery-filter-active font-courier_new" style="margin: 0 25px !important;" data-filter="*"><span>1.</span>{{ __('diesel.all_images') }}</a>
+                    <a href="#" class="gallery-filter gallery-filter-active font-courier_new show__all" style="margin: 0 25px !important;" data-filter="*"><span>1.</span>{{ __('diesel.all_images') }}</a>
                     @foreach ($categories as $key => $category)
-                        <a href="#" class="gallery-filter font-courier_new" style="margin: 0 25px !important;" data-filter=".{{ $category->code }}" rand(0,3)><span>{{ $key + 2 }}.</span>{{ $category->name }} </a>
+                        <a href="#" class="gallery-filter font-courier_new show__category" style="margin: 0 25px !important;" data-filter=".{{ $category->code }}" rand(0,3)><span>{{ $key + 2 }}.</span>{{ $category->name }} </a>
                     @endforeach
                 </div>
                 <div class="feedback" style="right: -40px !important; z-index: 10000"> <a href="#sectionForm" class="custom-scroll-link">[<i class="fa fa-plus"></i>] <span>Feedback</span></a> </div>
@@ -271,8 +271,8 @@
                                 </div>
                             </div>
                         @endforeach
-                        <div class="{{ $category->code }}">
-                            <div class="grid-item-holder hov_zoom">
+                        <div class="{{ $category->code }} show-more__images">
+                            <div class="gallery-item grid-item-holder hov_zoom" style="display:none !important;">
                                 <a href="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" class=""><i class="fal fa-search"></i> {{ __('diesel.show_more') }}</a>
                                 <img  src="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" alt="">
                             </div>
@@ -496,6 +496,13 @@
                         }
                     });
                 }
+            })
+
+            $('.show__category').click(function(){
+                $('.show-more__images').show();
+            })
+            $('.show__all').click(function(){
+                $('.show-more__images').hide();
             })
         </script>
     @endpush

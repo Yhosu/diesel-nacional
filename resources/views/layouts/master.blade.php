@@ -85,10 +85,10 @@
                                     <li><a href="{{ url('home#sec6') }}" class="header__menu">{{ __('diesel.menu.contact') }}</a></li>
                                     <li><a href="#sectionForm">{{ __('diesel.menu.reservations') }}</a></li>
                                     <li class="lang-wrap mobile__element" style="display: none">
-                                        <p>
-                                            <a style="width: auto; display:inline-block; float: none;" href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">EN</a>
+                                        <p> 
+                                            <a style="width: auto; display:inline-block; float: none;" href="{{ url('change-locale/en') }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }} header__locale">EN</a>
                                             <span style="width: auto; display:inline-block;">/</span>
-                                            <a style="width: auto; display:inline-block; float: none;" href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">ES</a>
+                                            <a style="width: auto; display:inline-block; float: none;" href="{{ url('change-locale/es') }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }} header__locale">ES</a>
                                         </p>
                                     </li>
                                 </ul>
@@ -331,5 +331,6 @@
     <script src="{{ asset('assets/templates/master/dark/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/templates/master/dark/js/scripts.js') }}"></script>
     @stack('scripts')
+    
 </body>
 </html>

@@ -271,7 +271,7 @@
                                 </div>
                             </div>
                         @endforeach
-                        <div class="gallery-item {{ $category->code }} show-more__images {{ $category->code }}-more" style="display:none !important;">
+                        <div class="gallery-item {{ $category->code }} show-more__images {{ $category->code }}-more">
                             <div class="grid-item-holder hov_zoom">
                                 <img  src="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" alt="" style="opacity: 0.1;filter: grayscale(100%);">
                                 <div class="caption__centered" style="z-index: 1000 !important;"><a href="{{ url('menu/' . $category->code) }}"><p><b>{{ __('diesel.show_more')}}<br>{{ $category->name }}</b></p></a></div>
@@ -497,18 +497,6 @@
                     });
                 }
             })
-
-            $('.show__category').click(function(){
-                $('.show-more__images').hide();
-                var category = $(this).data('category') + '-more';
-                $(`.${category}`).show();
-            })
-            $('.show__all').click(function(){
-                document.querySelectorAll('.show-more__images').forEach(function(el) {
-                    el.style.display = 'none';
-                });
-            })
-            $('.show__all').click();
         </script>
     @endpush
 </x-master-layout>

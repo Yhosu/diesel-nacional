@@ -50,9 +50,9 @@
             <div class="header-top">
                 <div class="container_tmp">
                     <div class="lang-wrap">
-                        <a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">EN</a>
+                        <a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }} font-courier_new">EN</a>
                         <span>/</span>
-                        <a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">ES</a>
+                        <a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }} font-courier_new">ES</a>
                     </div>
                     <div class="header-top_contacts"><a href="#"><span>{{ $phone->key }}:</span> +{{ $phone->value }}</a><a href="#"><span>{{ $email->key }}:</span> {{ $email->value }}</a></div>
                 </div>
@@ -187,7 +187,7 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">{{ __('diesel.about') }}</div>
+                                    <div class="footer-widget-title font-courier_new">{{ __('diesel.about') }}</div>
                                     <div class="footer-widget-content">
                                         <p>{{ $description->value }}</p>
                                     </div>
@@ -197,7 +197,7 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">{{ __('diesel.contact_title') }}</div>
+                                    <div class="footer-widget-title font-courier_new">{{ __('diesel.contact_title') }}</div>
                                     <div class="footer-widget-content">
                                         <div class="footer-contacts footer-box fl-wrap">
                                             <ul>
@@ -214,7 +214,7 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">{{ __('diesel.subscribe_title') }}</div>
+                                    <div class="footer-widget-title font-courier_new">{{ __('diesel.subscribe_title') }}</div>
                                     <div class="footer-widget-content">
                                         <div class="subcribe-form fl-wrap">
                                             <p>{{ __('diesel.suscribe') }}</p>
@@ -232,8 +232,8 @@
                     </div>
                     <!-- footer-widget-wrap end-->
                     <div class="footer-bottom fl-wrap">
-                        <div class="copyright">&#169; Diesel Nacional 2025 - All Rights Reserved.</div>
-                        <div class="to-top"><span>{{ __('diesel.back_to_top') }} </span><i class="fal fa-angle-double-up"></i></div>
+                        <div class="copyright font-courier_new">&#169; Diesel Nacional 2025 - All Rights Reserved.</div>
+                        <div class="to-top"><span class="font-courier_new">{{ __('diesel.back_to_top') }} </span><i class="fal fa-angle-double-up"></i></div>
                     </div>
                 </div>
             </footer>

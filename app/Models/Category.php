@@ -68,4 +68,15 @@ class Category extends Model {
             'id'
         )->whereNotNull('menu_items.image');
 	}
+
+	public function limit_menu_items() {
+		return $this->hasManyThrough(
+            MenuItem::class,
+            Menu::class,
+            'categoryId', 
+            'menuId',
+            'id',
+            'id'
+        )->whereNotNull('menu_items.image')->limit(5);
+	}
 }

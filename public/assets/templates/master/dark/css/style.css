@@ -664,21 +664,27 @@ blockquote p {
 }
 .share-icon-facebook:before  {
     content: "Facebook";
+	font-family: 'Courier New', sans-serif;
 }
 .share-icon-twitter:before {
     content: "Twitter";
+	font-family: 'Courier New', sans-serif;
 }
 .share-icon-tumblr:before {
    content: "Tumblr";
+   font-family: 'Courier New', sans-serif;
 }
 .share-icon-linkedin:before {
    content: "Linkedin";
+   font-family: 'Courier New', sans-serif;
 }
 .share-icon-instagram:before {
     content: "Instagram";
+	font-family: 'Courier New', sans-serif;
 }
 .share-icon-pinterest:before {
     content: "Pinterest";
+	font-family: 'Courier New', sans-serif;
 }
 /*------ navigation  ------------------------------------------------*/
 .nav-holder {

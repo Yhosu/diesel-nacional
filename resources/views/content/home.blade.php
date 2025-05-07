@@ -505,6 +505,7 @@
             })
             $('.show__all').click(function(){
                 $('.show-more__images').hide();
+                $('.show-more__images').hide();
             })
             $('.show__all').click();
         </script>

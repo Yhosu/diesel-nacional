@@ -314,8 +314,5 @@
     {{-- cambiar key --}}
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyDwJSRi0zFjDemECmFl9JtRj1FY7TiTRRo"></script>
     <script src="{{ asset('assets/templates/master/dark/js/map.js') }}"></script>
-        {{-- <script>
-            alert('hol amdans')
-        </script> --}}
     @endpush
 </x-master-layout>

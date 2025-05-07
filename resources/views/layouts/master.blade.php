@@ -50,11 +50,11 @@
             <div class="header-top">
                 <div class="container_tmp">
                     <div class="lang-wrap">
-                        <a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">EN</a>
+                        <a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }} font-courier_new">EN</a>
                         <span>/</span>
-                        <a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">ES</a>
+                        <a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }} font-courier_new">ES</a>
                     </div>
-                    <div class="header-top_contacts"><a href="#"><span>{{ $phone->key }}:</span> +{{ $phone->value }}</a><a href="#"><span>{{ $email->key }}:</span> {{ $email->value }}</a></div>
+                    <div class="header-top_contacts"><a href="#" class="font-courier_new"><span>{{ $phone->key }}:</span> +{{ $phone->value }}</a><a href="#" class="font-courier_new"><span>{{ $email->key }}:</span> {{ $email->value }}</a></div>
                 </div>
             </div>
             <!--header-top end -->
@@ -76,29 +76,19 @@
                             <nav class="scroll-init">
                                 <ul>
                                     <!-- Normal pages routes -->
-                                    {{-- <li>
-                                        <a href="{{ url('home') }}" class="{{ request()->is('home') ? 'act-link' : '' }}">Inicio </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('menu') }}" class="{{ request()->is('menu') ? 'act-link' : '' }}">Menú</a>
-                                    </li>
-                                    <li><a href="{{ url('about-us') }}" class="{{ request()->is('about-us') ? 'act-link' : '' }}">Nosotros</a></li>
-                                    <li><a href="{{ url('contact') }}" class="{{ request()->is('contact') ? 'act-link' : '' }}">Contacto</a></li>
-                                    <li><a href="{{ url('blog') }}" class="{{ request()->is('blog') ? 'act-link' : '' }}">Noticias</a></li> --}}
-
                                     <!-- Onepage routes -->
-                                    <li><a href="#sec1" class="act-scrlink">{{ __('diesel.menu.home') }}</a></li>
-                                    <li><a href="#sec2">{{ __('diesel.menu.about') }}</a></li>
-                                    <li><a href="#sec3">{{ __('diesel.menu.menu') }}</a></li>
-                                    <li><a href="#sec4">{{ __('diesel.menu.gallery') }}</a></li>
-                                    <li><a href="#sec5">{{ __('diesel.menu.comments') }}</a></li>
-                                    <li><a href="#sec6">{{ __('diesel.menu.contact') }}</a></li>
+                                    <li><a href="{{ url('home#sec1') }}" class="act-scrlink header__menu">{{ __('diesel.menu.home') }}</a></li>
+                                    <li><a href="{{ url('home#sec2') }}" class="header__menu">{{ __('diesel.menu.about') }}</a></li>
+                                    <li><a href="{{ url('home#sec3') }}" class="header__menu">{{ __('diesel.menu.menu') }}</a></li>
+                                    <li><a href="{{ url('home#sec4') }}" class="header__menu">{{ __('diesel.menu.gallery') }}</a></li>
+                                    <li><a href="{{ url('home#sec5') }}" class="header__menu">{{ __('diesel.menu.comments') }}</a></li>
+                                    <li><a href="{{ url('home#sec6') }}" class="header__menu">{{ __('diesel.menu.contact') }}</a></li>
                                     <li><a href="#sectionForm">{{ __('diesel.menu.reservations') }}</a></li>
                                     <li class="lang-wrap mobile__element" style="display: none">
                                         <p>
-                                            <a style="width: auto; display:inline-block; float: none;" onclick="location.href='{{ route('language', ['lang' => 'en']) }}';" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">EN</a>
+                                            <a style="width: auto; display:inline-block; float: none;" onclick="location.href='{{ url('change-locale/en') }}';" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }} header__locale">EN</a>
                                             <span style="width: auto; display:inline-block;">/</span>
-                                            <a style="width: auto; display:inline-block; float: none;" onclick="location.href='{{ route('language', ['lang' => 'es']) }}';" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">ES</a>
+                                            <a style="width: auto; display:inline-block; float: none;" onclick="location.href='{{ url('change-locale/es') }}';" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }} header__locale">ES</a>
                                         </p>
                                     </li>
                                 </ul>
@@ -187,7 +177,7 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">{{ __('diesel.about') }}</div>
+                                    <div class="footer-widget-title font-courier_new">{{ __('diesel.about') }}</div>
                                     <div class="footer-widget-content">
                                         <p>{{ $description->value }}</p>
                                     </div>
@@ -197,7 +187,7 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">{{ __('diesel.contact_title') }}</div>
+                                    <div class="footer-widget-title font-courier_new">{{ __('diesel.contact_title') }}</div>
                                     <div class="footer-widget-content">
                                         <div class="footer-contacts footer-box fl-wrap">
                                             <ul>
@@ -214,7 +204,7 @@
                             <!-- footer-widget -->
                             <div class="col-md-4">
                                 <div class="footer-widget">
-                                    <div class="footer-widget-title">{{ __('diesel.subscribe_title') }}</div>
+                                    <div class="footer-widget-title font-courier_new">{{ __('diesel.subscribe_title') }}</div>
                                     <div class="footer-widget-content">
                                         <div class="subcribe-form fl-wrap">
                                             <p>{{ __('diesel.suscribe') }}</p>
@@ -232,8 +222,8 @@
                     </div>
                     <!-- footer-widget-wrap end-->
                     <div class="footer-bottom fl-wrap">
-                        <div class="copyright">&#169; Diesel Nacional 2025 - All Rights Reserved.</div>
-                        <div class="to-top"><span>{{ __('diesel.back_to_top') }} </span><i class="fal fa-angle-double-up"></i></div>
+                        <div class="copyright font-courier_new">&#169; Diesel Nacional 2025 - All Rights Reserved.</div>
+                        <div class="to-top"><span class="font-courier_new">{{ __('diesel.back_to_top') }} </span><i class="fal fa-angle-double-up"></i></div>
                     </div>
                 </div>
             </footer>
@@ -341,5 +331,6 @@
     <script src="{{ asset('assets/templates/master/dark/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/templates/master/dark/js/scripts.js') }}"></script>
     @stack('scripts')
+    
 </body>
 </html>

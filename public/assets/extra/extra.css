@@ -1,6 +1,6 @@
 .respimg-two {
 	width: 100%;
-  height: 350px !important;
+    height: 350px !important;
 }
 
 .testi-avatar-litle-margin {
@@ -86,15 +86,27 @@
     color:white;
 }
 
-.title__the-resto-diesel {
+.title__resto-diesel {
     font-family: "Onyx" !important;  
     font-size: 5em !important;
 }
-.subtitle__the-resto-diesel {
+.subtitle__resto-diesel {
     font-family: "Our Serif Hand" !important;  
     font-size: 4em !important;
     color:white;
 }
 .caption__image {
-    position: absolute; bottom: 8px; right: 16px; z-index:1000
+    position: absolute; bottom: -5px !important; right: 16px; z-index:1000
+}
+.caption__centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.caption__image p {
+    font-size: 1.35em !important;
+}
+.caption__centered a p {
+    font-size: 1.35em !important;
 }

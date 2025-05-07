@@ -6,9 +6,9 @@
         <div class="hero-title-wrap fl-wrap">
             <div class="container_tmp">
                 <div class="hero-title">
-                    <h4>{{ $bannerInit->subtitle }} </h4>
-                    <h2>{{ $bannerInit->title }}</h2>
-                    <a href="#sec3" class="hero_btn custom-scroll-link">{{ __('diesel.check_menu') }} <i class="fal fa-long-arrow-right"></i></a>
+                    <h4 class="font-courier_new">{{ $bannerInit->subtitle }}</h4>
+                    <h2 class="font-poppins">{{ $bannerInit->title }}</h2>
+                    <a href="#sec3" class="hero_btn custom-scroll-link font-courier_new">{{ __('diesel.check_menu') }} <i class="fal fa-long-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                 <a href="https://vimeo.com/10322316" class="image-popup"><i class="fas fa-play"></i></a>
             </div>
             <div class="hero_promo-title">
-                <h4>{{ __('diesel.promo_video') }}</h4>
+                <h4 class="font-courier_new">{{ __('diesel.promo_video') }}</h4>
             </div>
         </div>
         <!--hero_promo-wrap end-->
@@ -65,7 +65,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="section-title text-align_left">
-                            <h4>{{ __('diesel.our_story') }}</h4>
+                            <h4 class="font-courier_new">{{ __('diesel.our_story') }}</h4>
                             <h2>{{ $about->title }}</h2>
                             <div class="dots-separator fl-wrap"><span></span></div>
                         </div>
@@ -108,8 +108,8 @@
                 <div class="container_tmp"  >
                     <div class="column-text">
                         <div class="section-title">
-                            <h4>{{ __('diesel.call_for_reservations') }}</h4>
-                            <h2>{{ __('diesel.opening_hours') }}</h2>
+                            <h4 class="font-courier_new">{{ __('diesel.call_for_reservations') }}</h4>
+                            <h2 class="font-courier_new">{{ __('diesel.opening_hours') }}</h2>
                             <div class="dots-separator fl-wrap"><span></span></div>
                         </div>
                         <div class="work-time fl-wrap">
@@ -151,8 +151,8 @@
             <div class="overlay op7"></div>
             <div class="container_tmp">
                 <div class="section-title">
-                    <h4>{{ __('diesel.special_menu_offers') }}</h4>
-                    <h2>{{ __('diesel.discover_our_menu') }}</h2>
+                    <h4 class="font-courier_new">{{ __('diesel.special_menu_offers') }}</h4>
+                    <h2 class="font-courier_new">{{ __('diesel.discover_our_menu') }}</h2>
                     <div class="dots-separator fl-wrap"><span></span></div>
                 </div>
                 <div class="cards-wrap fl-wrap">
@@ -166,14 +166,14 @@
                                     <img src="{{ \Asset::get_image_path('category-image', 'normal', $category->image) }}" alt="" class="respimg">
                                     <div class="overlay"></div>
                                     <div class="team-social">
-                                        <span class="ts_title">Ver más</span>
+                                        <span class="ts_title">{{ __('diesel.show_more')}}</span>
                                         <ul class="no-list-style">
                                             <li><a href="{{ url('menu/'. $category->code) }}"><i class="fa fa-search"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="team-info fl-wrap">
-                                    <h3> {{ $category->name }} </h3>
+                                    <h3 class="font-magneto"> {{ $category->name }} </h3>
                                     <h4>{{ $category->detail }}</h4>
                                 </div>
                             </div>
@@ -184,83 +184,6 @@
                     <div class="section-dec sec-dec_top"></div>
                     <div class="section-dec sec-dec_bottom"></div>
                 </div>                
-                
-
-                <!--  hero-menu_header  end-->
-                {{-- <div class="hero-menu tabs-act fl-wrap">
-                    <div class="row">
-                        <!--  hero-menu_header-->
-                        <div class="col-md-3">
-                            <div class="hero-menu_header fl-wrap">
-                                <ul class="tabs-menu no-list-style change_bg">
-                                    @foreach( $menus as $key => $menu )
-                                    <li class="{{ $key == 0 ? 'current' : ''}}"><a href="#tab-{{ $key + 1}}" data-bgtab="https://restabook.kwst.net/dark/images/bg/{{ rand(4,9)}}.jpg"><span>0{{ $key + 1 }}.</span>{{ $menu->title }}</a></li>
-                                    @endforeach
-                                </ul>
-                                <br>
-                                <ul>
-                                    <li class=""><a href="#sec4"><span>07.</span>{{ __('diesel.show_gallery')}}</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--  hero-menu_header  end-->
-                        <!--  hero-menu_content   -->
-                        <div class="col-md-9">
-                            <div class="hero-menu_content fl-wrap">
-                                <div class="tabs-container">
-                                    <div class="tab">
-                                        @foreach ($menus as $key => $menu)
-                                            @if( $key == 0 )
-                                            <div id="tab-1" class="tab-content first-tab">
-                                                @foreach( $menu->menu_items as $key2=>$menu_item )
-                                                <div class="hero-menu-item">
-                                                    <div class="hero-menu-item-title fl-wrap">
-                                                        <h6><span>0{{ $key2 + 1 }}.</span>{{ $menu_item->title }}</h6>
-                                                        <div class="hmi-dec"></div>
-                                                        <span class="hero-menu-item-price">Bs. {{$menu_item->price}}</span>
-                                                    </div>
-                                                    <div class="hero-menu-item-details">
-                                                        <p>{{ $menu_item->detail }}</p>
-                                                    </div>
-                                                </div>
-                                                @endforeach                                                
-                                            </div>
-                                            @else 
-                                            <div class="tab">
-                                                <div id="tab-{{ $key + 1 }}" class="tab-content">
-                                                    <!-- header-menu-item-->
-                                                    @foreach( $menu->menu_items as $key2 => $menu_item )
-                                                    <div class="hero-menu-item">
-                                                        <div class="hero-menu-item-title fl-wrap">
-                                                            <h6><span>0{{ $key2 + 1 }}.</span>{{ $menu_item->title }}</h6>
-                                                            <div class="hmi-dec"></div>
-                                                            <span class="hero-menu-item-price">${{ $menu_item->price }}</span>
-                                                        </div>
-                                                        <div class="hero-menu-item-details">
-                                                            <p>{{ $menu_item->detail }}</p>
-                                                        </div>
-                                                    </div>
-                                                    @endforeach
-                                                    <!-- header-menu-item end-->
-                                                </div>
-                                            </div>
-                                            @endif
-                                        @endforeach
-                                        <!--tab end -->
-                                    </div>
-                                    <!--tabs end -->
-                                </div>
-                            </div>
-                        </div>
-                        <!--  hero-menu_content end  -->
-                        <div class="clearfix"></div>
-                        @foreach ($categories as $category)
-                            <a href="{{ url('menu/'. $category->code) }}" class="hero_btn" style="margin-left:30px;">{{ __('diesel.view_full_menu')}}-{{ $category->name }}<i class="fal fa-long-arrow-right"></i></a>    
-                        @endforeach
-                        <a href="#" class="pdf-link">Dowload PDF</a>
-                    </div>
-                </div> --}}
-                <!--  hero-menu  end-->
             </div>
         </section>
         <!--  section  end-->
@@ -268,8 +191,8 @@
         <section data-scrollax-parent="true">
             <div class="container_tmp">
                 <div class="section-title">
-                    <h4>{{ __('diesel.people_choose_us') }}</h4>
-                    <h2>{{ __('diesel.top_notch') }}</h2>
+                    <h4 class="font-courier_new">{{ __('diesel.people_choose_us') }}</h4>
+                    <h2 class="font-courier_new">{{ __('diesel.top_notch') }}</h2>
                     <div class="dots-separator fl-wrap"><span></span></div>
                 </div>
                 <div class="cards-wrap fl-wrap">
@@ -322,22 +245,17 @@
         <section class="hidden-section" data-scrollax-parent="true" id="sec4">
             <div class="container_tmp">
                 <div class="section-title">
-                    <h4>{{ $gallerySubtitle }}</h4>
-                    <h2> {{ $galleryTitle }}</h2>
+                    <h4 class="font-courier_new">{{ $gallerySubtitle }}</h4>
+                    <h2 class="font-courier_new"> {{ $galleryTitle }}</h2>
                     <div class="dots-separator fl-wrap"><span></span></div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="gallery_filter-button btn"> <i class="fal fa-long-arrow-down"></i></div>
                 <!-- gallery-filters -->
                 <div class="gallery-filters gth">
-                    <a href="#" class="gallery-filter gallery-filter-active"  data-filter="*"><span>01.</span>{{ __('diesel.all_images') }}</a>
-                    @php 
-                        $arrayFilters = ['dishes','resta_img','events','video_links'];
-                    @endphp 
+                    <a href="#" class="gallery-filter gallery-filter-active font-courier_new show__all" style="margin: 0 25px !important;" data-filter="*"><span>1.</span>{{ __('diesel.all_images') }}</a>
                     @foreach ($categories as $key => $category)
-                        <a href="#" class="gallery-filter " data-filter=".{{ $category->code }}" rand(0,3)><span>0{{ $key + 2 }}.</span>{{ $category->name }} </a>
-                        {{-- @if( isset( $arrayFilters[$key+1] ) )
-                        @endif --}}
+                        <a href="#" class="gallery-filter font-courier_new show__category"  data-category="{{ $category->code }}" style="margin: 0 25px !important;" data-filter=".{{ $category->code }}" rand(0,3)><span>{{ $key + 2 }}.</span>{{ $category->name }} </a>
                     @endforeach
                 </div>
                 <div class="feedback" style="right: -40px !important; z-index: 10000"> <a href="#sectionForm" class="custom-scroll-link">[<i class="fa fa-plus"></i>] <span>Feedback</span></a> </div>
@@ -345,7 +263,7 @@
                 <!-- gallery start -->
                 <div class="gallery-items min-pad  lightgallery three-column fl-wrap" style="margin-bottom:50px;">
                     @foreach( $categories as $category )
-                        @foreach( $category->menu_items as $menuItem )
+                        @foreach( $category->limit_menu_items as $menuItem )
                             <div class="gallery-item {{ $category->code }}">
                                 <div class="grid-item-holder hov_zoom">
                                     <a href="{{ \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) }}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
@@ -353,6 +271,12 @@
                                 </div>
                             </div>
                         @endforeach
+                        <div class="gallery-item {{ $category->code }} show-more__images {{ $category->code }}-more">
+                            <div class="grid-item-holder hov_zoom">
+                                <img  src="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" alt="" style="opacity: 0.1;filter: grayscale(100%);">
+                                <div class="caption__centered" style="z-index: 1000 !important;"><a href="{{ url('menu/' . $category->code) }}"><p><b>{{ __('diesel.show_more')}}<br>{{ $category->name }}</b></p></a></div>
+                            </div>
+                        </div>
                     @endforeach
                     <!-- gallery-item end-->
                 </div>
@@ -374,7 +298,7 @@
                     <div class="column-text">
                         <div class="section-title">
                             {{-- <h4>Book a table</h4> --}}
-                            <h2>{{ __('diesel.upcoming_events') }}</h2>
+                            <h2 class="font-courier_new">{{ __('diesel.upcoming_events') }}</h2>
                             <div class="dots-separator fl-wrap"><span></span></div>
                         </div>
                         <!-- events-carousel-wrap -->
@@ -386,7 +310,7 @@
                                         <!-- swiper-slide -->
                                         <div class="swiper-slide">
                                             <div class="event-carousel-item">
-                                                <h4>{{ $event->title }}</h4>
+                                                <h4 class="font-courier_new">{{ $event->title }}</h4>
                                                 <span class="event-date">{{ $event->subtitle }}</span>
                                                 <p>{{ $event->detail }}</p>
                                             </div>
@@ -417,8 +341,8 @@
             <div class="brush-dec2 brush-dec_bottom"></div>
             <div class="container_tmp">
                 <div class="section-title">
-                    <h4>{{ __('diesel.what_said_about_us') }}</h4>
-                    <h2>{{ __('diesel.customer_reviews') }}</h2>
+                    <h4 class="font-courier_new">{{ __('diesel.what_said_about_us') }}</h4>
+                    <h2 class="font-courier_new">{{ __('diesel.customer_reviews') }}</h2>
                     <div><img src="{{ asset('assets/img/tripadvisor.png')}}" alt="" class="extra-thumbnail"></div>
                     <div class="dots-separator fl-wrap"><span></span></div>
                 </div>
@@ -436,10 +360,10 @@
                                 <div class="testi-item fl-wrap">
                                     <div class="testi-avatar testi-avatar-litle-margin"><img src="{{ $review['user']['avatar']['large'] ?? asset('assets/img/user.png') }}" alt=""></div>
                                     <div class="testimonilas-text fl-wrap">
-                                        <h3>{{ $review['user']['username'] }}</h3>
+                                        <h3 class="font-courier_new">{{ $review['user']['username'] }}</h3>
                                         <div class="star-rating" data-starrating="{{ $review['rating'] }}"> </div>
-                                        <a href="{{ $review['url'] }}" target="_blank"><p>"{{ $review['title'] }}"</p></a>
-                                        <p>"{{ trim( $review['text'] ) }}"</p>
+                                        <a href="{{ $review['url'] }}" target="_blank"><p class="font-courier_new">"{{ $review['title'] }}"</p></a>
+                                        <p class="font-courier_new">"{{ trim( $review['text'] ) }}"</p>
                                         <span class="testi-number">{{ $key+1 }}.</span>
                                     </div>
                                 </div>
@@ -464,11 +388,11 @@
                 <div class="container_tmp">
                     <div class="map-view-wrap_item_md">
                         <div class="contact-details pad-x__mobile">
-                            <h4>{{ __('diesel.contacts_details') }}</h4>
+                            <h4 class="font-courier_new">{{ __('diesel.contacts_details') }}</h4>
                             <ul>
-                                <li><span><i class="fal fa-map-marked-alt"></i> {{ $address->key }} :</span> <a href="#">{{ $address->value }}</a></li>
-                                <li><span><i class="fal fa-phone-rotary"></i> {{ $phone->key }} :</span> <a href="#">+{{ $phone->value }}</a></li>
-                                <li><span><i class="fal fa-mailbox"></i> {{ $email->key }} :</span> <a href="#">{{ $email->value }}</a></li>
+                                <li><span class="font-courier_new"><i class="fal fa-map-marked-alt"></i> {{ $address->key }} :</span> <a href="#">{{ $address->value }}</a></li>
+                                <li><span class="font-courier_new"><i class="fal fa-phone-rotary"></i> {{ $phone->key }} :</span> <a href="#">+{{ $phone->value }}</a></li>
+                                <li><span class="font-courier_new"><i class="fal fa-mailbox"></i> {{ $email->key }} :</span> <a href="#">{{ $email->value }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -484,7 +408,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="section-title text-align_left">
-                            <h2>{{ __('diesel.get_in_touch') }}</h2>
+                            <h2 class="font-courier_new">{{ __('diesel.get_in_touch') }}</h2>
                             <div class="dots-separator fl-wrap"><span></span></div>
                         </div>
                         <div class="text-block ">

@@ -3,7 +3,7 @@
     <div class="gallery-item">
         <div class="grid-item-holder hov_zoom">
             <a href="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-            <img src="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }}" alt="" class="respimg-two">
+            <img src="{{ $menuItem->image ? \Asset::get_image_path('menu-item-image', 'normal', $menuItem->image ) : asset('assets/img/isologo.svg') }}" alt="" class="">
             <div class="caption__image"><p><b>{{ $menuItem->title }}</b></p></div>
         </div>
     </div>

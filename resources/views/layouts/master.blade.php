@@ -96,9 +96,9 @@
                                     <li><a href="#sectionForm">{{ __('diesel.menu.reservations') }}</a></li>
                                     <li class="lang-wrap mobile__element" style="display: none">
                                         <p>
-                                            <a style="width: auto; display:inline-block; float: none;" href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">EN</a>
+                                            <a style="width: auto; display:inline-block; float: none;" onclick="location.href='{{ route('language', ['lang' => 'en']) }}';" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">EN</a>
                                             <span style="width: auto; display:inline-block;">/</span>
-                                            <a style="width: auto; display:inline-block; float: none;" href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">ES</a>
+                                            <a style="width: auto; display:inline-block; float: none;" onclick="location.href='{{ route('language', ['lang' => 'es']) }}';" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">ES</a>
                                         </p>
                                     </li>
                                 </ul>

@@ -76,23 +76,13 @@
                             <nav class="scroll-init">
                                 <ul>
                                     <!-- Normal pages routes -->
-                                    {{-- <li>
-                                        <a href="{{ url('home') }}" class="{{ request()->is('home') ? 'act-link' : '' }}">Inicio </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('menu') }}" class="{{ request()->is('menu') ? 'act-link' : '' }}">Menú</a>
-                                    </li>
-                                    <li><a href="{{ url('about-us') }}" class="{{ request()->is('about-us') ? 'act-link' : '' }}">Nosotros</a></li>
-                                    <li><a href="{{ url('contact') }}" class="{{ request()->is('contact') ? 'act-link' : '' }}">Contacto</a></li>
-                                    <li><a href="{{ url('blog') }}" class="{{ request()->is('blog') ? 'act-link' : '' }}">Noticias</a></li> --}}
-
                                     <!-- Onepage routes -->
-                                    <li><a href="#sec1" class="act-scrlink">{{ __('diesel.menu.home') }}</a></li>
-                                    <li><a href="#sec2">{{ __('diesel.menu.about') }}</a></li>
-                                    <li><a href="#sec3">{{ __('diesel.menu.menu') }}</a></li>
-                                    <li><a href="#sec4">{{ __('diesel.menu.gallery') }}</a></li>
-                                    <li><a href="#sec5">{{ __('diesel.menu.comments') }}</a></li>
-                                    <li><a href="#sec6">{{ __('diesel.menu.contact') }}</a></li>
+                                    <li><a href="{{ url('home#sec1') }}" class="act-scrlink header__menu">{{ __('diesel.menu.home') }}</a></li>
+                                    <li><a href="{{ url('home#sec2') }}" class="header__menu">{{ __('diesel.menu.about') }}</a></li>
+                                    <li><a href="{{ url('home#sec3') }}" class="header__menu">{{ __('diesel.menu.menu') }}</a></li>
+                                    <li><a href="{{ url('home#sec4') }}" class="header__menu">{{ __('diesel.menu.gallery') }}</a></li>
+                                    <li><a href="{{ url('home#sec5') }}" class="header__menu">{{ __('diesel.menu.comments') }}</a></li>
+                                    <li><a href="{{ url('home#sec6') }}" class="header__menu">{{ __('diesel.menu.contact') }}</a></li>
                                     <li><a href="#sectionForm">{{ __('diesel.menu.reservations') }}</a></li>
                                     <li class="lang-wrap mobile__element" style="display: none">
                                         <p>

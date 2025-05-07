@@ -54,7 +54,7 @@
                         <span>/</span>
                         <a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }} font-courier_new">ES</a>
                     </div>
-                    <div class="header-top_contacts"><a href="#"><span>{{ $phone->key }}:</span> +{{ $phone->value }}</a><a href="#"><span>{{ $email->key }}:</span> {{ $email->value }}</a></div>
+                    <div class="header-top_contacts"><a href="#" class="font-courier_new"><span>{{ $phone->key }}:</span> +{{ $phone->value }}</a><a href="#"><span>{{ $email->key }}:</span> {{ $email->value }}</a></div>
                 </div>
             </div>
             <!--header-top end -->

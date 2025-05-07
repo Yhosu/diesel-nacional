@@ -166,7 +166,7 @@
                                     <img src="{{ \Asset::get_image_path('category-image', 'normal', $category->image) }}" alt="" class="respimg">
                                     <div class="overlay"></div>
                                     <div class="team-social">
-                                        <span class="ts_title">Ver más</span>
+                                        <span class="ts_title">{{ __('diesel.show_more')}}</span>
                                         <ul class="no-list-style">
                                             <li><a href="{{ url('menu/'. $category->code) }}"><i class="fa fa-search"></i></a></li>
                                         </ul>
@@ -273,7 +273,7 @@
                         @endforeach
                         <div class="gallery-item {{ $category->code }} show-more__images" style="display:none !important;">
                             <div class="grid-item-holder hov_zoom">
-                                <a href="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" class="box-media-zoom"><i class="fal fa-search"></i></a>
+                                <a href="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" class="box-media-zoom">{{ __('diesel.show_more') }}</i></a>
                                 <img  src="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" alt="">
                             </div>
                         </div>

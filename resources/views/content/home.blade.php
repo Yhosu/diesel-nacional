@@ -504,9 +504,9 @@
                 $(`.${category}`).show();
             })
             $('.show__all').click(function(){
-                console.log('aaa');
-                $('.show-more__images').hide();
-                $('.show-more__images').hide();
+                document.querySelectorAll('.show-more__images').forEach(function(el) {
+                    el.style.display = 'none';
+                });
             })
             $('.show__all').click();
         </script>

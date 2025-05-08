@@ -85,10 +85,10 @@
                                     <li><a href="{{ url('home#sec6') }}" class="header__menu">{{ __('diesel.menu.contact') }}</a></li>
                                     <li><a href="#sectionForm">{{ __('diesel.menu.reservations') }}</a></li>
                                     <li class="lang-wrap mobile__element" style="display: none">
-                                        <p> 
-                                            <a style="width: auto; display:inline-block; float: none;" href="{{ url('change-locale/en') }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }} header__locale">EN</a>
+                                        <p>
+                                            <a style="width: auto; display:inline-block; float: none;" onclick="location.href='{{ url('change-locale/en') }}';" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }} header__locale">EN</a>
                                             <span style="width: auto; display:inline-block;">/</span>
-                                            <a style="width: auto; display:inline-block; float: none;" href="{{ url('change-locale/es') }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }} header__locale">ES</a>
+                                            <a style="width: auto; display:inline-block; float: none;" onclick="location.href='{{ url('change-locale/es') }}';" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }} header__locale">ES</a>
                                         </p>
                                     </li>
                                 </ul>

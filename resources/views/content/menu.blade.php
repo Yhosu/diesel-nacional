@@ -6,8 +6,8 @@
             <div class="overlay"></div>
             <div class="container_tmp">
                 <div class="section-title">
-                    <h2 class="title__{{ $category->code }}">{{ $category->name }}</h2>
-                    <h3 class="subtitle__{{ $category->code }}">"{{ $category->detail }}"</h3>
+                    <h2 class="font-magneto">{{ $category->name }}</h2>
+                    <h3 class="titlefont__menu">"{{ $category->detail }}"</h3>
                     <div class="dots-separator fl-wrap"><span></span></div>
                 </div>
             </div>

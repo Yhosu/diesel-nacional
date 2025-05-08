@@ -210,7 +210,7 @@
                                             <p>{{ __('diesel.suscribe') }}</p>
                                             <form id="subscribe" class="fl-wrap">
                                                 <input class="enteremail" name="email" id="subscribe-email" placeholder="Email" spellcheck="false" type="text">
-                                                <button type="submit" id="subscribe-button" class="subscribe-button color-bg">{{ __('diesel.btn_send_title')}} </button>
+                                                <button type="submit" id="subscribe-button" class="subscribe-button color-bg font-courier_new">{{ __('diesel.btn_send_title')}} </button>
                                                 <label for="subscribe-email" class="subscribe-message"></label>
                                             </form>
                                         </div>

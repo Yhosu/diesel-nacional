@@ -38,7 +38,7 @@
                     <div class="mousey">
                         <div class="scroller"></div>
                     </div>
-                    <span>{{ __('diesel.scroll_title') }}</span>
+                    <span class="font-courier_new">{{ __('diesel.scroll_title') }}</span>
                 </div>
                 <a href="#sec2" class="sd_btn custom-scroll-link"><i class="fal fa-chevron-double-down"></i></a>
             </div>
@@ -66,7 +66,7 @@
                     <div class="col-md-6">
                         <div class="section-title text-align_left">
                             <h4 class="font-courier_new">{{ __('diesel.our_story') }}</h4>
-                            <h2>{{ $about->title }}</h2>
+                            <h2 class="font-courier_new">{{ $about->title }}</h2>
                             <div class="dots-separator fl-wrap"><span></span></div>
                         </div>
                         <div class="text-block ">
@@ -99,9 +99,9 @@
                 <div class="overlay"></div>
                 <div class="quote-box">
                     <i class="fal fa-quote-right"></i>
-                    <p>"{{ $scheduleText }}"</p>
+                    <p class="font-courier_new">"{{ $scheduleText }}"</p>
                     {{-- <div class="signature"><img src="https://restabook.kwst.net/dark/images/signature.png" alt=""></div> --}}
-                    <h4>{{ $scheduleTextSecondary }}</h4>
+                    <h4 class="font-courier_new">{{ $scheduleTextSecondary }}</h4>
                 </div>
             </div>
             <div class="column-section-wrap dark-bg" >
@@ -127,7 +127,7 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="bold-separator"><span></span></div>
-                        <div class="big-number"><a href="#">+{{ $phone->value }}</a></div>
+                        <div class="big-number"><a href="#" class="font-courier_new">+{{ $phone->value }}</a></div>
                     </div>
                 </div>
                 <div class="illustration_bg">
@@ -174,7 +174,7 @@
                                 </div>
                                 <div class="team-info fl-wrap">
                                     <h3 class="font-magneto"> {{ $category->name }} </h3>
-                                    <h4>{{ $category->detail }}</h4>
+                                    <h4 class="font-poppins">{{ $category->detail }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -206,8 +206,8 @@
                                         <div class="bg "  data-bg="{{ \Asset::get_image_path('characteristic-image', 'normal', $characteristic->image)}}"></div>
                                         <div class="overlay"></div>
                                         <div class="inner">
-                                            <h2>{{ $characteristic->title }}</h2>
-                                            <h4>{{ $characteristic->subtitle }}</h4>
+                                            <h2 class="font-courier_new">{{ $characteristic->title }}</h2>
+                                            <h4 class="font-poppins">{{ $characteristic->subtitle }}</h4>
                                         </div>
                                         <div class="serv-num">0{{ $characteristic->order }}.</div>
                                     </div>
@@ -221,7 +221,7 @@
                                                 @endif
                                                 {{-- <i class="fal fa-fish"></i> --}}
                                             </div>
-                                            <p>{{ $characteristic->detail }}</p>
+                                            <p class="font-poppins">{{ $characteristic->detail }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -274,7 +274,7 @@
                         <div class="gallery-item {{ $category->code }} show-more__images {{ $category->code }}-more">
                             <div class="grid-item-holder hov_zoom">
                                 <img  src="{{ \Asset::get_image_path('category-image', 'normal', $category->image ) }}" alt="" style="opacity: 0.1;filter: grayscale(100%);">
-                                <div class="caption__centered" style="z-index: 1000 !important;"><a href="{{ url('menu/' . $category->code) }}"><p><b>{{ __('diesel.show_more')}}<br>{{ $category->name }}</b></p></a></div>
+                                <div class="caption__centered" style="z-index: 1000 !important;"><a href="{{ url('menu/' . $category->code) }}"><p class="font-courier_new"><b>{{ __('diesel.show_more')}}<br>{{ $category->name }}</b></p></a></div>
                             </div>
                         </div>
                     @endforeach
@@ -390,9 +390,9 @@
                         <div class="contact-details pad-x__mobile">
                             <h4 class="font-courier_new">{{ __('diesel.contacts_details') }}</h4>
                             <ul>
-                                <li><span class="font-courier_new"><i class="fal fa-map-marked-alt"></i> {{ $address->key }} :</span> <a href="#">{{ $address->value }}</a></li>
-                                <li><span class="font-courier_new"><i class="fal fa-phone-rotary"></i> {{ $phone->key }} :</span> <a href="#">+{{ $phone->value }}</a></li>
-                                <li><span class="font-courier_new"><i class="fal fa-mailbox"></i> {{ $email->key }} :</span> <a href="#">{{ $email->value }}</a></li>
+                                <li><span class="font-courier_new"><i class="fal fa-map-marked-alt"></i> {{ $address->key }} :</span> <a href="#" class="font-courier_new">{{ $address->value }}</a></li>
+                                <li><span class="font-courier_new"><i class="fal fa-phone-rotary"></i> {{ $phone->key }} :</span> <a href="#" class="font-courier_new">+{{ $phone->value }}</a></li>
+                                <li><span class="font-courier_new"><i class="fal fa-mailbox"></i> {{ $email->key }} :</span> <a href="#" class="font-courier_new">{{ $email->value }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -412,7 +412,7 @@
                             <div class="dots-separator fl-wrap"><span></span></div>
                         </div>
                         <div class="text-block ">
-                            <p>{{ __('diesel.get_in_touch_message') }}
+                            <p class="font-courier_new">{{ __('diesel.get_in_touch_message') }}
                             </p>
                         </div>
                         <div class="contactform-wrap">
@@ -445,7 +445,7 @@
                                     </div>
                                     <textarea name="comments"  id="comments2" cols="40" rows="3" placeholder="{{ __('diesel.message') }}:"></textarea>
                                     <div class="clearfix"></div>
-                                    <button class="btn float-btn flat-btn color-bg" type="submit">{{ __('diesel.btn_send_title') }} <i class="fal fa-long-arrow-right"></i></button>
+                                    <button class="btn float-btn flat-btn color-bg font-courier_new" type="submit">{{ __('diesel.btn_send_title') }} <i class="fal fa-long-arrow-right"></i></button>
                                 </fieldset>
                             </form>
                         </div>

@@ -9,8 +9,8 @@
     <meta name="keywords" content="@yield('keywords', config('capyei.keywords'))">
     <meta name="author" content="{{ config('app.author') }}">
     <title>@yield('title', config('app.name'))</title>
-    <link rel="preload" as="image" href="{{ assets('assets/templates/master/dark/images/bg/brush-dec.webp') }}" fetchpriority="high" />
-    
+    <link rel="preload" as="image" href="{{ asset('assets/templates/master/dark/images/bg/brush-dec.webp') }}" fetchpriority="high" />
+
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/templates/master/dark/css/reset.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/templates/master/dark/css/plugins.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/templates/master/dark/css/style.css') }}">

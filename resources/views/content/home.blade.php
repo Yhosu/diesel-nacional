@@ -142,7 +142,6 @@
         <!--  section end  -->
         <!--  section  -->
         <section class="parallax-section dark-bg hidden-section" data-scrollax-parent="true" id="sec3">
-            <div class="brush-dec2"></div>
             <div class="brush-dec"></div>
             <div class="bg par-elem bg_tabs"  data-bg="{{ asset('assets/img/content/Foto_Descubre_Nuestro_Menu.webp')}}" data-scrollax="properties: { translateY: '30%' }"></div>
             <div class="cd-tabs-layer" data-frame="10">
@@ -163,7 +162,7 @@
                             <!-- team-item -->
                             <div class="team-box">
                                 <div class="team-photo">
-                                    <img src="{{ \Asset::get_image_path('category-image', 'normal', $category->image) }}" alt="" class="respimg">
+                                    <img alt="{{ $category->name }}" class="respimg lazyLoad" data-src="{{ \Asset::get_image_path('category-image', 'normal', $category->image) }}">
                                     <div class="overlay"></div>
                                     <div class="team-social">
                                         <span class="ts_title">{{ __('diesel.show_more')}}</span>

@@ -163,7 +163,7 @@
                         <a href="{{ url('') }}" class="footer-logo"><img src="{{ asset('assets/img/logo-gold.svg') }}" alt="{{ config('name') }}"></a>
                         <div class="lang-wrap"><a href="{{ route('language', ['lang' => 'en']) }}" class="{{ \App::getLocale() == 'en' ? 'act-lang' : '' }}">EN</a><span>/</span><a href="{{ route('language', ['lang' => 'es']) }}" class="{{ \App::getLocale() == 'es' ? 'act-lang' : '' }}">ES</a></div>
                         <div class="footer-social">
-                            <span class="footer-social-title">{{ __('diesel.follow_us_on') }}:</span>
+                            <span class="footer-social-title font-courier_new">{{ __('diesel.follow_us_on') }}:</span>
                             <ul>
                                 @foreach( $socialNetworks as $socialNetwork )
                                     <li><a href="{{ $socialNetwork->url }}" target="_blank"><i class="{{ $socialNetwork->icon }}"></i></a></li>

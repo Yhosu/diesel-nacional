@@ -9,7 +9,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Event extends Model {
     use HasFactory, HasTranslations;
-    public $translatable = ['title', 'subtitle', 'detail'];
+    public $translatable = ['title', 'subtitle', 'description'];
     protected $es = 'Evento';
 	protected $en = 'Event';
 	protected $table  = 'events';

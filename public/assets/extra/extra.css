@@ -43,6 +43,15 @@
     font-size: 1.35em !important;
 }
 .titlefont__menu {
-    font-size: 2.5em !important;
+    font-size: 1.75em !important;
     color: white;
+}
+.events-font__size {
+    font-size: 1.15em !important;
+}
+.form-font__size {
+    font-size: 1.5em !important;
+}
+.event-carousel-item {
+    font-family: 'Poppins', sans-serif !important;
 }

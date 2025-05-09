@@ -40,6 +40,10 @@ class MainController extends Controller
 		$scheduleTextSecondary = \App\Models\Parameter::where('code', 'schedule-text-secondary')->first()->value;
 		$galleryTitle 		   = \App\Models\Parameter::where('code', 'gallery-title')->first()->value;
 		$gallerySubtitle       = \App\Models\Parameter::where('code', 'gallery-subtitle')->first()->value;
+		$categoriesTitle       = \App\Models\Parameter::where('code', 'categories-title')->first()->value;
+		$categoriesSubtitle    = \App\Models\Parameter::where('code', 'categories-subtitle')->first()->value;
+		$characteristicsTitle  = \App\Models\Parameter::where('code', 'characteristics-title')->first()->value;
+		$characteristicsSubtitle = \App\Models\Parameter::where('code', 'characteristics-subtitle')->first()->value;
 		$dieselBarImages	   = array_filter(scandir(public_path('assets/img/diesel-bar')), function($item) {
 			return $item[0] !== '.';
 		});
@@ -57,7 +61,11 @@ class MainController extends Controller
 			'scheduleTextSecondary', 
 			'galleryTitle', 
 			'gallerySubtitle',
-			'dieselBarImages'
+			'dieselBarImages',
+			'categoriesTitle',
+			'categoriesSubtitle',
+			'characteristicsTitle',
+			'characteristicsSubtitle'
 		));
 	}
 

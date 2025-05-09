@@ -151,8 +151,8 @@
             <div class="overlay op7"></div>
             <div class="container_tmp">
                 <div class="section-title">
-                    <h4 class="font-courier_new">{{ __('diesel.special_menu_offers') }}</h4>
-                    <h2 class="font-courier_new">{{ __('diesel.discover_our_menu') }}</h2>
+                    <h4 class="font-courier_new">{{ $categoriesTitle }}</h4>
+                    <h2 class="font-courier_new">{{ $categoriesSubtitle }}</h2>
                     <div class="dots-separator fl-wrap"><span></span></div>
                 </div>
                 <div class="cards-wrap fl-wrap">
@@ -191,8 +191,8 @@
         <section data-scrollax-parent="true">
             <div class="container_tmp">
                 <div class="section-title">
-                    <h4 class="font-courier_new">{{ __('diesel.people_choose_us') }}</h4>
-                    <h2 class="font-courier_new">{{ __('diesel.top_notch') }}</h2>
+                    <h4 class="font-courier_new">{{ $characteristicsTitle }}</h4>
+                    <h2 class="font-courier_new">{{ $characteristicsSubtitle }}</h2>
                     <div class="dots-separator fl-wrap"><span></span></div>
                 </div>
                 <div class="cards-wrap fl-wrap">
@@ -311,8 +311,8 @@
                                         <div class="swiper-slide">
                                             <div class="event-carousel-item">
                                                 <h4 class="font-courier_new">{{ $event->title }}</h4>
-                                                <span class="event-date">{{ $event->subtitle }}</span>
-                                                <p>{{ $event->detail }}</p>
+                                                <span class="event-date events-font__size">{{ $event->subtitle }}</span>
+                                                {!! \Func::clearFroalaText( $event->description ) !!}
                                             </div>
                                         </div>
                                         <!-- swiper-slide end -->    
@@ -412,7 +412,7 @@
                             <div class="dots-separator fl-wrap"><span></span></div>
                         </div>
                         <div class="text-block ">
-                            <p class="font-courier_new">{{ __('diesel.get_in_touch_message') }}
+                            <p class="font-courier_new form-font__size">{{ __('diesel.get_in_touch_message') }}
                             </p>
                         </div>
                         <div class="contactform-wrap">

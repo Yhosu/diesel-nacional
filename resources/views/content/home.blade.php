@@ -26,7 +26,7 @@
         <div class="hero-social">
             <ul>
                 @foreach( $socialNetworks as $socialNetwork )
-                    <li><a href="{{ $socialNetwork->url }}" target="_blank"><i class="{{ $socialNetwork->icon }}"></i></a></li>
+                    <li><a href="{{ $socialNetwork->url }}" target="_blank" aria-label="{{ $socialNetwork->name }}"><i class="{{ $socialNetwork->icon }}"></i></a></li>
                 @endforeach
             </ul>
         </div>
@@ -216,7 +216,7 @@
                                         <div class="inner">
                                             <div class="dec-icon">
                                                 @if( $characteristic->image_back )
-                                                    <img src="{{ \Asset::get_image_path('characteristic-image_back', 'normal', $characteristic->image_back ) }}" class="dec-img">
+                                                    <img src="{{ \Asset::get_image_path('characteristic-image_back', 'normal', $characteristic->image_back ) }}" class="dec-img" alt="{{ $characteristic->title }}">
                                                 @endif
                                                 {{-- <i class="fal fa-fish"></i> --}}
                                             </div>

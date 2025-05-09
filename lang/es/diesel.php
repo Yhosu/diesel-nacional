@@ -88,5 +88,9 @@ return [
     'search' => 'Buscar',
     'with_image' => '¿Con imagen?',
     'show_more' => 'Ver más',
-    'download_pdf' => 'Descargar menú en PDF'
+    'download_pdf' => 'Descargar menú en PDF',
+    'seo' => [
+        'description' => 'A lo largo de casi un cuarto de siglo, Diesel Nacional es un espacio para compartir o disfrutar tu tiempo a solas. Ubicado en La Paz, la capital más alta y una de las "7 Ciudades Maravilla del Mundo", Diesel nacional es ya un verdadero clásico en la vida nocturna de la ciudad.',
+        'keywords' => 'Diesel nacional, La Paz, Bolivia, Comida boliviana, Ciudad maravilla'
+    ]    
 ];

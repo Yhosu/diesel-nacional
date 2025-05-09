@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="@yield('description', config('capyei.description'))">
-    <meta name="keywords" content="@yield('keywords', config('capyei.keywords'))">
-    <meta name="author" content="{{ config('app.author') }}">
+    <meta name="description" content="@yield('description', __('diesel.seo.description'))">
+    <meta name="keywords" content="@yield('keywords', __('diesel.seo.keywords'))">
+    <meta name="author" content="{{ config('jagq.author') }}">
     <title>@yield('title', config('app.name'))</title>
     <link rel="preload" as="image" href="{{ asset('assets/templates/master/dark/images/bg/brush-dec.webp') }}" fetchpriority="high" />
 
@@ -64,7 +64,7 @@
             <div class="header-inner  fl-wrap">
                 <div class="container_tmp">
                     <div class="header-container fl-wrap">
-                        <a href="{{ url('') }}" class="logo-holder"><img src="{{ asset('assets/img/logo-complete-horizontal-gold.svg') }}" alt="{{ config('name') }}"></a>
+                        <a href="{{ url('home') }}" class="logo-holder" aria-label="{{ config('name') }}"><img src="{{ asset('assets/img/logo-complete-horizontal-gold.svg') }}" alt="{{ config('name') }}"></a>
                         <div class="show-share-btn showshare htact" style="margin-left: 24px;"><i class="fal fa-bullhorn"></i> <span class="header-tooltip">Compartir</span></div>
                         <!-- nav-button-wrap-->
                         <div class="nav-button-wrap">
@@ -124,7 +124,7 @@
                             <span class="footer-social-title font-courier_new">{{ __('diesel.follow_us_on') }}:</span>
                             <ul>
                                 @foreach( $socialNetworks as $socialNetwork )
-                                    <li><a href="{{ $socialNetwork->url }}" target="_blank"><i class="{{ $socialNetwork->icon }}"></i></a></li>
+                                    <li><a href="{{ $socialNetwork->url }}" target="_blank" aria-label="{{ $socialNetwork->name }}"><i class="{{ $socialNetwork->icon }}"></i></a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -205,7 +205,6 @@
     <script src="{{ asset('assets/templates/master/dark/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/templates/master/dark/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/templates/master/dark/js/scripts.js') }}"></script>
-    <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
     <script>
         function onScrollEvent(entries, observer) {
             entries.forEach(function(entry) {

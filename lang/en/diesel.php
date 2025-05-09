@@ -89,5 +89,8 @@ return [
     'with_image' => 'With image?',
     'show_more' => 'See more',
     'download_pdf' => 'Download menu in PDF',
-    
+    'seo' => [
+        'description' => 'For almost 25 years, Diesel nacional has been the go-to spot for sharing moments with others or simply spending time solo. Nestled in La Paz, the highest altitude capital city and one of the "7 Wonder Cities of the World," Diesel Nacional stands today as a true classic in the city`s nightlife.',
+        'keywords' => 'Diesel nacional, La Paz, Bolivia, Bolivian food, Wonder city'
+    ]    
 ];

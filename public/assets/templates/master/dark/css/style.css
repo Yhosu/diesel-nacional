@@ -125,7 +125,6 @@ body {
 	transform: translateY(-50%) translateX(-98%);
 	height: 100%;
 	width: 2500%;
-	background: url(../images/ink2.png) no-repeat 0 0;
 	background-size: 100% 100%;
 }
 .cd-tabs-layer.visible, .cd-loader-layer.visible , .cd-reserv-overlay-layer.visible {

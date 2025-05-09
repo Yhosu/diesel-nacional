@@ -95,50 +95,6 @@
                             </nav>
                         </div>
                         <!-- navigation  end -->                        
-                        <!-- header-cart_wrap  -->
-                        <div class="header-cart_wrap novis_cart">
-                            <div class="header-cart_title">Tu Carrito <span>4 items</span></div>
-                            <div class="header-cart_wrap_container fl-wrap">
-                                <div class="box-widget-content">
-                                    <div class="widget-posts fl-wrap">
-                                        <ol>
-                                            <li class="clearfix">
-                                                <a href="#"  class="widget-posts-img"><img src="https://restabook.kwst.net/dark/images/menu/1.jpg" class="respimg" alt=""></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">Grilled Steaks</a>
-                                                    <div class="widget-posts-descr_calc clearfix">1 <span>x</span> $45</div>
-                                                </div>
-                                                <div class="clear-cart_button"><i class="fal fa-times"></i></div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <a href="#"  class="widget-posts-img"><img src="https://restabook.kwst.net/dark/images/menu/2.jpg" class="respimg" alt=""></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">Cripsy Lobster & Shrimp Bites</a>
-                                                    <div class="widget-posts-descr_calc clearfix">2 <span>x</span> $22</div>
-                                                </div>
-                                                <div class="clear-cart_button"><i class="fal fa-times"></i></div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <a href="#"  class="widget-posts-img"><img src="https://restabook.kwst.net/dark/images/menu/3.jpg" class="respimg" alt=""></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">Chicken tortilla soup</a>
-                                                    <div class="widget-posts-descr_calc clearfix">1 <span>x</span> $37</div>
-                                                </div>
-                                                <div class="clear-cart_button"><i class="fal fa-times"></i></div>
-                                            </li>
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="header-cart_wrap_total fl-wrap">
-                                <div class="header-cart_wrap_total_item">Subtotal : <span>$147</span></div>
-                            </div>
-                            <div class="header-cart_wrap_footer fl-wrap">
-                                <a href="cart.html"> View Cart</a>
-                                <a href="checkout.html">  Checkout</a>
-                            </div>
-                        </div>
-                        <!-- header-cart_wrap end  -->
                         <!-- share-wrapper -->
                         <div class="share-wrapper isShare">
                             <div class="share-container fl-wrap"></div>
@@ -229,88 +185,7 @@
             </footer>
         </div>
         <!-- wrapper end -->
-        <!-- reservation-modal-wrap-->          
-        <div class="reservation-modal-wrap">
-            <div class="reserv-overlay crm">
-                <div class="cd-reserv-overlay-layer" data-frame="25">
-                    <div class="reserv-overlay-layer"></div>
-                </div>
-            </div>
-            <div class="reservation-modal-container bot-element">
-                <div class="reservation-modal-item fl-wrap">
-                    <div class="close-reservation-modal crm"><i class="fal fa-times"></i></div>
-                    <div class="reservation-bg"></div>
-                    <div class="section-title">
-                        <h4>Don't forget to book a table</h4>
-                        <h2>Table Reservations</h2>
-                        <div class="dots-separator fl-wrap"><span></span></div>
-                    </div>
-                    <div class="reservation-wrap">
-                        <div id="reserv-message"></div>
-                        <form  class="custom-form" action="php/reservation.php" name="reservationform" id="reservationform">
-                            <fieldset>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <input type="text" name="name" id="name" placeholder="Your Name *" value=""/>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text"  name="email" id="email" placeholder="Email Address *" value=""/>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text"  name="phone" id="phone" placeholder="Phone *" value=""/>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="fl-wrap">
-                                            <select name="numperson" id="persons" data-placeholder="Persons" class="chosen-select no-search-select">
-                                                <option data-display="Persons">Any</option>
-                                                <option value="1">1 Person</option>
-                                                <option value="2">2 People</option>
-                                                <option value="3">3 People</option>
-                                                <option value="4">4 People</option>
-                                                <option value="5">5 People</option>
-                                                <option value="Banquet">Banquet</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="col-sm-6">
-                                        <div class="date-container2 fl-wrap">
-                                            <input type="text" placeholder="Date" id="res_date"     name="resdate"   value=""/>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="fl-wrap">
-                                            <select name="restime" id="resrv-time" data-placeholder="Time" class="chosen-select no-search-select">
-                                                <option data-display="Time">Any</option>
-                                                <option value="10:00am">10:00 am</option>
-                                                <option value="11:00am">11:00 am</option>
-                                                <option value="12:00pm">12:00 pm</option>
-                                                <option value="1:00pm">1:00 pm</option>
-                                                <option value="2:00pm">2:00 pm</option>
-                                                <option value="3:00pm">3:00 pm</option>
-                                                <option value="4:00pm">4:00 pm</option>
-                                                <option value="5:00pm">5:00 pm</option>
-                                                <option value="6:00pm">6:00 pm</option>
-                                                <option value="7:00pm">7:00 pm</option>
-                                                <option value="8:00pm">8:00 pm</option>
-                                                <option value="9:00pm">9:00 pm</option>
-                                                <option value="10:00pm">10:00 pm</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <textarea name="comments"  id="comments" cols="30" rows="3" placeholder="Your Message:"></textarea>
-                                <div class="clearfix"></div>
-                                <button class="btn color-bg" id="reservation-submit">Reserve Table  <i class="fal fa-long-arrow-right"></i></button>
-                            </fieldset>
-                        </form>
-                    </div>
-                    <!-- reservation-wrap end-->
-                </div>
-            </div>
-        </div>
     </div>
-    <!-- reservation-modal-wrap end-->     
     <!-- cursor-->
     <div class="element">
         <div class="element-item"></div>
@@ -324,13 +199,28 @@
         </a>
     </div>
     <!-- whatsapp end-->   
-    
-
     <!--=============== scripts  ===============-->
     <script src="{{ asset('assets/templates/master/dark/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/templates/master/dark/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/templates/master/dark/js/scripts.js') }}"></script>
+    <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+    <script>
+        function onScrollEvent(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var attributes = entry.target.attributes;
+                    var src = attributes['data-src'].textContent;
+                    entry.target.src = src;
+                    entry.target.classList.add('visible');
+                }
+            });
+        }
+        var targets = document.querySelectorAll('.lazyLoad');
+        var observer = new IntersectionObserver(onScrollEvent);
+        targets.forEach(function(entry) {
+            observer.observe(entry);
+        });        
+    </script>
     @stack('scripts')
-    
 </body>
 </html>

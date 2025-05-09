@@ -1,7 +1,7 @@
 <x-master-layout>
     <!-- hero-wrap-->
     <div class="hero-wrap fl-wrap full-height" data-scrollax-parent="true" id="sec1">
-        <div class="bg par-elem "  data-bg="{{ asset('assets/img/content/Foto-para-banner.jpeg') }}" data-scrollax="properties: { translateY: '30%' }" fetchpriority="high"></div>
+        <div class="bg par-elem "  data-bg="{{ asset('assets/img/content/Foto-para-banner.webp') }}" data-scrollax="properties: { translateY: '30%' }" fetchpriority="high"></div>
         <div class="overlay"></div>
         <div class="hero-title-wrap fl-wrap">
             <div class="container_tmp">
@@ -144,7 +144,7 @@
         <section class="parallax-section dark-bg hidden-section" data-scrollax-parent="true" id="sec3">
             <div class="brush-dec2"></div>
             <div class="brush-dec"></div>
-            <div class="bg par-elem bg_tabs"  data-bg="{{ asset('assets/img/content/Foto_Descubre_Nuestro_Menu.jpeg')}}" data-scrollax="properties: { translateY: '30%' }"></div>
+            <div class="bg par-elem bg_tabs"  data-bg="{{ asset('assets/img/content/Foto_Descubre_Nuestro_Menu.webp')}}" data-scrollax="properties: { translateY: '30%' }"></div>
             <div class="cd-tabs-layer" data-frame="10">
                 <div class="tabs-layer"></div>
             </div>
@@ -358,7 +358,7 @@
                             <!--testi-item-->
                             <div class="swiper-slide">
                                 <div class="testi-item fl-wrap">
-                                    <div class="testi-avatar testi-avatar-litle-margin"><img src="{{ $review['user']['avatar']['large'] ?? asset('assets/img/user.png') }}" alt=""></div>
+                                    <div class="testi-avatar testi-avatar-litle-margin"><img data-src="{{ $review['user']['avatar']['large'] ?? asset('assets/img/user.png') }}" class="lazyLoad" alt=""></div>
                                     <div class="testimonilas-text fl-wrap">
                                         <h3 class="font-courier_new">{{ $review['user']['username'] }}</h3>
                                         <div class="star-rating" data-starrating="{{ $review['rating'] }}"> </div>

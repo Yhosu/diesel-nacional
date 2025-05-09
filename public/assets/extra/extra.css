@@ -55,3 +55,12 @@
 .event-carousel-item {
     font-family: 'Poppins', sans-serif !important;
 }
+.lazyLoad {
+    width: 100%;
+    opacity: 0;
+}
+
+.visible {
+    transition: opacity 1000ms ease;
+    opacity: 1;
+}

@@ -5,14 +5,14 @@ function singleMap() {
     }
     //   Your locations ------------------ 
     var locations = [
-        ['Diesel nacional', -16.5088394, -68.1302473],
+        ['Diesel nacional', -16.508613152507994, -68.1276724],
         // ['Restabook in Bronx', 40.7168183, -73.9973402],
         // ['Restabook in Queens', 40.73334016, -73.99330616],
     ];
     //  map settings ------------------	
     var single_map = new google.maps.Map(document.getElementById('singleMap'), {
         zoom: 14,
-        center: new google.maps.LatLng(-16.5088394, -68.1302473),
+        center: new google.maps.LatLng(-16.508806009666014, -68.12766167610032),
         scrollwheel: false,
         zoomControl: false,
         fullscreenControl: false,

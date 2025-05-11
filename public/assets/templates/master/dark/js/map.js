@@ -11,7 +11,7 @@ function singleMap() {
     ];
     //  map settings ------------------	
     var single_map = new google.maps.Map(document.getElementById('singleMap'), {
-        zoom: 14,
+        zoom: 15,
         center: new google.maps.LatLng(-16.508806009666014, -68.12766167610032),
         scrollwheel: false,
         zoomControl: false,

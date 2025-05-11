@@ -468,7 +468,7 @@
     @push('scripts')
         <script  src="https://maps.google.com/maps/api/js?key=AIzaSyDPCVAPJBa2ALvClg8CJi3F0iSYsITes-w"></script>
 
-        <script src="{{ asset('assets/templates/master/dark/js/map.js?v=20250511043') }}"></script>
+        <script src="{{ asset('assets/templates/master/dark/js/map.js?v=20250511044') }}"></script>
         <script>
             $(document).ready(function(){
                 var countEvents = {!! $events->count() !!};

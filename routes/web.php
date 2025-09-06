@@ -11,6 +11,7 @@ Route::get('/', function() {
 });
 
 Route::get('/test-queries', function () {
+    return view('content.test');
     vardump( \Func::getFilters( 'categories', 'es') );
 });
 

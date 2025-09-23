@@ -30,6 +30,7 @@ class MainController extends Controller
 		$reviews 		 = \Cache::store('database')->remember($now, 86400, function() {
             $responseSpanish = \Http::get(config('services.tripadvisor.url').'/' . config('services.tripadvisor.merchant_id') . '/reviews?language=es&limit=6&key=' . config('services.tripadvisor.api_key'))->json();
 			\Log::info(config('services.tripadvisor.api_key'));
+			
 			\Log::info($responseSpanish);
 			$responseEnglish = \Http::get(config('services.tripadvisor.url').'/' . config('services.tripadvisor.merchant_id') . '/reviews?language=en&limit=10&key=' . config('services.tripadvisor.api_key'))->json();
 			$result = array_merge($responseSpanish['data'] ?? [],$responseEnglish['data'] ?? [] );

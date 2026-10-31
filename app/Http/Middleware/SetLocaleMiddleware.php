@@ -19,6 +19,7 @@ class SetLocaleMiddleware
     		\App::setLocale(\Session::get('locale'));
     	} else {
     		\Session::put('locale', \App::getLocale());
+            \App::setLocale(\App::getLocale());
     	}
         return $next($request);
     }
